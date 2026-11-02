@@ -2,7 +2,7 @@
   <img src="assets/logo.svg" alt="AutoPPT · AI备课神器" width="600">
 </p>
 
-<p align="center">
+<!-- <p align="center">
   <b>AI备课神器：只需一句话，即可一键生成一整周精美、可交互的 HTML 格式教学课件。</b><br>
   无需编程和复杂设计，让备课变得简单高效。<br>
   <sub>人人都能用 · 说一句话，生成一堂好课</sub>
@@ -14,6 +14,11 @@
 
 <p align="center">
   🧑‍🏫 <b>零编程</b> &nbsp;·&nbsp; 📚 <b>全学科</b> &nbsp;·&nbsp; 🖱️ <b>交互式课件</b>
+</p> -->
+
+<p align="center">
+  <img src="docs/demo.gif" alt="演示：一句话 → 设计文档 → 一整周课件" width="860"><br>
+  <sub>演示：输入一句话 → 智能体写设计文档、生成三节课、真实运行代码、自检 → 成品（流程示意已加速，成品为真实课件截图）</sub>
 </p>
 
 <p align="center">
@@ -25,10 +30,7 @@
   <a href="README.en.md">English</a>
 </p>
 
-<p align="center">
-  <img src="docs/demo.gif" alt="演示：一句话 → 设计文档 → 一整周课件" width="860"><br>
-  <sub>演示：输入一句话 → 智能体写设计文档、生成三节课、真实运行代码、自检 → 成品（流程示意已加速，成品为真实课件截图）</sub>
-</p>
+
 
 <p align="center">
   <img src="docs/styles.jpg" alt="三种课件风格：A 学术刊物、B 黑底舞台、C 几何色块" width="860"><br>
