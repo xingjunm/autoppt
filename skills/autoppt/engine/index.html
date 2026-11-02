@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{WEEK_LABEL}}｜{{COURSE}}</title>
+<link rel="stylesheet" href="src/styles/tokens.css">
+<link rel="stylesheet" href="src/styles/page.css">
+<link rel="stylesheet" href="src/styles/theme.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span>{{PREV_LINK}}{{COURSE}}</span><span>{{TERM}}</span></div>
+  <h1>{{WEEK_LABEL}}<br>{{TOPIC}}</h1>
+  <p class="sub">一段话概括本周：三节课各讲什么、学生最后能做到什么。</p>
+  <div class="cards">
+    <a class="navcard blue" href="lecture1.html"><span class="k">理论一 · 45 分钟</span><div class="t">{{L1_TITLE}}</div><p>本节要点，用顿号连成一句。</p><div class="meta">互动：……</div></a>
+    <a class="navcard rust" href="lecture2.html"><span class="k">理论二 · 45 分钟</span><div class="t">{{L2_TITLE}}</div><p>本节要点。</p><div class="meta">互动：……</div></a>
+    <a class="navcard teal" href="lab1.html"><span class="k">实践课 · 45 分钟</span><div class="t">{{LAB_TITLE}}</div><p>本节要点。</p><div class="meta">互动：验收清单 · 复制代码</div></a>
+  </div>
+  <div class="links">
+    <a href="teacher-guide.html">教师授课指南</a>
+    <a href="student-setup.html">{{WEEK_LABEL}}学生指南</a>
+    <a href="student/index.html">学生版课件（无教师备注）</a>
+    <a href="examples/{{DIR}}_lab.ipynb" download>下载 {{DIR}}_lab.ipynb</a>
+    <a href="examples/{{DIR}}_lab_answers.ipynb" download>参考答案（教师）</a>
+    <a href="image-sources.html">图片来源</a>
+    <a href="sources.html">事实出处</a>
+  </div>
+  <h2>放映快捷键</h2>
+  <table>
+    <tr><th>按键</th><th>作用</th><th>按键</th><th>作用</th></tr>
+    <tr><td>→ / 空格</td><td>下一步（含逐步出现）</td><td>←</td><td>上一步</td></tr>
+    <tr><td>F</td><td>全屏</td><td>Esc</td><td>页面概览</td></tr>
+    <tr><td>S</td><td>演讲者视图（教师备注、计时）</td><td>R</td><td>重置当前页的互动</td></tr>
+    <tr><td>H</td><td>回到首页</td><td>移动鼠标</td><td>底部出现三节课切换栏</td></tr>
+  </table>
+  <p class="note">演讲者视图需要通过本地服务器打开（运行 start.py）。课件可离线使用；所有互动都在浏览器里现场计算。</p>
+</div>
+</body>
+</html>

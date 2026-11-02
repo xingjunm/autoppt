@@ -1,0 +1,84 @@
+/* 实践课：软件界面示意（HTML 绘制，非真实截图） */
+.mock{position:relative;background:#fff;border:1px solid #BDB6A6;box-shadow:0 18px 40px rgba(28,29,33,.14);font-family:"Segoe UI",var(--sans);color:#222;overflow:hidden}
+.mock .mk-badge{position:absolute;right:10px;bottom:10px;background:rgba(28,29,33,.78);color:#fff;font-size:16px;padding:3px 10px;border-radius:3px;z-index:3;font-family:var(--sans)}
+.mock .tbar{height:40px;display:flex;align-items:center;gap:8px;padding:0 14px;background:#ECECEC;border-bottom:1px solid #D4D4D4;font-size:17px;color:#555}
+.mock .tbar .dots{display:flex;gap:8px}
+.mock .tbar .dots i{width:13px;height:13px;border-radius:50%;background:#FF5F57}.mock .tbar .dots i:nth-child(2){background:#FEBC2E}.mock .tbar .dots i:nth-child(3){background:#28C840}
+.mock .tbar .wbtn{margin-left:auto;display:flex;gap:22px;font-size:18px;color:#666}
+.mock .tbar .ttl{flex:1;text-align:center}
+.mock .tbar.win .ttl{text-align:left}
+.hot{outline:4px solid var(--rust);outline-offset:3px;border-radius:3px;position:relative}
+.hot-label{position:absolute;background:var(--rust);color:#fff;font-family:var(--sans);font-size:20px;font-weight:700;padding:4px 12px;white-space:nowrap;z-index:4}
+
+/* 浏览器 */
+.mk-url{margin:0 0 0 10px;flex:1;background:#fff;border:1px solid #CFCFCF;border-radius:16px;height:28px;display:flex;align-items:center;padding:0 14px;font-size:16px;color:#333}
+.mk-page{padding:34px 40px}
+.py-hero{background:#2B5B84;color:#fff;padding:30px 34px}
+.py-hero h4{font-family:"Segoe UI",sans-serif;font-size:30px;font-weight:600;margin:0 0 16px;color:#fff}
+.py-btn{display:inline-block;background:#FFD343;color:#1d1d1d;font-weight:700;font-size:22px;padding:12px 22px;border-radius:4px}
+.vsc-hero{background:#fff;padding:30px 34px}
+.vsc-btn{display:inline-block;background:#0066B8;color:#fff;font-weight:600;font-size:22px;padding:12px 24px;border-radius:2px}
+
+/* Windows 安装器 */
+.wininst{display:grid;grid-template-columns:200px 1fr;min-height:420px}
+.wininst .side{background:linear-gradient(#3C6E99,#2B4E6E);display:flex;align-items:flex-end;justify-content:center;padding-bottom:30px}
+.wininst .side b{width:90px;height:90px;border-radius:14px;background:linear-gradient(135deg,#4A4F5C 50%,#C8C3B6 50%)}
+.wininst .main{padding:28px 30px;font-size:19px}
+.wininst h5{font-size:28px;font-weight:600;color:#1F3B57;margin:0 0 10px}
+.wininst .opt{border:1px solid #CCC;padding:14px 16px;margin:16px 0;color:#1F3B57}
+.wininst .opt b{font-size:22px;display:block}
+.wininst .cb{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:19px}
+.wininst .cb i{width:18px;height:18px;border:2px solid #555;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:15px;font-weight:900;line-height:1}
+
+/* mac 安装器 */
+.macinst{display:grid;grid-template-columns:230px 1fr;min-height:420px;font-size:19px}
+.macinst .steps{background:#F3F3F3;padding:26px 22px;display:flex;flex-direction:column;gap:14px;color:#666}
+.macinst .steps span::before{content:"●";color:#BBB;margin-right:10px}
+.macinst .steps span.on{color:#111;font-weight:600}.macinst .steps span.on::before{color:#0A84FF}
+.macinst .main{padding:30px}
+.macbtn{display:inline-block;background:#0A84FF;color:#fff;padding:6px 18px;border-radius:6px;font-size:18px}
+
+/* 终端 */
+.mk-term{background:#1E1F24;color:#E8E6E1;font-family:var(--mono);font-size:24px;line-height:1.65;padding:20px 26px;min-height:200px;white-space:pre}
+.mk-term .p{color:#7FD1B9}.mk-term .c{color:#FFFFFF;font-weight:700}.mk-term .o{color:#C9C5BC}.mk-term .e{color:#FF8A80}
+.mock.term-win .tbar{background:#2B2B2B;color:#ddd;border:none}
+.mock.term-mac .tbar{background:#3A3A3A;color:#ddd;border:none}
+
+/* VS Code */
+.vsc{display:grid;grid-template-columns:54px 300px 1fr;height:540px;font-size:17px;background:#fff}
+.vsc .ab{background:#2C2C2C;display:flex;flex-direction:column;align-items:center;gap:20px;padding-top:16px}
+.vsc .ab i{width:26px;height:26px;border:2px solid #888;border-radius:4px;display:block}
+.vsc .ab i.on{border-color:#fff}
+.vsc .sb{background:#F3F3F3;border-right:1px solid #DDD;padding:12px 14px}
+.vsc .sb .h{font-size:13px;letter-spacing:.06em;color:#666;font-weight:600;margin-bottom:10px}
+.vsc .search{border:1px solid #0078D4;background:#fff;padding:5px 8px;font-size:16px;margin-bottom:12px}
+.vsc .ext{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:10px 6px;align-items:start}
+.vsc .ext .lg{width:44px;height:44px;border-radius:4px}
+.vsc .ext b{font-size:17px;display:block}
+.vsc .ext small{display:block;font-size:14px;color:#666;line-height:1.35}
+.vsc .ext .pub{color:#0066B8;font-weight:600}
+.vsc .ext .ib{display:inline-block;background:#0078D4;color:#fff;font-size:13px;padding:2px 8px;margin-top:4px}
+.vsc .ed{display:flex;flex-direction:column;min-width:0}
+.vsc .tabs{height:36px;background:#F3F3F3;border-bottom:1px solid #DDD;display:flex;align-items:flex-end}
+.vsc .tabs span{background:#fff;padding:7px 16px;font-size:15px;border-right:1px solid #DDD}
+.vsc .nbbar{display:flex;align-items:center;gap:16px;padding:8px 14px;border-bottom:1px solid #EEE;font-size:15px;color:#444}
+.vsc .kernel{margin-left:auto;border:1px solid #CCC;padding:3px 10px;font-size:15px}
+.vsc .cell{margin:14px 18px 6px 50px;border:1px solid #DDD;border-left:3px solid #0078D4;position:relative;background:#F8F8F8;font-family:var(--mono);font-size:17px;padding:10px 12px;white-space:pre;line-height:1.5}
+.vsc .cell .run{position:absolute;left:-40px;top:8px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#2B8A3E;font-size:18px}
+.vsc .out{margin:0 18px 0 50px;font-family:var(--mono);font-size:17px;padding:8px 12px;white-space:pre;line-height:1.5;color:#222}
+.vsc .qp{position:absolute;left:50%;top:44px;transform:translateX(-30%);width:520px;background:#fff;border:1px solid #CCC;box-shadow:0 8px 24px rgba(0,0,0,.2);font-size:16px;z-index:2}
+.vsc .qp div{padding:8px 14px;border-bottom:1px solid #EEE}
+.vsc .qp div.sel{background:#E5F1FB}
+.vsc .chat{background:#F7F7F7;border-left:1px solid #DDD;padding:12px;display:flex;flex-direction:column;gap:10px;font-size:16px;line-height:1.5}
+.vsc .chat .me{align-self:flex-end;background:#0078D4;color:#fff;padding:8px 12px;border-radius:8px;max-width:90%}
+.vsc .chat .ai{background:#fff;border:1px solid #DDD;padding:8px 12px;border-radius:8px}
+.vsc .chat .in{margin-top:auto;border:1px solid #BBB;background:#fff;padding:8px;color:#888}
+
+/* 步骤 */
+.steps-list{counter-reset:st}
+.steps-list li{counter-increment:st;display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:start;padding:16px 0;border-top:1.5px solid var(--rule);font-size:28px;line-height:1.5}
+.steps-list li:last-child{border-bottom:1.5px solid var(--rule)}
+.steps-list li::before{content:counter(st);width:46px;height:46px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--serif);font-weight:900;font-size:26px;display:flex;align-items:center;justify-content:center}
+.steps-list li small{display:block;font-size:22px;color:var(--ink-2)}
+.kbd{display:inline-block;font-family:var(--mono);font-size:.85em;border:1.5px solid var(--ink-3);border-bottom-width:3px;border-radius:5px;padding:0 8px;background:#fff}
+.inl{font-family:var(--mono);font-size:.9em;background:#fff;border:1px solid var(--rule);padding:0 8px}

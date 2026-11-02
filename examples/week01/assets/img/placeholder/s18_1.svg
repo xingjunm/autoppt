@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 599" width="800" height="599">
+<rect width="800" height="599" fill="#E7E1D3"/>
+<path d="M0 0L800 599M800 0L0 599" stroke="#D4CCB9" stroke-width="2"/>
+<rect x="140.0" y="237.5" width="520" height="124" rx="10" fill="#F5F2EA" stroke="#B9AF98"/>
+<text x="400.0" y="285.5" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="700" fill="#4A4F5C" text-anchor="middle">人脸识别闸机</text>
+<text x="400.0" y="331.5" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" font-size="22" fill="#7A7F8B" text-anchor="middle">开源版已移除 · 请换成你有权使用的图片</text>
+</svg>

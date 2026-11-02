@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学生版 · 理论二 · 从图灵到大模型｜人工智能基础 第1周</title>
+<link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+<link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+<link rel="stylesheet" href="../src/styles/tokens.css">
+<link rel="stylesheet" href="../src/styles/masters.css">
+<link rel="stylesheet" href="../src/styles/components.css">
+</head>
+<body>
+<div class="reveal" data-course="人工智能基础　第 1 周　理论二">
+<div class="slides">
+
+<!-- L2-01 封面 -->
+<section class="m-cover">
+  <div class="cv-l">
+    <div class="cv-k">人工智能基础　第 1 周　理论二</div>
+    <h1>从图灵<br>到大模型</h1>
+    <div class="cv-sub">人工智能七十年：起起落落，为什么偏偏是现在？</div>
+  </div>
+  <div class="cv-r">
+    <div class="strip-item"><div class="img"><img src="../assets/img/placeholder/s25_1.svg" alt="达特茅斯会议参会者" style="filter:grayscale(1) sepia(.12)"></div><div class="t"><span class="k">1956</span><b>起了名字</b>达特茅斯会议</div></div>
+    <div class="strip-item"><div class="img"><img src="../assets/img/placeholder/s33_1.svg" alt="深蓝与卡斯帕罗夫对弈"></div><div class="t"><span class="k">1997</span><b>下赢棋王</b>深蓝战胜卡斯帕罗夫</div></div>
+    <div class="strip-item"><div class="img"><img src="../assets/img/placeholder/s73_1.svg" alt="ChatGPT 发布页面" style="object-position:0 0"></div><div class="t"><span class="k">2022</span><b>人人可用</b>ChatGPT 发布</div></div>
+  </div>
+  <div class="cv-who"><span><b>马兴军</b>　复旦大学</span><span>2026 年秋季学期</span></div>
+</section>
+
+<!-- L2-02 回顾 -->
+<section class="m-interact" data-part="回顾|互动">
+  <h2 class="title">先热个身：上节课的两个关键问题</h2>
+  <div class="stage" data-comp="quiz" style="width:1680px;top:320px">
+    <div class="quiz">
+      <div class="q" data-answer="0"><p class="qt">1. “给电脑看一万张标好的猫狗照片，让它自己学会分辨”，这是？</p><div class="opts"><button>机器学习：从数据中学规律</button><button>传统编程：人写好规则</button><button>通用人工智能</button></div><p class="exp">规律是从数据中学出来的，不是人一条条写的。</p></div>
+      <div class="q" data-answer="1"><p class="qt">2. 人工智能、机器学习、深度学习，范围从大到小是？</p><div class="opts"><button>深度学习 ⊃ 机器学习 ⊃ 人工智能</button><button>人工智能 ⊃ 机器学习 ⊃ 深度学习</button><button>三者一样大</button></div><p class="exp">AI 最大，机器学习是 AI 的一种方法，深度学习是机器学习的一种。</p></div>
+    </div>
+    <p class="score" style="margin-top:28px"></p>
+  </div>
+</section>
+
+<!-- L2-03 时间轴总览（互动D） -->
+<section class="m-interact" data-part="七十年地图|互动">
+  <h2 class="title">七十年地图：四幕大戏</h2>
+  <div class="stage" data-comp="timeline" style="width:1680px;top:290px" tabindex="0">
+    <div class="tlx">
+      <div class="acts" style="grid-template-columns:2fr 2fr 4fr 4fr"><div style="background:#0B3D91">第一幕　起点</div><div style="background:#7A7F8B">第二幕　规则的辉煌与寒冬</div><div style="background:#12806F">第三幕　数据与算力的爆发</div><div style="background:#B4471F">第四幕　大模型时代</div></div>
+      <div class="rail" style="display:grid;grid-template-columns:repeat(12,1fr);justify-items:center;padding:0">
+        <button class="node" data-year="1950" data-title="图灵：机器能思考吗？" data-q="“思考”很难定义，怎么判断机器有没有智能？" data-b="图灵提出“模仿游戏”（图灵测试）：用可观察的对话表现代替抽象的争论。" data-i="把“机器智能”变成了一个可以研究的科学问题。">1950</button>
+        <button class="node" data-year="1956" data-title="达特茅斯会议" data-q="能不能让机器使用语言、形成概念、解决问题？" data-b="一群年轻学者召开研讨会，“人工智能”成为学科名称。" data-i="AI 正式诞生；但当时低估了难度。">1956</button>
+        <button class="node" data-year="1970s" data-title="专家系统" data-q="怎样让机器拥有专业知识？" data-b="把专家的知识写成大量“如果……那么……”规则，如医疗诊断系统 MYCIN。" data-i="在窄领域有用，但规则写不完、难维护。">1970s</button>
+        <button class="node" data-year="1974 / 1987" data-title="两次 AI 寒冬" data-q="当初的承诺为什么没兑现？" data-b="（不是突破，而是反思）计算能力不足、知识难以获取、期望过高。" data-i="经费削减、研究降温；也让人开始寻找新路。">寒冬</button>
+        <button class="node" data-year="1997" data-title="深蓝战胜卡斯帕罗夫" data-q="机器能在国际象棋上赢过世界冠军吗？" data-b="靠专用硬件和强大的搜索，每秒评估约 2 亿个局面。" data-i="展示了算力的威力，但它并不会“学习”。">1997</button>
+        <button class="node" data-year="2000s" data-title="机器学习走向实用" data-q="规则写不完怎么办？" data-b="让机器从数据中统计规律：垃圾邮件过滤、推荐系统、人脸检测。" data-i="互联网带来海量数据，“数据驱动”成为主流。">2000s</button>
+        <button class="node" data-year="2012" data-title="AlexNet 与深度学习突破" data-q="图像识别为什么一直做不好？" data-b="深度神经网络 + 大规模数据集 ImageNet + GPU 训练，错误率大幅下降。" data-i="深度学习席卷视觉、语音、语言等领域。">2012</button>
+        <button class="node" data-year="2016" data-title="AlphaGo" data-q="围棋变化太多，搜索穷举不过来。" data-b="深度学习 + 强化学习 + 搜索，4:1 战胜李世石。" data-i="让全世界看到 AI 能处理极复杂的决策问题。">2016</button>
+        <button class="node" data-year="2017" data-title="Transformer" data-q="如何高效地处理长文本、并行训练大模型？" data-b="论文《Attention Is All You Need》提出 Transformer 结构。" data-i="成为大多数大语言模型的基础。">2017</button>
+        <button class="node" data-year="2020" data-title="AlphaFold2" data-q="蛋白质会折叠成什么形状？困扰生物学几十年。" data-b="在 CASP14 竞赛中，预测精度远超其他方法。" data-i="AI 开始实质性地推动科学研究。">2020</button>
+        <button class="node" data-year="2022" data-title="ChatGPT" data-q="普通人怎样方便地使用大模型？" data-b="用聊天的方式与大语言模型交互。" data-i="生成式 AI 走进日常生活与学习。">2022</button>
+        <button class="node" data-year="2024" data-title="AI 研究获诺贝尔奖" data-q="AI 对基础科学有多大贡献？" data-b="物理学奖授予神经网络先驱，化学奖授予蛋白质设计与结构预测研究。" data-i="AI 成为科学研究的重要工具之一。">2024</button>
+      </div>
+      <div class="tl-detail"></div>
+      <div class="btns" style="position:absolute;right:0;bottom:-10px"><button class="btn sm" data-act="prev" type="button">← 上一个</button><button class="btn sm" data-act="next" type="button">下一个 →</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- L2-04 图灵 -->
+<section data-part="第一幕　起点|1950—1970s">
+  <div class="actbar"><div class="on"></div><div></div><div></div><div></div></div>
+  <h2 class="title">图灵 1950：把“机器能思考吗”变成可以检验的问题</h2>
+  <div class="body grid" style="grid-template-columns:820px 1fr;gap:90px">
+    <div>
+      <svg viewBox="0 0 820 520" width="820" height="520" role="img" aria-label="图灵测试示意">
+        <rect x="0" y="0" width="820" height="520" fill="#EDE8DC"/>
+        <line x1="400" y1="30" x2="400" y2="490" stroke="#1C1D21" stroke-width="6"/>
+        <text x="400" y="510" text-anchor="middle" font-size="20" fill="#4A4F5C" font-family="sans-serif">隔开的墙（只能打字交流）</text>
+        <g transform="translate(150,170)"><circle cx="0" cy="0" r="46" fill="none" stroke="#0B3D91" stroke-width="6"/><path d="M-80 150c0-60 36-90 80-90s80 30 80 90" fill="none" stroke="#0B3D91" stroke-width="6"/><rect x="-70" y="170" width="140" height="70" fill="#fff" stroke="#0B3D91" stroke-width="4"/><text x="0" y="214" text-anchor="middle" font-size="22" fill="#0B3D91" font-family="sans-serif">提问者</text></g>
+        <g transform="translate(610,110)"><circle cx="0" cy="0" r="34" fill="none" stroke="#1C1D21" stroke-width="5"/><path d="M-60 110c0-44 26-66 60-66s60 22 60 66" fill="none" stroke="#1C1D21" stroke-width="5"/><text x="90" y="60" font-size="24" fill="#1C1D21" font-family="sans-serif">A：人</text></g>
+        <g transform="translate(610,330)"><rect x="-56" y="-40" width="112" height="80" rx="6" fill="none" stroke="#B4471F" stroke-width="5"/><rect x="-38" y="-24" width="76" height="40" fill="#F3E1D7"/><path d="M-30 60h60" stroke="#B4471F" stroke-width="5"/><text x="90" y="10" font-size="24" fill="#B4471F" font-family="sans-serif">B：机器</text></g>
+        <path d="M230 200 Q 400 120 540 130" fill="none" stroke="#7A7F8B" stroke-width="3" stroke-dasharray="8 6"/>
+        <path d="M230 240 Q 400 330 540 330" fill="none" stroke="#7A7F8B" stroke-width="3" stroke-dasharray="8 6"/>
+        <text x="300" y="380" font-size="22" fill="#4A4F5C" font-family="sans-serif">哪个是机器？</text>
+      </svg>
+    </div>
+    <div>
+      <p class="serif" style="font-size:72px;font-weight:900;line-height:1.2;color:var(--blue)">“机器能<br>思考吗？”</p>
+      <ul class="pts single" style="margin-top:40px">
+        <li class="fragment rise" style="font-size:29px"><span>“思考”太难定义，图灵换了个问法：<b>机器能不能在对话中让人分辨不出它是机器？</b></span></li>
+        <li class="fragment rise" style="font-size:29px"><span>这就是“模仿游戏”，后人称为<b>图灵测试</b>。</span></li>
+        <li class="fragment rise" style="font-size:29px"><span>启示：提出一个<em>可以检验</em>的好问题，比空谈定义更重要。</span></li>
+      </ul>
+      <p class="note" style="margin-top:20px">阿兰·图灵（Alan Turing）《计算机器与智能》，1950。图为示意。</p>
+    </div>
+  </div>
+</section>
+
+<!-- L2-05 达特茅斯 -->
+<section data-part="第一幕　起点|1950—1970s" data-src="网络素材，课堂教学引用">
+  <div class="actbar"><div class="on"></div><div></div><div></div><div></div></div>
+  <h2 class="title">1956 年夏天，一群年轻学者给这门学科起了名字</h2>
+  <div class="body grid" style="grid-template-columns:1000px 1fr;gap:80px">
+    <figure class="ph bw" style="height:560px"><img src="../assets/img/placeholder/s25_1.svg" alt="达特茅斯会议部分参会者合影"><figcaption>达特茅斯会议部分参会者合影</figcaption></figure>
+    <div class="facts">
+      <div class="f fragment rise"><div class="y">1955</div><p>麦卡锡、明斯基、香农、罗切斯特在会议提案中首次写下 “Artificial Intelligence”</p></div>
+      <div class="f fragment rise"><div class="y">10 人 × 2 个月</div><p>原计划用一个夏天，让机器学会使用语言、形成概念</p></div>
+      <div class="f fragment rise"><div class="y">70 年</div><p>这个“夏天的计划”，到今天还在继续</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- L2-06 符号主义 -->
+<section data-part="第二幕　规则的辉煌与寒冬|1970s—1990s" data-src="网络素材，课堂教学引用">
+  <div class="actbar"><div></div><div class="on"></div><div></div><div></div></div>
+  <h2 class="title">早期思路：把知识写成“如果……那么……”的规则</h2>
+  <div class="body grid" style="grid-template-columns:560px 1fr;gap:80px">
+    <div>
+      <figure class="ph bw" style="height:360px"><img src="../assets/img/placeholder/s29_1.svg" alt="纽厄尔与西蒙"><figcaption>纽厄尔（左）与西蒙：用符号和逻辑模拟人类解题</figcaption></figure>
+      <p style="font-size:28px;line-height:1.6;margin-top:64px">这条路线叫<b class="blue">符号主义</b>：知识用符号表示，靠逻辑规则推理。</p>
+    </div>
+    <div>
+      <p class="muted" style="font-size:26px">一个经典的教学例子：动物识别规则</p>
+      <svg viewBox="0 0 980 500" width="980" height="500" style="margin-top:10px" role="img" aria-label="规则推理示意">
+        <g font-family="sans-serif" font-size="26">
+          <rect x="0" y="40" width="250" height="70" fill="#fff" stroke="#1C1D21" stroke-width="2"/><text x="125" y="84" text-anchor="middle">有羽毛</text>
+          <rect x="0" y="210" width="250" height="70" fill="#fff" stroke="#1C1D21" stroke-width="2"/><text x="125" y="254" text-anchor="middle">会游泳</text>
+          <rect x="0" y="380" width="250" height="70" fill="#fff" stroke="#1C1D21" stroke-width="2"/><text x="125" y="424" text-anchor="middle">不会飞</text>
+          <rect x="370" y="40" width="250" height="70" fill="#DCE4F2" stroke="#0B3D91" stroke-width="3"/><text x="495" y="84" text-anchor="middle" fill="#0B3D91" font-weight="700">是鸟</text>
+          <rect x="720" y="210" width="250" height="70" fill="#0B3D91"/><text x="845" y="254" text-anchor="middle" fill="#fff" font-weight="700">是企鹅</text>
+          <path d="M250 75 H370" stroke="#0B3D91" stroke-width="4" marker-end="url(#a1)"/>
+          <path d="M620 75 C 680 75 680 245 720 245" fill="none" stroke="#0B3D91" stroke-width="4" marker-end="url(#a1)"/>
+          <path d="M250 245 H720" stroke="#0B3D91" stroke-width="4" marker-end="url(#a1)"/>
+          <path d="M250 415 C 600 415 660 260 720 255" fill="none" stroke="#0B3D91" stroke-width="4" marker-end="url(#a1)"/>
+          <text x="370" y="140" font-size="21" fill="#4A4F5C">规则 1：如果有羽毛，那么是鸟</text>
+          <text x="730" y="320" font-size="21" fill="#4A4F5C">规则 2：如果是鸟、会游泳、</text><text x="730" y="348" font-size="21" fill="#4A4F5C">不会飞，那么是企鹅</text>
+        </g>
+        <defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0B3D91"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- L2-07 专家系统 -->
+<section data-part="第二幕　规则的辉煌与寒冬|1970s—1990s" data-src="MYCIN 论文首页，课堂教学引用">
+  <div class="actbar"><div></div><div class="on"></div><div></div><div></div></div>
+  <h2 class="title">专家系统：把专家的经验写成几百条规则</h2>
+  <div class="body grid" style="grid-template-columns:620px 1fr;gap:90px">
+    <figure class="ph frame" style="height:600px"><img src="../assets/img/placeholder/s30_1.svg" alt="MYCIN 论文首页" style="object-fit:cover;object-position:0 0"></figure>
+    <div>
+      <div class="facts">
+        <div class="f"><div class="y">MYCIN</div><p>1970 年代斯坦福大学研制，用数百条规则帮助医生诊断血液感染、推荐抗生素</p></div>
+        <div class="f"><div class="y">1980s</div><p>专家系统走进企业，用于设备配置、故障诊断、金融审核等</p></div>
+      </div>
+      <p style="font-size:28px;font-weight:700;margin-top:20px">但它有三个绕不开的问题：</p>
+      <div class="btns" style="margin-top:18px;gap:18px">
+        <span class="tag rust fragment rise" style="font-size:28px;padding:8px 22px">规则写不完</span>
+        <span class="tag rust fragment rise" style="font-size:28px;padding:8px 22px">专家经验很难说清楚</span>
+        <span class="tag rust fragment rise" style="font-size:28px;padding:8px 22px">遇到新情况就失灵</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- L2-08 两次寒冬 -->
+<section data-part="第二幕　规则的辉煌与寒冬|1970s—1990s">
+  <div class="actbar"><div></div><div class="on"></div><div></div><div></div></div>
+  <h2 class="title">两次寒冬：期望太高，现实跟不上</h2>
+  <div class="body grid" style="grid-template-columns:1080px 1fr;gap:70px">
+    <svg viewBox="0 0 1080 600" width="1080" height="600" role="img" aria-label="AI 期望起伏示意曲线">
+      <line x1="60" y1="540" x2="1060" y2="540" stroke="#1C1D21" stroke-width="2"/><line x1="60" y1="40" x2="60" y2="540" stroke="#1C1D21" stroke-width="2"/>
+      <text x="70" y="40" font-size="22" fill="#4A4F5C" font-family="sans-serif">社会期望与投入（示意）</text>
+      <g font-size="22" fill="#4A4F5C" font-family="sans-serif" text-anchor="middle"><text x="100" y="575">1956</text><text x="330" y="575">1974</text><text x="560" y="575">1987</text><text x="770" y="575">1997</text><text x="1000" y="575">2012</text></g>
+      <path d="M90 420 C 180 300, 250 140, 290 160 C 330 190, 350 420, 420 420 C 480 420, 500 150, 540 140 C 580 140, 600 440, 680 450 C 760 440, 840 360, 900 280 C 960 190, 1000 110, 1050 70" fill="none" stroke="#0B3D91" stroke-width="7" stroke-linecap="round"/>
+      <rect x="330" y="400" width="140" height="40" fill="#E3DCCB" class="fragment"/><text x="400" y="480" text-anchor="middle" font-size="26" font-weight="700" fill="#B4471F" font-family="serif" class="fragment">第一次寒冬</text>
+      <rect x="600" y="430" width="160" height="40" fill="#E3DCCB" class="fragment"/><text x="680" y="510" text-anchor="middle" font-size="26" font-weight="700" fill="#B4471F" font-family="serif" class="fragment">第二次寒冬</text>
+    </svg>
+    <div>
+      <ul class="pts single">
+        <li style="font-size:28px"><span><b class="serif blue">1970s 中期</b><br>机器翻译等进展远低于预期，政府报告给出悲观评价，经费大幅削减</span></li>
+        <li style="font-size:28px"><span><b class="serif blue">1980s 末</b><br>专家系统成本高、难维护，专用 AI 计算机市场崩溃</span></li>
+      </ul>
+      <p class="fragment rise" style="margin-top:36px;font-size:32px;font-weight:700;line-height:1.5;border-left:6px solid var(--rust);padding-left:22px">今天的 AI 热潮，同样需要冷静看待。</p>
+    </div>
+  </div>
+</section>
+
+<!-- L2-09 深蓝 -->
+<section class="m-hero" data-part="第三幕　数据与算力的爆发|1997—2016" data-src="网络素材，课堂教学引用">
+  <div class="hero-img" style="left:760px"><img src="../assets/img/placeholder/s33_1.svg" alt="深蓝与卡斯帕罗夫对弈现场"></div>
+  <div class="hero-panel">
+    <div class="actbar" style="left:120px;right:auto;width:600px"><div></div><div></div><div class="on"></div><div></div></div>
+    <div class="k">1997 年 5 月</div>
+    <h2 style="margin-top:14px">深蓝战胜国际象棋世界冠军卡斯帕罗夫</h2>
+    <p>IBM 的“深蓝”用专用芯片，每秒评估约 <b>2 亿</b>个局面。</p>
+    <p class="fragment rise">它赢在<b>算力</b>和<b>搜索</b>：评估局面的方法由人和棋手精心调校——它并不会从对局中自己学习。</p>
+    <figure class="ph fragment rise" style="width:200px;height:260px;margin-top:30px"><img src="../assets/img/placeholder/s15_1.svg" alt="《新闻周刊》封面"></figure>
+  </div>
+</section>
+
+<!-- L2-10 机器学习兴起 -->
+<section data-part="第三幕　数据与算力的爆发|1997—2016" data-src="网络素材，课堂教学引用">
+  <div class="actbar"><div></div><div></div><div class="on"></div><div></div></div>
+  <h2 class="title">1990—2000 年代：从“人写规则”转向“从数据中学”</h2>
+  <div class="body grid g3" style="gap:36px;bottom:200px">
+    <div class="card"><div class="pic" style="height:300px;background:#E9EEF6"><svg viewBox="0 0 520 300"><rect width="520" height="300" fill="#E9EEF6"/><rect x="110" y="70" width="300" height="180" fill="#fff" stroke="#1C1D21" stroke-width="3"/><path d="M110 70 L260 170 L410 70" fill="none" stroke="#1C1D21" stroke-width="3"/><rect x="300" y="40" width="170" height="56" rx="6" fill="#B4471F" transform="rotate(8 385 68)"/><text x="385" y="78" text-anchor="middle" font-size="26" fill="#fff" font-weight="700" font-family="sans-serif" transform="rotate(8 385 68)">垃圾邮件</text></svg></div><h3>垃圾邮件过滤</h3><p>从大量被标记的邮件中学会分辨“中奖通知”“推销广告”</p></div>
+    <div class="card"><div class="pic" style="height:300px;background:#F6ECE6"><svg viewBox="0 0 520 300"><rect width="520" height="300" fill="#F6ECE6"/><text x="40" y="60" font-size="24" fill="#4A4F5C" font-family="sans-serif">买了这本书的人，还买了：</text><g><rect x="40" y="90" width="120" height="160" fill="#24425E"/><rect x="200" y="90" width="120" height="160" fill="#7A2B2B"/><rect x="360" y="90" width="120" height="160" fill="#12806F"/></g><g fill="#fff" font-size="20" font-family="sans-serif"><text x="100" y="180" text-anchor="middle">书 A</text><text x="260" y="180" text-anchor="middle">书 B</text><text x="420" y="180" text-anchor="middle">书 C</text></g></svg></div><h3>商品推荐</h3><p>从成千上万人的购买记录中发现“谁喜欢什么”</p></div>
+    <div class="card"><div class="pic" style="height:300px;background:#E6F1EE"><svg viewBox="0 0 520 300"><rect width="520" height="300" fill="#E6F1EE"/><rect x="60" y="34" width="400" height="44" rx="22" fill="#fff" stroke="#1C1D21" stroke-width="2"/><circle cx="90" cy="56" r="10" fill="none" stroke="#4A4F5C" stroke-width="3"/><path d="M97 63l8 8" stroke="#4A4F5C" stroke-width="3"/><text x="118" y="64" font-size="22" fill="#1C1D21" font-family="sans-serif">人工智能 入门</text><g font-family="sans-serif"><rect x="60" y="100" width="400" height="52" fill="#fff"/><rect x="72" y="112" width="220" height="10" fill="#0B3D91"/><rect x="72" y="132" width="320" height="8" fill="#CFC8B8"/><rect x="60" y="164" width="400" height="52" fill="#fff"/><rect x="72" y="176" width="190" height="10" fill="#0B3D91"/><rect x="72" y="196" width="300" height="8" fill="#CFC8B8"/><rect x="60" y="228" width="400" height="52" fill="#fff"/><rect x="72" y="240" width="240" height="10" fill="#0B3D91"/><rect x="72" y="260" width="280" height="8" fill="#CFC8B8"/><text x="474" y="134" font-size="20" fill="#12806F" font-weight="700">1</text><text x="474" y="198" font-size="20" fill="#12806F" font-weight="700">2</text><text x="474" y="262" font-size="20" fill="#12806F" font-weight="700">3</text></g></svg></div><h3>搜索排序</h3><p>从海量点击记录中学会：哪条结果对你最有用，就排在前面</p></div>
+  </div>
+  <p class="fragment rise" style="position:absolute;left:120px;right:120px;bottom:110px;font-size:30px;border-top:2px solid var(--ink);padding-top:20px">互联网带来了海量数据——“让数据说话”成为新的主流。</p>
+</section>
+
+<!-- L2-11 ImageNet 2012 -->
+<section data-part="第三幕　数据与算力的爆发|1997—2016" data-src="网络素材，课堂教学引用">
+  <div class="actbar"><div></div><div></div><div class="on"></div><div></div></div>
+  <h2 class="title">2012 年，一场图像识别比赛让深度学习一鸣惊人</h2>
+  <div class="body grid" style="grid-template-columns:1fr 1fr;gap:90px">
+    <div>
+      <div style="display:flex;gap:28px;align-items:flex-start">
+        <figure class="ph" style="width:200px;height:220px;flex:none"><img src="../assets/img/placeholder/s34_1.svg" alt="李飞飞"></figure>
+        <div class="facts" style="flex:1"><div class="f" style="padding-top:12px"><div class="y">ImageNet</div><p>李飞飞团队发起，约 1400 万张人工标注图片；竞赛常用其中 1000 类</p></div></div>
+      </div>
+      <figure class="ph" style="height:290px;margin-top:20px"><img src="../assets/img/placeholder/s34_3.svg" alt="ImageNet 2012 竞赛示意" style="object-fit:contain;background:#000"></figure>
+    </div>
+    <div>
+      <p style="font-size:26px;color:var(--ink-2)">ImageNet 图像分类竞赛 top-5 错误率（越低越好）</p>
+      <svg viewBox="0 0 760 460" width="760" height="460" style="margin-top:10px">
+        <g font-family="sans-serif">
+        <line x1="40" y1="400" x2="740" y2="400" stroke="#1C1D21" stroke-width="2"/>
+        <rect x="80" y="400" width="140" height="0" fill="#7A7F8B"><animate attributeName="y" from="400" to="118" dur=".1s" fill="freeze"/><animate attributeName="height" from="0" to="282" dur=".1s" fill="freeze"/></rect>
+        <text x="150" y="105" text-anchor="middle" font-size="30" font-weight="700" fill="#1C1D21">28.2%</text><text x="150" y="440" text-anchor="middle" font-size="24" fill="#4A4F5C">2010 冠军</text>
+        <rect x="300" y="142" width="140" height="258" fill="#7A7F8B"/><text x="370" y="128" text-anchor="middle" font-size="30" font-weight="700" fill="#1C1D21">25.8%</text><text x="370" y="440" text-anchor="middle" font-size="24" fill="#4A4F5C">2011 冠军</text>
+        <g class="fragment"><rect x="520" y="247" width="140" height="153" fill="#B4471F"/><text x="590" y="232" text-anchor="middle" font-size="36" font-weight="900" fill="#B4471F" font-family="serif">15.3%</text><text x="590" y="440" text-anchor="middle" font-size="24" fill="#B4471F" font-weight="700">2012 AlexNet</text>
+        <text x="590" y="190" text-anchor="middle" font-size="22" fill="#4A4F5C">第二名约 26.2%</text></g>
+        </g>
+      </svg>
+      <p class="fragment rise" style="font-size:28px;line-height:1.6;margin-top:10px"><b class="blue">深度神经网络</b> + <b class="blue">大规模数据</b> + <b class="blue">GPU 训练</b>，三样凑齐了。</p>
+    </div>
+  </div>
+</section>
+
+<!-- L2-12 算力 -->
+<section data-part="第三幕　数据与算力的爆发|1997—2016" data-src="网络素材，课堂教学引用">
+  <div class="actbar"><div></div><div></div><div class="on"></div><div></div></div>
+  <h2 class="title">算力：深度学习是被 GPU “喂大”的</h2>
+  <div class="body" style="bottom:200px">
+    <div class="grid" style="grid-template-columns:repeat(5,1fr);gap:26px;height:100%">
+      <div class="card"><div class="pic" style="height:220px;background:#fff"><img src="../assets/img/placeholder/s35_2.svg" alt="Intel 4004" style="object-fit:contain"></div><b class="serif" style="font-size:40px;color:var(--blue)">1971</b><p>第一款商用微处理器 Intel 4004</p></div>
+      <div class="card"><div class="pic" style="height:220px;background:#fff"><img src="../assets/img/placeholder/s35_3.svg" alt="GeForce 256" style="object-fit:contain"></div><b class="serif" style="font-size:40px;color:var(--blue)">1999</b><p>NVIDIA 推出 GeForce 256，提出“GPU”概念</p></div>
+      <div class="card"><div class="pic" style="height:220px;background:#fff"><img src="../assets/img/placeholder/s36_1.svg" alt="早期通用计算 GPU" style="object-fit:contain"></div><b class="serif" style="font-size:40px;color:var(--blue)">2006</b><p>CUDA 架构：GPU 开始做通用计算</p></div>
+      <div class="card"><div class="pic" style="height:220px;background:#fff"><img src="../assets/img/placeholder/s36_2.svg" alt="Tesla V100" style="object-fit:contain"></div><b class="serif" style="font-size:40px;color:var(--blue)">2017</b><p>Tesla V100：加入专为 AI 设计的张量核心</p></div>
+      <div class="card"><div class="pic" style="height:220px;background:#111"><img src="../assets/img/placeholder/s36_3.svg" alt="Blackwell 架构 GPU" style="object-fit:contain"></div><b class="serif" style="font-size:40px;color:var(--blue)">2024</b><p>Blackwell 架构：面向大模型训练与推理</p></div>
+    </div>
+  </div>
+  <div class="fragment rise" style="position:absolute;left:120px;right:120px;bottom:100px;display:grid;grid-template-columns:1fr 1fr;gap:60px;border-top:2px solid var(--ink);padding-top:22px">
+    <p style="font-size:28px;line-height:1.55"><b>CPU</b> 像几位数学教授：什么题都会，但一次只算几道。</p>
+    <p style="font-size:28px;line-height:1.55"><b class="blue">GPU</b> 像几千名小学生：每人只会简单乘加，但能<b>同时</b>算——正好适合神经网络里海量的矩阵运算。</p>
+  </div>
+</section>
+
+<!-- L2-13 三位先驱 -->
+<section data-part="第三幕　数据与算力的爆发|1997—2016" data-src="网络素材，课堂教学引用">
+  <div class="actbar"><div></div><div></div><div class="on"></div><div></div></div>
+  <h2 class="title">坚持了几十年的三个人：2018 年图灵奖</h2>
+  <div class="body grid" style="grid-template-columns:1fr 1fr 1fr 420px;gap:34px">
+    <div class="card"><div class="pic" style="height:300px"><img src="../assets/img/placeholder/s40_1.svg" alt="杰弗里·辛顿" style="object-position:50% 20%"></div><h3>杰弗里·辛顿</h3><p>推动反向传播等方法，让多层神经网络能有效训练</p></div>
+    <div class="card"><div class="pic" style="height:300px"><img src="../assets/img/placeholder/s39_1.svg" alt="杨立昆" style="object-position:50% 20%"></div><h3>杨立昆</h3><p>卷积神经网络的开拓者，早年用于识别手写数字</p></div>
+    <div class="card"><div class="pic" style="height:300px"><img src="../assets/img/placeholder/s41_1.svg" alt="约书亚·本吉奥" style="object-position:50% 20%"></div><h3>约书亚·本吉奥</h3><p>神经网络语言模型、词嵌入等语言方向的奠基工作</p></div>
+    <div class="fragment rise">
+      <p class="k">彩蛋</p>
+      <figure class="ph" style="height:200px;margin-top:10px"><img src="../assets/img/placeholder/s42_2.svg" alt="任课教师与本吉奥合影"></figure>
+      <figure class="ph" style="height:200px;margin-top:14px"><img src="../assets/img/placeholder/s42_1.svg" alt="任课教师与本吉奥合影"></figure>
+      <p class="note" style="margin-top:10px">任课教师与本吉奥的两次合影（2017、2025）</p>
+    </div>
+  </div>
+</section>
+
+<!-- L2-14 AlphaGo -->
+<section class="m-hero" data-part="第三幕　数据与算力的爆发|1997—2016" data-src="网络素材，课堂教学引用">
+  <div class="hero-img" style="left:820px"><img src="../assets/img/placeholder/s46_2.svg" alt="AlphaGo 与柯洁对弈画面"></div>
+  <div class="hero-panel" style="width:860px">
+    <div class="actbar" style="left:120px;right:auto;width:640px"><div></div><div></div><div class="on"></div><div></div></div>
+    <div class="k">2016 年 3 月　首尔</div>
+    <h2 style="margin-top:14px">AlphaGo 以 4:1 战胜李世石</h2>
+    <p>围棋的变化比宇宙中的原子还多，靠深蓝那样的穷举搜索行不通。</p>
+    <p class="fragment rise">AlphaGo 把<b>深度学习</b>（看棋盘判断形势）、<b>强化学习</b>（自己和自己下棋提高）和<b>搜索</b>结合在一起。</p>
+    <p class="fragment rise">2017 年 5 月，升级版以 <b>3:0</b> 战胜当时世界排名第一的柯洁。</p>
+  </div>
+</section>
+
+<!-- L2-15 Transformer -->
+<section class="m-statement" data-part="第四幕　大模型时代|2017—今">
+  <div class="actbar"><div></div><div></div><div></div><div class="on"></div></div>
+  <div class="st">
+    <div class="k">2017 年</div>
+    <div style="display:flex;align-items:center;gap:80px;margin-top:24px">
+      <div style="width:620px;height:420px;background:#fff;border:1px solid var(--rule);box-shadow:10px 12px 0 var(--paper-3);padding:44px 50px;flex:none">
+        <p style="font-family:'Times New Roman',serif;font-size:46px;font-weight:700;text-align:center;line-height:1.2">Attention Is All You Need</p>
+        <div style="margin-top:34px;display:flex;flex-direction:column;gap:12px">
+          <i style="display:block;height:10px;background:var(--paper-3)"></i><i style="display:block;height:10px;background:var(--paper-3);width:92%"></i><i style="display:block;height:10px;background:var(--paper-3)"></i><i style="display:block;height:10px;background:var(--paper-3);width:80%"></i><i style="display:block;height:10px;background:var(--paper-3)"></i><i style="display:block;height:10px;background:var(--paper-3);width:60%"></i>
+        </div>
+        <p class="note" style="margin-top:26px;text-align:center">论文版式示意</p>
+      </div>
+      <div>
+        <div class="big" style="font-size:96px">一篇论文，<br>一个新结构</div>
+        <div class="cap fragment rise">谷歌团队提出 <b class="blue">Transformer</b>。后来，大多数大语言模型，以及许多视觉、多模态模型，都建立在它之上。</div>
+        <p class="fragment rise" style="font-size:26px;color:var(--ink-3);margin-top:24px">它是怎么工作的？第 8 周专门讲。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- L2-16 ChatGPT -->
+<section data-part="第四幕　大模型时代|2017—今" data-src="网络截图，课堂教学引用">
+  <div class="actbar"><div></div><div></div><div></div><div class="on"></div></div>
+  <h2 class="title">2022 年底，ChatGPT 让大模型走进了每个人的生活</h2>
+  <div class="body grid" style="grid-template-columns:1000px 1fr;gap:80px">
+    <figure class="ph frame" style="height:560px"><img src="../assets/img/placeholder/s73_1.svg" alt="ChatGPT 发布页面截图" style="object-position:0 0"></figure>
+    <div>
+      <div class="facts">
+        <div class="f"><div class="y">2022.11.30</div><p>OpenAI 发布 ChatGPT：用聊天的方式使用大语言模型</p></div>
+        <div class="f fragment rise"><div class="y">约 2 个月</div><p>据媒体援引的第三方估计，月活跃用户突破 1 亿，是当时增长最快的消费级应用之一</p></div>
+      </div>
+      <figure class="ph frame fragment rise" style="height:110px;margin-top:10px"><img src="../assets/img/placeholder/s57_1.svg" alt="新闻标题截图" style="object-fit:cover;object-position:0 0"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- L2-17 大模型时代 -->
+<section data-part="第四幕　大模型时代|2017—今" data-src="产品标志来自网络，课堂教学引用">
+  <div class="actbar"><div></div><div></div><div></div><div class="on"></div></div>
+  <h2 class="title">大模型时代：每一两年，能力就上一个台阶</h2>
+  <div class="body">
+    <div style="position:relative;height:100%">
+      <div style="position:absolute;left:0;right:0;top:250px;height:3px;background:var(--ink)"></div>
+      <div class="grid" style="grid-template-columns:repeat(7,1fr);gap:18px;height:100%">
+        <div class="fragment rise"><div style="height:200px;display:flex;align-items:flex-end"><img src="../assets/img/placeholder/s70_5.svg" alt="GPT-2 标志" style="width:100%;height:110px;object-fit:cover"></div><div style="margin-top:40px"><b class="serif" style="font-size:40px;color:var(--blue)">2018–19</b><p style="font-size:24px;margin-top:8px"><b>预训练模型</b><br>BERT、GPT 系列出现：先读海量文字，再做具体任务</p></div></div>
+        <div class="fragment rise"><div style="height:200px;display:flex;align-items:flex-end"><img src="../assets/img/placeholder/s70_6.svg" alt="GPT-3 标志" style="width:100%;height:110px;object-fit:cover"></div><div style="margin-top:40px"><b class="serif" style="font-size:40px;color:var(--blue)">2020</b><p style="font-size:24px;margin-top:8px"><b>规模变大</b><br>GPT-3：只给几个例子就能完成新任务</p></div></div>
+        <div class="fragment rise"><div style="height:200px;display:flex;align-items:flex-end"><img src="../assets/img/placeholder/s70_8.svg" alt="ChatGPT 标志" style="width:100%;height:110px;object-fit:cover"></div><div style="margin-top:40px"><b class="serif" style="font-size:40px;color:var(--blue)">2022</b><p style="font-size:24px;margin-top:8px"><b>会聊天</b><br>ChatGPT：按人的指令对话</p></div></div>
+        <div class="fragment rise"><div style="height:200px;display:flex;align-items:flex-end"><img src="../assets/img/placeholder/s70_7.svg" alt="GPT-4 标志" style="width:100%;height:110px;object-fit:cover"></div><div style="margin-top:40px"><b class="serif" style="font-size:40px;color:var(--blue)">2023</b><p style="font-size:24px;margin-top:8px"><b>能看图</b><br>多模态大模型：同时理解文字和图片</p></div></div>
+        <div class="fragment rise"><div style="height:200px;display:flex;align-items:flex-end"><img src="../assets/img/placeholder/s80_5.svg" alt="OpenAI o1 标志" style="width:100%;height:110px;object-fit:cover"></div><div style="margin-top:40px"><b class="serif" style="font-size:40px;color:var(--blue)">2024</b><p style="font-size:24px;margin-top:8px"><b>先想再答</b><br>推理模型：复杂问题先一步步思考</p></div></div>
+        <div class="fragment rise"><div style="height:200px;display:flex;align-items:flex-end"><img src="../assets/img/placeholder/s80_6.svg" alt="DeepSeek-R1 标志" style="width:100%;height:110px;object-fit:contain;background:#fff"></div><div style="margin-top:40px"><b class="serif" style="font-size:40px;color:var(--blue)">2025</b><p style="font-size:24px;margin-top:8px"><b>开源推理</b><br>DeepSeek-R1 等开源推理模型出现，成本大幅下降</p></div></div>
+        <div class="fragment rise"><div style="height:200px;display:flex;align-items:flex-end"><div style="width:100%;height:110px;border:3px dashed var(--rust);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:32px;color:var(--rust)">智能体</div></div><div style="margin-top:40px"><b class="serif" style="font-size:40px;color:var(--rust)">2025–26</b><p style="font-size:24px;margin-top:8px"><b>会干活</b><br>智能体：调用工具、完成多步任务（第 12 周）</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- L2-18 诺贝尔奖 -->
+<section data-part="第四幕　大模型时代|2017—今" data-src="诺贝尔奖官方插画，课堂教学引用">
+  <div class="actbar"><div></div><div></div><div></div><div class="on"></div></div>
+  <h2 class="title">2024 年，两项诺贝尔奖都与 AI 有关</h2>
+  <div class="body grid" style="grid-template-columns:1fr 1fr 1fr;gap:40px">
+    <div><figure class="ph" style="height:420px"><img src="../assets/img/placeholder/s38_1.svg" alt="2024 诺贝尔物理学奖插画" style="object-fit:contain;background:#fff"></figure><p style="font-size:26px;margin-top:16px;line-height:1.55"><b>物理学奖</b>：霍普菲尔德、辛顿<br><span class="muted">为人工神经网络与机器学习奠定基础</span></p></div>
+    <div><figure class="ph" style="height:420px"><img src="../assets/img/placeholder/s38_2.svg" alt="2024 诺贝尔化学奖插画" style="object-fit:contain;background:#fff"></figure><p style="font-size:26px;margin-top:16px;line-height:1.55"><b>化学奖</b>：贝克；哈萨比斯、江珀<br><span class="muted">计算蛋白质设计；蛋白质结构预测</span></p></div>
+    <div class="fragment rise"><figure class="ph" style="height:420px"><img src="../assets/img/placeholder/s47_1.svg" alt="蛋白质结构示意" style="object-fit:contain;background:#fff"></figure><p style="font-size:26px;margin-top:16px;line-height:1.55"><b>AlphaFold2</b>（2020）<br><span class="muted">由氨基酸序列预测蛋白质三维结构</span></p></div>
+  </div>
+</section>
+
+<!-- L2-19 三要素滑块（互动E） -->
+<section class="m-interact" data-part="为什么是现在|互动">
+  <h2 class="title">为什么进步这么快？数据 × 算法 × 算力</h2>
+  <div class="stage" data-comp="sliders" style="width:880px;top:330px">
+    <div class="sl"><label for="s-d">数据</label><input id="s-d" type="range" min="1" max="5" value="2"><output></output></div>
+    <div class="sl"><label for="s-a">算法</label><input id="s-a" type="range" min="1" max="5" value="2"><output></output></div>
+    <div class="sl"><label for="s-c">算力</label><input id="s-c" type="range" min="1" max="5" value="2"><output></output></div>
+    <p class="note" style="margin-top:20px">拖动滑块，或聚焦后用方向键调整。</p>
+  </div>
+  <div class="panel" style="width:700px;top:330px">
+    <p style="font-size:24px;color:var(--ink-2)">示意能力指数</p>
+    <div class="gauge-val">0</div>
+    <div class="gauge"><i></i></div>
+    <p class="gauge-msg"></p>
+    <p class="note" style="margin-top:auto">示意，非真实测量数据。真实进步还离不开工程实践和应用反馈。</p>
+  </div>
+</section>
+
+<!-- L2-20 AI 也会犯错 -->
+<section data-part="边界与风险">
+  <div class="actbar"><div></div><div></div><div></div><div class="on"></div></div>
+  <h2 class="title">再强的 AI 也会犯错：看起来流畅，不等于真实可靠</h2>
+  <div class="body grid g4" style="gap:30px;align-items:start">
+    <div class="card rust fragment rise" style="min-height:440px"><svg class="ico" viewBox="0 0 24 24" style="width:110px;height:110px;stroke:var(--rust)"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM8 7h6M8 11h8"/><path d="M15 14l4 4M19 14l-4 4"/></svg><h3 style="margin-top:18px">一本正经地编造</h3><p>编出不存在的书名、论文、数据，语气却很肯定。这叫“幻觉”。</p></div>
+    <div class="card rust fragment rise" style="min-height:440px"><svg class="ico" viewBox="0 0 24 24" style="width:110px;height:110px;stroke:var(--rust)"><path d="M12 3v18M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></svg><h3 style="margin-top:18px">学到偏见</h3><p>训练数据里有偏见，模型就可能对某些人群判断不公。</p></div>
+    <div class="card rust fragment rise" style="min-height:440px"><svg class="ico" viewBox="0 0 24 24" style="width:110px;height:110px;stroke:var(--rust)"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4M12 15v2"/></svg><h3 style="margin-top:18px">泄露隐私</h3><p>你发给 AI 的个人信息，可能被保存、被用于训练，甚至被泄露。</p></div>
+    <div class="card rust fragment rise" style="min-height:440px"><svg class="ico" viewBox="0 0 24 24" style="width:110px;height:110px;stroke:var(--rust)"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/><path d="M17 4l3-2M7 4L4 2"/></svg><h3 style="margin-top:18px">过度依赖</h3><p>什么都交给 AI，自己的思考和判断能力反而退步。</p></div>
+  </div>
+  <p class="fragment rise" style="position:absolute;left:120px;right:120px;bottom:110px;font-size:28px;color:var(--ink-2)">安全与伦理问题，第 13–14 周深入讨论。</p>
+</section>
+
+<!-- L2-21 你会相信 AI 吗（互动F） -->
+<section class="m-interact" data-part="边界与风险|互动">
+  <h2 class="title">你会相信 AI 吗？三个情境，你会怎么做</h2>
+  <div class="stage" data-comp="trust" style="width:1680px;top:300px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px"><span class="case-no" style="font-size:24px;font-weight:700;color:var(--ink-2)"></span><div class="btns"><button class="btn sm" data-act="prev" type="button">← 上一个</button><button class="btn sm" data-act="next" type="button">下一个 →</button></div></div>
+    <div class="case">
+      <div class="say"><span class="who">情境 1 · 你问 AI：“《红楼梦》作者曹雪芹出生于哪一年？”</span>AI 回答：“曹雪芹出生于 1715 年，这一点已被史学界确认。”</div>
+      <div class="votes"><button class="vote">直接用 <span class="n">0</span></button><button class="vote best">先核验 <span class="n">0</span></button><button class="vote">找专业人士 <span class="n">0</span></button></div>
+      <div class="btns" style="margin-top:20px"><button class="btn primary" data-act="advice" type="button">查看建议</button></div>
+      <div class="adv"><b>建议：先核验。</b>曹雪芹的生年学界有不同说法，并无定论；AI 却说得斩钉截铁。事实性的问题，要到权威资料中查证——AI 给出的“确定”语气本身就值得警惕。</div>
+    </div>
+    <div class="case" hidden>
+      <div class="say"><span class="who">情境 2 · 你让 AI 写一段 Python 代码，计算全班的平均分</span>AI 给出一段代码，并说：“这段代码已经过测试，可以直接运行。”</div>
+      <div class="votes"><button class="vote">直接用 <span class="n">0</span></button><button class="vote best">先核验 <span class="n">0</span></button><button class="vote">找专业人士 <span class="n">0</span></button></div>
+      <div class="btns" style="margin-top:20px"><button class="btn primary" data-act="advice" type="button">查看建议</button></div>
+      <div class="adv"><b>建议：先核验。</b>AI 说“已经测试过”，不代表它真的运行过。自己运行一遍，用几个能心算出结果的例子检查——这正是今天实践课要练的习惯。</div>
+    </div>
+    <div class="case" hidden>
+      <div class="say"><span class="who">情境 3 · 你连续几天胸口发闷，问 AI 该怎么办</span>AI 列出了几种可能的原因，并建议了一些缓解方法。</div>
+      <div class="votes"><button class="vote">直接用 <span class="n">0</span></button><button class="vote">先核验 <span class="n">0</span></button><button class="vote best">找专业人士 <span class="n">0</span></button></div>
+      <div class="btns" style="margin-top:20px"><button class="btn primary" data-act="advice" type="button">查看建议</button></div>
+      <div class="adv"><b>建议：找专业人士。</b>身体健康、法律、心理等高风险问题，AI 只能帮你了解一些背景知识，不能替代医生的诊断。持续不适应尽快就医。</div>
+    </div>
+    <p class="note" style="margin-top:14px">票数仅在本机计数，用于课堂演示，不是真实统计。</p>
+  </div>
+</section>
+
+<!-- L2-22 课程地图回顾 -->
+<section data-part="课程地图">
+  <h2 class="title">今天提到的这些，后面会一站一站深入</h2>
+  <div class="body grid" style="grid-template-columns:1fr 1fr;gap:20px 80px;align-content:start">
+    <div class="pts single"><ul class="pts single">
+      <li style="font-size:30px"><span><b class="serif blue" style="display:inline-block;width:200px">第 2–4 周</b>机器怎么学习、训练，神经网络</span></li>
+      <li style="font-size:30px"><span><b class="serif blue" style="display:inline-block;width:200px">第 5 周</b>启动你自己的项目</span></li>
+      <li style="font-size:30px"><span><b class="serif blue" style="display:inline-block;width:200px">第 6 周</b>AI 怎么“看”：ImageNet 的故事续篇</span></li>
+      <li style="font-size:30px"><span><b class="serif blue" style="display:inline-block;width:200px">第 7–8 周</b>AI 怎么“读”：从下一个词到 Transformer</span></li>
+    </ul></div>
+    <div><ul class="pts single">
+      <li style="font-size:30px"><span><b class="serif blue" style="display:inline-block;width:200px">第 9 周</b>借用别人训练好的模型</span></li>
+      <li style="font-size:30px"><span><b class="serif blue" style="display:inline-block;width:200px">第 10–11 周</b>大模型原理，以及怎么用好它</span></li>
+      <li style="font-size:30px"><span><b class="serif blue" style="display:inline-block;width:200px">第 12 周</b>会干活的智能体</span></li>
+      <li style="font-size:30px"><span><b class="serif" style="display:inline-block;width:200px;color:var(--rust)">第 13–14 周</b>幻觉、偏见、隐私：安全与伦理</span></li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- L2-23 小结 + 实践课准备 -->
+<section data-part="小结">
+  <h2 class="title">今天的三个结论，和实践课前的准备</h2>
+  <div class="body grid" style="grid-template-columns:1.25fr 1fr;gap:90px">
+    <ul class="pts single">
+      <li class="fragment rise" style="font-size:32px"><span>AI 的主线，是从<b class="blue">人写规则</b>走向<b class="blue">从数据中学习</b>。</span></li>
+      <li class="fragment rise" style="font-size:32px"><span>最近的突破，来自<b class="blue">数据、算法、算力</b>三者同时到位。</span></li>
+      <li class="fragment rise" style="font-size:32px"><span>AI 起起落落：看到进步，也要<em>冷静</em>，用它的结果要<em>核验</em>。</span></li>
+    </ul>
+    <div class="card teal" style="background:var(--teal-2)">
+      <h3>实践课前请准备</h3>
+      <ul class="pts single" style="margin-top:6px">
+        <li style="font-size:26px;padding:14px 0"><span>带上笔记本电脑和充电器</span></li>
+        <li style="font-size:26px;padding:14px 0"><span>预留至少 5 GB 磁盘空间</span></li>
+        <li style="font-size:26px;padding:14px 0"><span>确认能打开 python.org 和 code.visualstudio.com</span></li>
+        <li style="font-size:26px;padding:14px 0"><span>已有 Python 或 VS Code 的同学，不必卸载</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 备用页 B-1 -->
+<section data-part="备用页|中国与复旦的 AI 足迹" data-src="网络素材，课堂教学引用">
+  <h2 class="title">备用页：复旦的计算机与 AI 足迹</h2>
+  <div class="body grid g3" style="gap:36px">
+    <div class="card"><div class="pic" style="height:320px"><img src="../assets/img/placeholder/s62_2.svg" alt="复旦 602 计算机" style="filter:grayscale(1)"></div><b class="serif" style="font-size:40px;color:var(--blue)">1964</b><p>复旦 602 数字电子计算机试制成功；1975 年成立计算机科学系</p></div>
+    <div class="card"><div class="pic" style="height:320px"><img src="../assets/img/placeholder/s65_1.svg" alt="吴立德先生" style="object-position:50% 20%"></div><b class="serif" style="font-size:40px;color:var(--blue)">1970s 起</b><p>吴立德先生在复旦开创计算机视觉和自然语言处理研究</p></div>
+    <div class="card"><div class="pic" style="height:320px"><img src="../assets/img/placeholder/s66_2.svg" alt="复旦智能计算平台机房"></div><b class="serif" style="font-size:40px;color:var(--blue)">今天</b><p>CFFF 智能计算平台，为科研提供大规模算力</p></div>
+  </div>
+</section>
+
+</div>
+</div>
+<script src="../assets/vendor/reveal/reveal.js"></script>
+<script src="../assets/vendor/reveal/plugin/notes/notes.js"></script>
+<script src="../src/deck.js"></script>
+<script src="../src/components/quiz.js"></script>
+<script src="../src/components/timeline.js"></script>
+<script src="../src/components/sliders.js"></script>
+<script src="../src/components/trust.js"></script>
+</body>
+</html>

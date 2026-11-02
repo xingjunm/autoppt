@@ -1,0 +1,38 @@
+/* 风格 B「黑底舞台」：深色 · 巨型年份 · 满版图片
+   封面、章节页、大字页是深色“舞台”；内容页用冷灰底 + 无衬线粗标题，保证表格、卡片、代码清晰可读。 */
+:root{
+  --paper:#F3F4F6; --paper-2:#E8EAEE; --paper-3:#DADDE3;
+  --ink:#121317; --ink-2:#3E434F; --ink-3:#737987; --rule:#CDD1D9;
+  --blue:#1E3A8A; --blue-2:#E0E6F5;
+  --rust:#E08A1E; --rust-2:#FBEBD5;            /* 强调色：琥珀橙 */
+  --stage:#0C0D12; --stage-2:#161821; --glow:#F2A93B;
+  --serif:"W1 Sans","Noto Sans CJK SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+}
+.title{font-weight:700;letter-spacing:-.01em}
+.chrome-top .part{color:var(--rust)}
+/* 深色舞台：封面、章节页、大字页 */
+.reveal .slides section.m-cover,.reveal .slides section.m-section,.reveal .slides section.m-statement{background:var(--stage);color:#fff}
+.m-cover::after{content:"";position:absolute;left:820px;bottom:120px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(242,169,59,.9) 0,rgba(242,169,59,.25) 35%,rgba(242,169,59,0) 70%);pointer-events:none}
+.m-cover .cv-k{color:var(--glow);border-top-color:var(--glow)}
+.m-cover h1{color:#fff}
+.m-cover .cv-sub,.m-cover .cv-who{color:rgba(255,255,255,.7)}
+.m-cover .cv-who b{color:#fff}
+.m-cover .strip-item{border-top-color:rgba(255,255,255,.18)}
+.m-cover .strip-item .img{background:var(--stage-2);outline:1px solid rgba(255,255,255,.12)}
+.m-cover .strip-item .t{color:rgba(255,255,255,.65)}
+.m-cover .strip-item .t b{color:#fff}
+.m-section h2{color:#fff}
+.m-section .sec-k{color:var(--glow)}
+.m-section .sec-q{color:rgba(255,255,255,.75);border-top-color:rgba(255,255,255,.4)}
+.m-section .sec-art::after{background:linear-gradient(90deg,var(--stage) 0,rgba(12,13,18,0) 45%)}
+.m-section .sec-art svg{filter:invert(.92) hue-rotate(180deg)}
+.m-statement .st .big{color:#fff}
+.m-statement .st .big.num{color:var(--glow)}
+.m-statement .st .cap{color:rgba(255,255,255,.72)}
+.m-statement .chrome-top,.m-statement .chrome-foot{color:rgba(255,255,255,.55);border-color:rgba(255,255,255,.2)}
+.m-statement .chrome-top .part{color:var(--glow)}
+.m-statement .chrome-foot .pg{color:rgba(255,255,255,.75)}
+.m-cover .chrome-foot .pg,.m-section .chrome-foot .pg{color:rgba(255,255,255,.6)}
+.m-statement .box5{background:var(--stage-2);color:#fff;border-top-color:var(--glow)}
+.m-statement .box5 h3{color:#fff}
+.m-statement .box5 p{color:rgba(255,255,255,.75)}

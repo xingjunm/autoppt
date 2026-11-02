@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <title>AutoPPT · AI备课神器</title>
+  <rect width="160" height="160" rx="32" fill="#F5F2EA"/>
+  <!-- 三张叠放的幻灯片：理论一、理论二、实践课 -->
+  <rect x="44" y="30" width="86" height="56" rx="7" fill="#12806F"/>
+  <rect x="34" y="47" width="86" height="56" rx="7" fill="#B4471F"/>
+  <rect x="22" y="64" width="92" height="62" rx="7" fill="#0B3D91"/>
+  <!-- 前面那张：一条互动滑块 -->
+  <rect x="36" y="82" width="40" height="7" rx="3.5" fill="#F5F2EA"/>
+  <path d="M36 106h62" stroke="#F5F2EA" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+  <path d="M36 106h34" stroke="#F5F2EA" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="70" cy="106" r="8" fill="#F5F2EA"/>
+  <circle cx="70" cy="106" r="3.5" fill="#0B3D91"/>
+  <!-- 右上角：AI 的火花（“说一句话”就生成） -->
+  <path d="M128 14 C130 26 134 30 146 32 C134 34 130 38 128 50 C126 38 122 34 110 32 C122 30 126 26 128 14Z" fill="#E8A33D"/>
+  <path d="M146 52 C147 57 149 59 154 60 C149 61 147 63 146 68 C145 63 143 61 138 60 C143 59 145 57 146 52Z" fill="#E8A33D"/>
+</svg>

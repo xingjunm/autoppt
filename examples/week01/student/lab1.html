@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学生版 · 实践 · 装好工具，让 AI 成为编程助手｜人工智能基础 第1周</title>
+<link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+<link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+<link rel="stylesheet" href="../src/styles/tokens.css">
+<link rel="stylesheet" href="../src/styles/masters.css">
+<link rel="stylesheet" href="../src/styles/components.css">
+<link rel="stylesheet" href="../src/styles/ui-mock.css">
+</head>
+<body>
+<div class="reveal" data-course="人工智能基础　第 1 周　实践课">
+<div class="slides">
+
+<!-- P-01 封面 -->
+<section class="m-cover">
+  <div class="cv-l" style="width:900px">
+    <div class="cv-k">人工智能基础　第 1 周　实践课</div>
+    <h1 style="font-size:132px">让电脑跑起<br>第一段代码</h1>
+    <div class="cv-sub">装好 Python 和 VS Code，<br>再让 AI 成为你的编程助手</div>
+  </div>
+  <div style="position:absolute;right:110px;top:190px;width:760px">
+    <div class="mock" style="transform:rotate(-1.5deg)">
+      <div class="tbar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">hello_ai.ipynb — week01</span></div>
+      <div class="vsc" style="grid-template-columns:44px 1fr;height:470px">
+        <div class="ab"><i class="on"></i><i></i><i></i><i></i></div>
+        <div class="ed" style="position:relative">
+          <div class="tabs"><span>hello_ai.ipynb</span></div>
+          <div class="nbbar"><span>+ 代码</span><span>+ Markdown</span><span>▷ 全部运行</span><span class="kernel">Python 3</span></div>
+          <div class="cell"><span class="run">▶</span><span class="hljs-built_in">print</span>(<span class="hljs-string">"你好，小明！"</span>)
+total = <span class="hljs-built_in">sum</span>(daily_hours)</div>
+          <div class="out">你好，小明！
+本周总学习时间： 20 小时</div>
+          <div class="cell" style="margin-top:10px"><span class="run">▶</span><span class="hljs-comment"># 让 AI 解释这段代码</span></div>
+        </div>
+      </div>
+      <span class="mk-badge">界面示意</span>
+    </div>
+  </div>
+  <div class="cv-who"><span><b>马兴军</b>　复旦大学</span><span>请打开你的笔记本电脑</span></div>
+</section>
+
+<!-- P-02 四个验收 -->
+<section data-part="今天的目标">
+  <h2 class="title">今天下课前，完成这四件事</h2>
+  <div class="body grid" style="grid-template-columns:1fr 560px;gap:90px">
+    <div class="checks" data-comp="checklist" data-key="lab">
+      <label><input type="checkbox"><span>① 在终端里查到 Python 的版本号</span></label>
+      <label><input type="checkbox"><span>② 打开 VS Code，装好 Python 和 Jupyter 扩展</span></label>
+      <label><input type="checkbox"><span>③ 在 Notebook 里运行第一段代码，结果正确</span></label>
+      <label><input type="checkbox"><span>④ 让 AI 解释代码、找出错误、修改代码</span></label>
+    </div>
+    <div class="card teal" style="background:var(--teal-2)">
+      <h3>遇到问题怎么办？</h3>
+      <ul class="pts single">
+        <li style="font-size:26px;padding:14px 0"><span>先看屏幕上的提示和报错</span></li>
+        <li style="font-size:26px;padding:14px 0"><span>问左右的同学</span></li>
+        <li style="font-size:26px;padding:14px 0"><span>举手请助教</span></li>
+        <li style="font-size:26px;padding:14px 0"><span>课后看《学生安装指南》补装</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- P-03 三个工具 -->
+<section data-part="认识工具">
+  <h2 class="title">三个工具，各管一件事</h2>
+  <div class="body grid g3" style="gap:40px;bottom:230px">
+    <div class="card blue"><div class="pic" style="height:200px;background:#E9EEF6;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 120 120" width="120" height="120"><rect x="10" y="20" width="100" height="80" rx="8" fill="#1C1D21"/><path d="M28 48l16 12-16 12" stroke="#9FD3C3" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M52 76h30" stroke="#9FD3C3" stroke-width="7" stroke-linecap="round"/></svg></div><h3>Python 解释器</h3><p>真正<b>执行</b>代码的程序。你写的每一行，都由它读懂并让电脑去做。</p></div>
+    <div class="card blue"><div class="pic" style="height:200px;background:#E9EEF6;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 120 120" width="120" height="120"><rect x="10" y="16" width="100" height="88" rx="8" fill="#fff" stroke="#0B3D91" stroke-width="5"/><path d="M10 34h100" stroke="#0B3D91" stroke-width="5"/><g stroke="#0B3D91" stroke-width="5" stroke-linecap="round"><path d="M26 52h40M34 66h50M34 80h30M26 94h24"/></g></svg></div><h3>VS Code</h3><p><b>写</b>代码的地方，像写文章用的 Word。装上扩展后功能更多。</p></div>
+    <div class="card blue"><div class="pic" style="height:200px;background:#E9EEF6;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 120 120" width="120" height="120"><rect x="16" y="12" width="88" height="96" rx="6" fill="#fff" stroke="#B4471F" stroke-width="5"/><rect x="28" y="26" width="64" height="18" rx="3" fill="#F3E1D7"/><path d="M28 54h50" stroke="#B4471F" stroke-width="4"/><rect x="28" y="66" width="64" height="18" rx="3" fill="#F3E1D7"/><path d="M28 94h36" stroke="#B4471F" stroke-width="4"/></svg></div><h3>Jupyter Notebook</h3><p>像<b>实验记录本</b>：代码一格一格运行，结果紧跟在下面。文件后缀 .ipynb。</p></div>
+  </div>
+  <div class="flow fragment rise" style="position:absolute;left:120px;right:120px;bottom:110px;justify-content:center;border-top:2px solid var(--ink);padding-top:26px">
+    <div class="bx">你在 VS Code 里打开 .ipynb</div><span class="ar">→</span><div class="bx blue">Jupyter 扩展</div><span class="ar">→</span><div class="bx fill">Python 解释器运行</div><span class="ar">→</span><div class="bx teal">结果显示在格子下面</div>
+  </div>
+</section>
+
+<!-- P-04 选系统、打开终端 -->
+<section data-part="安装 Python|第 1 步">
+  <h2 class="title">先选你的系统，再学会打开“终端”</h2>
+  <div style="position:absolute;right:120px;top:166px;z-index:6" class="osbar" data-comp="os"><button data-os="win">Windows</button><button data-os="mac">macOS</button></div>
+  <div class="body grid" style="grid-template-columns:1fr 860px;gap:80px">
+    <div>
+      <p class="lead">终端是一个用<b>打字</b>给电脑下命令的窗口。今天只用它做两件事：查版本、装一个小组件。</p>
+      <ol class="steps-list win-only" style="margin-top:36px">
+        <li><span>按 <span class="kbd">Win</span> 键，搜索 <b>PowerShell</b> 或“终端”</span></li>
+        <li><span>回车打开，看到闪烁的光标就对了</span></li>
+      </ol>
+      <ol class="steps-list mac-only" style="margin-top:36px">
+        <li><span>按 <span class="kbd">⌘ Command</span> + <span class="kbd">空格</span>，搜索<b>“终端”</b>（Terminal）</span></li>
+        <li><span>回车打开，看到闪烁的光标就对了</span></li>
+      </ol>
+    </div>
+    <div>
+      <div class="mock term-win win-only"><div class="tbar win"><span class="ttl">Windows PowerShell</span><span class="wbtn">—　□　✕</span></div><div class="mk-term"><span class="p">PS C:\Users\xiaoming&gt;</span> <span class="c">█</span></div><span class="mk-badge">界面示意</span></div>
+      <div class="mock term-mac mac-only"><div class="tbar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">xiaoming — zsh</span></div><div class="mk-term"><span class="p">xiaoming@MacBook ~ %</span> <span class="c">█</span></div><span class="mk-badge">界面示意</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- P-05 下载 Python -->
+<section data-part="安装 Python|第 2 步">
+  <h2 class="title">从官网下载 Python：认准 python.org</h2>
+  <div style="position:absolute;right:120px;top:166px;z-index:6" class="osbar" data-comp="os"><button data-os="win">Windows</button><button data-os="mac">macOS</button></div>
+  <div class="body grid" style="grid-template-columns:900px 1fr;gap:80px">
+    <div class="mock">
+      <div class="tbar"><span class="dots"><i></i><i></i><i></i></span><span class="mk-url">https://www.python.org/downloads/</span></div>
+      <div class="py-hero" style="min-height:400px">
+        <h4>Download the latest version for <span class="win-only">Windows</span><span class="mac-only">macOS</span></h4>
+        <span class="py-btn hot">Download Python 3.x.x</span>
+        <p style="margin-top:40px;font-size:18px;opacity:.85">Looking for Python with a different OS? …</p>
+      </div>
+      <span class="mk-badge">界面示意</span>
+    </div>
+    <div>
+      <ol class="steps-list">
+        <li><span>浏览器打开 <span class="inl">python.org/downloads</span></span></li>
+        <li><span>点黄色的 <b>Download Python 3.x.x</b><small>网站会自动识别你的系统；版本号以官网当时推荐的为准</small></span></li>
+        <li class="win-only"><span>得到一个 <span class="inl">.exe</span> 安装包</span></li>
+        <li class="mac-only"><span>得到一个 <span class="inl">.pkg</span> 安装包</span></li>
+      </ol>
+      <p class="note" style="margin-top:24px">不要从不明网站或“下载站”下载。</p>
+    </div>
+  </div>
+</section>
+
+<!-- P-06 安装关键一步 -->
+<section data-part="安装 Python|第 3 步">
+  <h2 class="title">安装时的关键一步</h2>
+  <div style="position:absolute;right:120px;top:166px;z-index:6" class="osbar" data-comp="os"><button data-os="win">Windows</button><button data-os="mac">macOS</button></div>
+  <div class="body grid win-only" style="grid-template-columns:900px 1fr;gap:80px">
+    <div class="mock">
+      <div class="tbar win"><span class="ttl">Python 3.x.x (64-bit) Setup</span><span class="wbtn">—　✕</span></div>
+      <div class="wininst">
+        <div class="side"><b></b></div>
+        <div class="main">
+          <h5>Install Python 3.x.x (64-bit)</h5>
+          <p>Select Install Now to install Python with default settings…</p>
+          <div class="opt"><b>→ Install Now</b>C:\Users\xiaoming\AppData\Local\Programs\Python…</div>
+          <div class="opt" style="border-style:dashed;color:#666">→ Customize installation</div>
+          <div class="cb"><i>✓</i> Use admin privileges when installing py.exe</div>
+          <div class="cb hot" style="padding:6px 8px;margin-left:-8px"><i style="border-color:var(--rust);color:var(--rust)">✓</i> <b>Add python.exe to PATH</b></div>
+        </div>
+      </div>
+      <span class="mk-badge">界面示意</span>
+    </div>
+    <div>
+      <p class="serif" style="font-size:44px;font-weight:900;color:var(--rust);line-height:1.3">先勾选<br>“Add python.exe to PATH”</p>
+      <p class="lead" style="margin-top:20px">再点 <b>Install Now</b>，等进度条走完。</p>
+      <p style="font-size:26px;color:var(--ink-2);margin-top:30px;line-height:1.6">不勾也能装上，但终端里可能找不到 <span class="inl">python</span> 命令。忘了勾？重新运行安装包，选 <b>Modify</b> 或卸载重装。</p>
+      <p class="note" style="margin-top:20px">不同版本安装器界面可能略有不同，以实际为准。</p>
+    </div>
+  </div>
+  <div class="body grid mac-only" style="grid-template-columns:900px 1fr;gap:80px">
+    <div class="mock">
+      <div class="tbar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">安装 Python</span></div>
+      <div class="macinst">
+        <div class="steps"><span>介绍</span><span>请先阅读</span><span>许可</span><span>目的宗卷</span><span>安装类型</span><span>安装</span><span class="on">摘要</span></div>
+        <div class="main"><p style="font-size:24px;font-weight:600">安装成功。</p><p style="margin-top:14px;color:#555">软件已安装。</p><div style="margin-top:180px;text-align:right"><span class="macbtn">关闭</span></div></div>
+      </div>
+      <span class="mk-badge">界面示意</span>
+    </div>
+    <div>
+      <ol class="steps-list">
+        <li><span>双击 <span class="inl">.pkg</span>，一路点“继续”“同意”“安装”</span></li>
+        <li><span>输入电脑开机密码授权</span></li>
+        <li><span>看到“安装成功”即可关闭<small>安装后弹出的 Finder 窗口可以关掉</small></span></li>
+      </ol>
+      <p style="font-size:26px;color:var(--ink-2);margin-top:26px;line-height:1.6">Mac 上的命令是 <span class="inl">python3</span>，不是 <span class="inl">python</span>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- P-07 检查版本 -->
+<section data-part="安装 Python|第 4 步">
+  <h2 class="title">检查一下：终端里能看到版本号，就装好了</h2>
+  <div style="position:absolute;right:120px;top:166px;z-index:6" class="osbar" data-comp="os"><button data-os="win">Windows</button><button data-os="mac">macOS</button></div>
+  <div class="body grid" style="grid-template-columns:1fr 1fr;gap:80px">
+    <div>
+      <p class="lead">关掉之前的终端，<b>重新打开一个</b>，输入：</p>
+      <div class="code copyable win-only" data-text="py -3 --version" style="margin-top:24px;font-size:34px">py -3 --version</div>
+      <p class="win-only" style="font-size:26px;color:var(--ink-2);margin-top:16px">如果提示找不到 <span class="inl">py</span>，试试：</p>
+      <div class="code copyable win-only" data-text="python --version" style="margin-top:12px;font-size:34px">python --version</div>
+      <div class="code copyable mac-only" data-text="python3 --version" style="margin-top:24px;font-size:34px">python3 --version</div>
+    </div>
+    <div>
+      <div class="mock term-win win-only"><div class="tbar win"><span class="ttl">Windows PowerShell</span><span class="wbtn">—　□　✕</span></div><div class="mk-term"><span class="p">PS C:\Users\xiaoming&gt;</span> <span class="c">py -3 --version</span>
+<span class="o">Python 3.x.x</span>
+<span class="p">PS C:\Users\xiaoming&gt;</span> </div><span class="mk-badge">界面示意</span></div>
+      <div class="mock term-mac mac-only"><div class="tbar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">xiaoming — zsh</span></div><div class="mk-term"><span class="p">xiaoming@MacBook ~ %</span> <span class="c">python3 --version</span>
+<span class="o">Python 3.x.x</span>
+<span class="p">xiaoming@MacBook ~ %</span> </div><span class="mk-badge">界面示意</span></div>
+      <p style="font-size:28px;margin-top:26px">✅ 看到 <b>Python 3.</b> 开头的版本号 = 成功</p>
+    </div>
+  </div>
+</section>
+
+<!-- P-08 VS Code -->
+<section data-part="安装 VS Code|第 5 步">
+  <h2 class="title">下载安装 VS Code：认准微软官网</h2>
+  <div style="position:absolute;right:120px;top:166px;z-index:6" class="osbar" data-comp="os"><button data-os="win">Windows</button><button data-os="mac">macOS</button></div>
+  <div class="body grid" style="grid-template-columns:900px 1fr;gap:80px">
+    <div class="mock">
+      <div class="tbar"><span class="dots"><i></i><i></i><i></i></span><span class="mk-url">https://code.visualstudio.com/</span></div>
+      <div class="vsc-hero" style="min-height:400px">
+        <p style="font-size:34px;font-weight:600;margin:20px 0 10px">Visual Studio Code</p>
+        <p style="font-size:20px;color:#555;margin-bottom:30px">Free. Built on open source. Runs everywhere.</p>
+        <span class="vsc-btn hot">Download for <span class="win-only">Windows</span><span class="mac-only">macOS</span></span>
+      </div>
+      <span class="mk-badge">界面示意</span>
+    </div>
+    <div>
+      <ol class="steps-list win-only">
+        <li><span>运行下载的安装程序，同意协议</span></li>
+        <li><span>建议勾选“添加到 PATH”和“通过 Code 打开”</span></li>
+        <li><span>安装完成，打开 VS Code</span></li>
+      </ol>
+      <ol class="steps-list mac-only">
+        <li><span>下载得到 <span class="inl">.zip</span>，双击解压</span></li>
+        <li><span>把 <b>Visual Studio Code</b> 拖进“应用程序”文件夹</span></li>
+        <li><span>从“应用程序”里打开；首次打开点“打开”确认</span></li>
+      </ol>
+      <p class="note" style="margin-top:24px">界面语言默认英文；可在扩展中装“中文语言包”，本课截图按英文界面讲解。</p>
+    </div>
+  </div>
+</section>
+
+<!-- P-09 扩展 -->
+<section data-part="安装 VS Code|第 6 步">
+  <h2 class="title">装两个扩展：Python 和 Jupyter</h2>
+  <div class="body grid" style="grid-template-columns:1000px 1fr;gap:70px">
+    <div class="mock">
+      <div class="tbar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">Extensions — Visual Studio Code</span></div>
+      <div class="vsc">
+        <div class="ab"><i></i><i></i><i></i><i class="on hot" style="outline-offset:2px"></i></div>
+        <div class="sb">
+          <div class="h">EXTENSIONS: MARKETPLACE</div>
+          <div class="search">python</div>
+          <div class="ext hot" style="outline-offset:0"><span class="lg" style="background:linear-gradient(135deg,#4A4F5C 50%,#C8C3B6 50%)"></span><div><b>Python</b><small class="pub">Microsoft ✓</small><small>Python language support…</small><span class="ib">Install</span></div></div>
+          <div class="ext"><span class="lg" style="background:#E8E8E8"></span><div><b>Python Debugger</b><small class="pub">Microsoft ✓</small><small>随 Python 扩展自动安装</small></div></div>
+          <div class="ext"><span class="lg" style="background:#E8E8E8"></span><div><b>Pylance</b><small class="pub">Microsoft ✓</small><small>随 Python 扩展自动安装</small></div></div>
+        </div>
+        <div class="ed"><div class="tabs"><span>Extension: Python</span></div><div style="padding:30px;display:flex;gap:20px"><span style="width:110px;height:110px;flex:none;background:linear-gradient(135deg,#4A4F5C 50%,#C8C3B6 50%);border-radius:8px"></span><div><p style="font-size:28px;font-weight:600">Python</p><p style="color:#0066B8;font-weight:600;margin:6px 0">Microsoft ✓ microsoft.com</p><span class="ib" style="background:#0078D4;color:#fff;padding:6px 14px;font-size:17px">Install</span></div></div></div>
+      </div>
+      <span class="mk-badge">界面示意</span>
+    </div>
+    <div>
+      <ol class="steps-list">
+        <li><span>点左侧边栏的“扩展”图标<small>四个小方块的图标，或按 <span class="kbd">Ctrl/⌘</span>+<span class="kbd">Shift</span>+<span class="kbd">X</span></small></span></li>
+        <li><span>搜索 <b>Python</b>，确认发布者是 <b>Microsoft</b>，点 Install</span></li>
+        <li><span>再搜索 <b>Jupyter</b>，同样认准 Microsoft，点 Install</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- P-10 新建 Notebook -->
+<section data-part="第一个 Notebook|第 7 步">
+  <h2 class="title">新建第一个 Notebook，并选择 Python 内核</h2>
+  <div class="body grid" style="grid-template-columns:1fr 1000px;gap:70px">
+    <ol class="steps-list">
+      <li><span>在桌面或文档里新建文件夹 <span class="inl">week01</span></span></li>
+      <li><span>VS Code：<b>File → Open Folder</b>，打开它</span></li>
+      <li><span>新建文件 <span class="inl">hello_ai.ipynb</span></span></li>
+      <li><span>点右上角 <b>Select Kernel</b><small>选 Python Environments → 刚装的 Python 3.x</small></span></li>
+    </ol>
+    <div class="mock">
+      <div class="tbar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">hello_ai.ipynb — week01</span></div>
+      <div class="vsc" style="grid-template-columns:54px 260px 1fr">
+        <div class="ab"><i class="on"></i><i></i><i></i><i></i></div>
+        <div class="sb"><div class="h">EXPLORER</div><div style="font-weight:600;margin-bottom:8px">∨ WEEK01</div><div style="padding-left:18px;background:#E4E6F1">📓 hello_ai.ipynb</div></div>
+        <div class="ed" style="position:relative">
+          <div class="tabs"><span>hello_ai.ipynb</span></div>
+          <div class="nbbar"><span>+ Code</span><span>+ Markdown</span><span>▷ Run All</span><span class="kernel hot">Select Kernel</span></div>
+          <div class="qp"><div style="color:#666">Select Kernel</div><div class="sel">Python Environments…</div><div>Existing Jupyter Server…</div></div>
+          <div class="qp" style="top:170px;transform:translateX(-20%)"><div style="color:#666">Select a Python Environment</div><div class="sel">★ Python 3.x.x　<span style="color:#777">（刚安装的）</span></div><div>其他环境…</div></div>
+          <div class="cell" style="margin-top:300px"><span class="run">▶</span>&nbsp;</div>
+        </div>
+      </div>
+      <span class="mk-badge">界面示意</span>
+    </div>
+  </div>
+</section>
+
+<!-- P-11 ipykernel -->
+<section data-part="第一个 Notebook|如果遇到提示">
+  <h2 class="title">提示缺 ipykernel？点 Install 或用一行命令</h2>
+  <div style="position:absolute;right:120px;top:166px;z-index:6" class="osbar" data-comp="os"><button data-os="win">Windows</button><button data-os="mac">macOS</button></div>
+  <div class="body grid" style="grid-template-columns:1fr 1fr;gap:80px">
+    <div>
+      <div style="background:#fff;border:1px solid #BDB6A6;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:22px 26px;font-size:24px;line-height:1.5;position:relative">ⓘ Running cells with 'Python 3.x.x' requires the ipykernel package.<div style="margin-top:16px;display:flex;gap:12px"><span class="hot" style="background:#0078D4;color:#fff;padding:6px 16px;font-size:20px">Install</span><span style="border:1px solid #CCC;padding:6px 16px;font-size:20px">Cancel</span></div><span class="mk-badge" style="position:absolute">界面示意</span></div>
+      <p class="lead" style="margin-top:36px">首选：直接点弹窗里的 <b>Install</b>，等它装完。</p>
+      <p style="font-size:26px;color:var(--ink-2);margin-top:14px">没有弹窗、但运行失败时，再用右边的命令。</p>
+    </div>
+    <div>
+      <p style="font-size:28px">在终端里输入：</p>
+      <div class="code copyable win-only" data-text="py -3 -m pip install ipykernel" style="margin-top:16px;font-size:30px">py -3 -m pip install ipykernel</div>
+      <div class="code copyable mac-only" data-text="python3 -m pip install ipykernel" style="margin-top:16px;font-size:30px">python3 -m pip install ipykernel</div>
+      <p style="font-size:26px;color:var(--ink-2);margin-top:22px;line-height:1.6">装完回到 VS Code，重新选择一次内核。<br>没有提示的同学，<b>跳过这一页</b>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- P-12 检查点 -->
+<section class="m-statement" data-part="检查点">
+  <div class="st">
+    <div class="k" style="font-size:28px">检查点</div>
+    <div class="big" style="margin-top:20px">装好了吗？</div>
+    <div class="grid g3" style="margin-top:60px;gap:40px">
+      <div style="border-top:4px solid var(--teal);padding-top:18px"><b class="serif" style="font-size:40px;color:var(--teal)">都装好了</b><p style="font-size:28px;margin-top:10px;color:var(--ink-2)">请帮帮旁边的同学</p></div>
+      <div style="border-top:4px solid var(--blue);padding-top:18px"><b class="serif" style="font-size:40px;color:var(--blue)">还差一点</b><p style="font-size:28px;margin-top:10px;color:var(--ink-2)">举手，助教马上过来</p></div>
+      <div style="border-top:4px solid var(--rust);padding-top:18px"><b class="serif" style="font-size:40px;color:var(--rust)">装不上</b><p style="font-size:28px;margin-top:10px;color:var(--ink-2)">先跟着屏幕看，课后按《学生安装指南》补装</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- P-13 第一段代码 -->
+<section data-part="第一段代码|第 8 步">
+  <h2 class="title">把这段代码复制进第一个格子，点 ▶ 运行</h2>
+  <div class="body grid" style="grid-template-columns:1050px 1fr;gap:70px">
+    <div class="code lines copyable" data-lang="py" data-text="# 我的第一个 Python 程序
+name = &quot;小明&quot;
+daily_hours = [2, 3, 1, 4, 2, 3, 5]
+total = sum(daily_hours)
+average = total / len(daily_hours)
+
+print(&quot;你好，&quot; + name + &quot;！&quot;)
+print(&quot;本周总学习时间：&quot;, total, &quot;小时&quot;)
+print(&quot;平均每天学习：&quot;, round(average, 1), &quot;小时&quot;)
+
+if average &gt;= 3:
+    print(&quot;学习时间比较充足！&quot;)
+else:
+    print(&quot;可以尝试合理安排更多学习时间。&quot;)" style="font-size:26px;line-height:1.6;align-self:start"><span class="ln"># 我的第一个 Python 程序</span><span class="ln">name = &quot;小明&quot;</span><span class="ln">daily_hours = [2, 3, 1, 4, 2, 3, 5]</span><span class="ln">total = sum(daily_hours)</span><span class="ln">average = total / len(daily_hours)</span><span class="ln"></span><span class="ln">print(&quot;你好，&quot; + name + &quot;！&quot;)</span><span class="ln">print(&quot;本周总学习时间：&quot;, total, &quot;小时&quot;)</span><span class="ln">print(&quot;平均每天学习：&quot;, round(average, 1), &quot;小时&quot;)</span><span class="ln"></span><span class="ln">if average &gt;= 3:</span><span class="ln">    print(&quot;学习时间比较充足！&quot;)</span><span class="ln">else:</span><span class="ln">    print(&quot;可以尝试合理安排更多学习时间。&quot;)</span></div>
+    <div>
+      <ol class="steps-list">
+        <li style="font-size:26px;padding:10px 0"><span>点代码框右上角的<b>复制</b></span></li>
+        <li><span>粘贴到 Notebook 的第一个格子</span></li>
+        <li><span>点格子左边的 <b style="color:#2B8A3E">▶</b>，或按 <span class="kbd">Shift</span>+<span class="kbd">Enter</span></span></li>
+        <li><span>结果出现在格子下面</span></li>
+      </ol>
+      <div class="term" style="margin-top:24px;font-size:24px">你好，小明！
+本周总学习时间： 20 小时
+平均每天学习： 2.9 小时
+可以尝试合理安排更多学习时间。</div>
+    </div>
+  </div>
+</section>
+
+<!-- P-14 逐行读懂 -->
+<section class="m-interact" data-part="第一段代码|读懂它">
+  <h2 class="title">一行一行读懂它：先理解意思，语法以后慢慢来</h2>
+  <div class="stage" data-comp="lines" style="width:1680px;display:grid;grid-template-columns:1000px 1fr;gap:60px">
+    <div class="code lines" data-lang="py" data-text="# 我的第一个 Python 程序
+name = &quot;小明&quot;
+daily_hours = [2, 3, 1, 4, 2, 3, 5]
+total = sum(daily_hours)
+average = total / len(daily_hours)
+
+print(&quot;你好，&quot; + name + &quot;！&quot;)
+print(&quot;本周总学习时间：&quot;, total, &quot;小时&quot;)
+print(&quot;平均每天学习：&quot;, round(average, 1), &quot;小时&quot;)
+
+if average &gt;= 3:
+    print(&quot;学习时间比较充足！&quot;)
+else:
+    print(&quot;可以尝试合理安排更多学习时间。&quot;)" style="font-size:26px;line-height:1.6;align-self:start"><span class="ln" data-term="#" data-explain="注释：井号后面的文字是写给人看的说明，电脑运行时会跳过。"># 我的第一个 Python 程序</span><span class="ln" data-term="变量" data-explain="把文字“小明”存进一个叫 name 的“盒子”里。引号里的内容是文字，叫字符串。这里的 = 是“存进去”，不是数学的相等。">name = &quot;小明&quot;</span><span class="ln" data-term="列表 [ ]" data-explain="方括号里装着一串数据：一周七天，每天学习了几个小时。">daily_hours = [2, 3, 1, 4, 2, 3, 5]</span><span class="ln" data-term="sum()" data-explain="求和：把列表里的数全部加起来，结果 20 存进 total。">total = sum(daily_hours)</span><span class="ln" data-term="len()" data-explain="len 数一数列表里有几个数（7 个）；总时间除以天数，就是平均每天的学习时间。">average = total / len(daily_hours)</span><span class="ln"></span><span class="ln" data-term="print()" data-explain="把内容显示在屏幕上。+ 号把几段文字拼在一起。" data-group="p">print(&quot;你好，&quot; + name + &quot;！&quot;)</span><span class="ln" data-term="print( , )" data-explain="用逗号隔开几项，print 会依次显示，中间自动加空格。" data-group="p2">print(&quot;本周总学习时间：&quot;, total, &quot;小时&quot;)</span><span class="ln" data-term="round()" data-explain="round(average, 1)：把平均值四舍五入，保留 1 位小数。" data-group="p2">print(&quot;平均每天学习：&quot;, round(average, 1), &quot;小时&quot;)</span><span class="ln"></span><span class="ln" data-term="if" data-explain="条件判断：如果平均值大于或等于 3……注意行尾的冒号。" data-group="if">if average &gt;= 3:</span><span class="ln" data-term="缩进" data-explain="前面空 4 格叫“缩进”，表示这一行属于上面的 if：条件成立才执行。" data-group="if">    print(&quot;学习时间比较充足！&quot;)</span><span class="ln" data-term="else" data-explain="否则——上面的条件不成立时，执行下面缩进的这一行。" data-group="if">else:</span><span class="ln">    print(&quot;可以尝试合理安排更多学习时间。&quot;)</span></div>
+    <div style="display:flex;flex-direction:column">
+      <div class="explain"></div>
+      <div class="btns" style="margin-top:auto"><button class="btn" data-act="prev" type="button">← 上一行</button><button class="btn primary" data-act="next" type="button">下一行 →</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- P-15 对结果 -->
+<section data-part="第一段代码|自查">
+  <h2 class="title">对一下：你的输出和这里一样吗？</h2>
+  <div class="body grid" style="grid-template-columns:1000px 1fr;gap:80px">
+    <div>
+      <div class="term" style="font-size:32px;line-height:1.7;padding:30px 36px">你好，小明！
+本周总学习时间： 20 小时
+平均每天学习： 2.9 小时
+可以尝试合理安排更多学习时间。</div>
+      <p class="note" style="margin-top:14px">正确输出（逗号后的空格是 print 自动加的）</p>
+    </div>
+    <ul class="pts single">
+      <li style="font-size:30px"><span><b class="serif blue">20</b>：2+3+1+4+2+3+5，心算对得上</span></li>
+      <li style="font-size:30px"><span><b class="serif blue">2.9</b>：20 ÷ 7 ≈ 2.857，保留一位小数</span></li>
+      <li style="font-size:30px"><span><b class="serif blue">else</b>：2.9 小于 3，所以走了“否则”这一支</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- P-16 AI 使用规范 -->
+<section data-part="AI 编程助手|本课程规范">
+  <h2 class="title">本课程 AI 使用规范：可以用，但要能解释、会核验</h2>
+  <div class="body grid" style="grid-template-columns:1fr 1fr 1fr 560px;gap:30px">
+    <div class="card teal"><b class="serif" style="font-size:64px;color:var(--teal);line-height:1">1</b><h3 style="margin-top:12px">可以用</h3><p>用 AI 学概念、解释代码、找错误、出主意，都鼓励。</p></div>
+    <div class="card blue"><b class="serif" style="font-size:64px;color:var(--blue);line-height:1">2</b><h3 style="margin-top:12px">要能解释、会核验</h3><p>交上来的每一行代码、每个结论，你都要能讲清楚，并亲自运行核对。</p></div>
+    <div class="card rust"><b class="serif" style="font-size:64px;color:var(--rust);line-height:1">3</b><h3 style="margin-top:12px">写清楚怎么用的</h3><p>每份阶段文档附“AI 使用说明”：用了什么工具、做了什么、怎么核验。</p></div>
+    <div>
+      <div style="background:#fff;border:1px solid var(--rule);padding:24px 26px;font-size:23px;line-height:1.6"><b style="font-size:24px">AI 使用说明（示例）</b><br>工具：VS Code + Continue + GLM 模型<br>用途：让 AI 解释第 5 行代码；修改代码时参考了它给出的写法<br>核验：自己运行并用心算核对了输出；改写了一处它给错的变量名</div>
+      <div style="margin-top:22px;border-left:5px solid var(--rust);padding-left:18px;font-size:24px;line-height:1.6"><b>两个“不要”</b><br>不要把身份证号、病历、他人数据、API 密钥发给 AI<br>考试是闭卷，靠的是你自己真懂</div>
+    </div>
+  </div>
+</section>
+
+<!-- P-17 AI 助手怎么工作 -->
+<section data-part="AI 编程助手|它怎么工作">
+  <h2 class="title">AI 助手怎么工作：扩展传话，模型回答，你来核验</h2>
+  <div class="body" style="top:380px">
+    <div class="flow" style="justify-content:center;gap:24px">
+      <div class="bx" style="font-size:32px;padding:26px 30px">你<small>提问 + 代码</small></div><span class="ar" style="font-size:44px">→</span>
+      <div class="bx blue" style="font-size:32px;padding:26px 30px">VS Code 扩展<small>如 Continue：把问题发出去</small></div><span class="ar" style="font-size:44px">→</span>
+      <div class="bx fill" style="font-size:32px;padding:26px 30px">大模型接口<small style="color:#DCE4F2">如 GLM：生成回答</small></div><span class="ar" style="font-size:44px">→</span>
+      <div class="bx" style="font-size:32px;padding:26px 30px">回答</div><span class="ar" style="font-size:44px">→</span>
+      <div class="bx teal" style="font-size:32px;padding:26px 30px">你来核验<small>运行、对照、追问</small></div>
+    </div>
+    <div class="grid g2 fragment rise" style="margin-top:80px;gap:80px">
+      <p style="font-size:30px;line-height:1.6;border-top:2px solid var(--ink);padding-top:18px"><b class="blue">扩展</b>是“传话的”：装在 VS Code 里，负责把你的问题和代码发出去、把回答显示回来。</p>
+      <p style="font-size:30px;line-height:1.6;border-top:2px solid var(--ink);padding-top:18px"><b class="blue">模型</b>是“回答的”：运行在服务商的服务器上，需要账号和密钥（API Key）才能调用。</p>
+    </div>
+  </div>
+</section>
+
+<!-- P-18 安装配置 AI 扩展 -->
+<section data-part="AI 编程助手|第 9 步">
+  <h2 class="title">安装 Continue 扩展，接入一个大模型</h2>
+  <div class="body grid" style="grid-template-columns:1fr 900px;gap:70px">
+    <ol class="steps-list">
+      <li><span>扩展市场搜索 <b>Continue</b>，确认发布者，Install</span></li>
+      <li><span>在模型服务商官网注册、创建 API Key<small>默认示例：智谱开放平台 GLM-4.7-Flash（以官方最新政策为准）</small></span></li>
+      <li><span>打开 Continue 侧栏 → 添加模型，按右边填写<small>密钥填在本机，不要截图、不要上传</small></span></li>
+      <li><span>在 Continue 里发一句“你好”，收到回复即成功</span></li>
+    </ol>
+    <div>
+      <div class="code" style="font-size:22px;line-height:1.55;border-left-color:var(--teal)"><span class="hljs-comment"># Continue 配置示意（config.yaml，以官方文档为准）</span>
+models:
+  - name: GLM-4.7-Flash
+    provider: openai
+    model: glm-4.7-flash
+    apiBase: https://open.bigmodel.cn/api/paas/v4
+    apiKey: YOUR_API_KEY
+    roles: [chat, edit]</div>
+      <p class="note" style="margin-top:12px">YOUR_API_KEY 为占位符。扩展界面与配置写法会随版本变化；接口地址、模型名、是否免费以服务商官方文档为准（待授课前核验）。</p>
+      <div style="margin-top:20px;background:var(--rust-2);padding:16px 22px;font-size:24px;line-height:1.55"><b>连不上？</b>先用老师的演示继续上课，课后对照《学生安装指南》的排错部分处理。不要求付费。</div>
+    </div>
+  </div>
+</section>
+
+<!-- P-19 练习1 -->
+<section data-part="AI 练习|练习 1">
+  <h2 class="title">练习 1：让 AI 逐行解释这段代码</h2>
+  <div class="body grid" style="grid-template-columns:1fr 900px;gap:70px">
+    <div>
+      <ol class="steps-list">
+        <li><span>在 Notebook 里选中整段代码</span></li>
+        <li><span>打开 Continue 侧栏，粘贴下面的提示词，发送</span></li>
+        <li><span>对照上一页的逐行讲解，看它说得对不对</span></li>
+      </ol>
+      <div class="code copyable" data-text="我是一名没有编程经验的大一学生，请逐行解释这段 Python 代码，并说明每个变量的作用。尽量用通俗语言，不要引入太多新概念。" style="margin-top:26px;white-space:normal;font-family:var(--sans);font-size:26px;line-height:1.6;padding-right:110px;border-left-color:var(--teal)">我是一名没有编程经验的大一学生，请逐行解释这段 Python 代码，并说明每个变量的作用。尽量用通俗语言，不要引入太多新概念。</div>
+    </div>
+    <div class="mock">
+      <div class="tbar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">Continue</span></div>
+      <div class="vsc" style="grid-template-columns:1fr;height:560px"><div class="chat" style="border:none;font-size:23px">
+        <div class="me">我是一名没有编程经验的大一学生，请逐行解释这段 Python 代码……</div>
+        <div class="ai">好的，我们一行一行来看：<br>1. <code>name = "小明"</code>：把名字“小明”存到变量 name 中，后面打招呼时会用到。<br>2. <code>daily_hours = [...]</code>：一个列表，记录一周七天每天的学习小时数。<br>3. <code>sum(daily_hours)</code>：把七天的时间加起来，得到总时间……</div>
+        <div class="in">继续提问……</div>
+      </div></div>
+      <span class="mk-badge">示例对话，非实时请求</span>
+    </div>
+  </div>
+</section>
+
+<!-- P-20 练习2 -->
+<section class="m-interact" data-part="AI 练习|练习 2">
+  <h2 class="title">练习 2：故意写错一个字，让 AI 帮你找出来</h2>
+  <div data-comp="errdemo" class="stage errdemo" style="width:1680px;display:grid;grid-template-columns:1000px 1fr;gap:60px">
+    <div>
+      <p style="font-size:26px;margin-bottom:12px">把第 7 行的 <span class="inl">print</span> 改成 <span class="inl">pritn</span>，再运行：</p>
+      <div class="bad">
+        <div class="code" style="font-size:24px">name = <span class="hljs-string">"小明"</span>
+<span class="muted">…</span>
+<span style="background:var(--rust-2)">pritn(<span class="hljs-string">"你好，"</span> + name + <span class="hljs-string">"！"</span>)</span></div>
+        <div class="term" style="margin-top:16px;font-size:23px"><span style="color:#FF8A80">NameError</span>: name 'pritn' is not defined</div>
+      </div>
+      <div class="good">
+        <div class="code" style="font-size:24px">name = <span class="hljs-string">"小明"</span>
+<span class="muted">…</span>
+<span style="background:#E3F2EC"><span class="hljs-built_in">print</span>(<span class="hljs-string">"你好，"</span> + name + <span class="hljs-string">"！"</span>)</span></div>
+        <div class="term" style="margin-top:16px;font-size:23px">你好，小明！
+本周总学习时间： 20 小时 …</div>
+      </div>
+      <div class="btns" style="margin-top:20px"><button class="btn primary" data-act="fix" type="button">改回 print 并重新运行</button></div>
+    </div>
+    <div>
+      <p style="font-size:26px">把报错信息连同代码发给 AI：</p>
+      <div class="code copyable" data-text="运行这段 Python 代码时出现 NameError。请帮我找出具体错误、解释为什么报错，并告诉我最小修改方案。不要重写整个程序。" style="margin-top:14px;white-space:normal;font-family:var(--sans);font-size:25px;line-height:1.6;padding-right:110px;border-left-color:var(--teal)">运行这段 Python 代码时出现 NameError。请帮我找出具体错误、解释为什么报错，并告诉我最小修改方案。不要重写整个程序。</div>
+      <p style="font-size:25px;color:var(--ink-2);margin-top:20px;line-height:1.6">要求“最小修改、不要重写”，是为了让你看清<b>到底错在哪</b>。改完<b>自己运行</b>一遍确认。</p>
+    </div>
+  </div>
+</section>
+
+<!-- P-21 练习3 -->
+<section class="m-interact" data-part="AI 练习|练习 3">
+  <h2 class="title">练习 3：让 AI 帮你加一个新功能，再自己核对</h2>
+  <div data-comp="diff" class="stage diff" style="width:1680px;display:grid;grid-template-columns:1000px 1fr;gap:60px">
+    <div>
+      <div class="code" style="font-size:24px"><span class="muted">…</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"本周总学习时间："</span>, total, <span class="hljs-string">"小时"</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"平均每天学习："</span>, <span class="hljs-built_in">round</span>(average, <span class="hljs-number">1</span>), <span class="hljs-string">"小时"</span>)<span class="added" style="margin:4px -10px;padding:0 10px"><span class="hljs-built_in">print</span>(<span class="hljs-string">"本周单日最长学习时间："</span>, <span class="hljs-built_in">max</span>(daily_hours), <span class="hljs-string">"小时"</span>)   <span class="hljs-comment"># 新增</span></span><span class="muted">…</span></div>
+      <div class="term after-out" style="margin-top:16px;font-size:23px">…
+平均每天学习： 2.9 小时
+<span style="color:#7FD1B9">本周单日最长学习时间： 5 小时</span>
+…</div>
+      <div class="btns" style="margin-top:20px"><button class="btn primary" data-act="show" type="button">显示 AI 建议的修改</button></div>
+    </div>
+    <div>
+      <div class="code copyable" data-text="请帮我在现有 Python 程序中增加一行代码，输出一周中学习时间最长的是多少小时。请只给出必要修改并解释新增代码。" style="white-space:normal;font-family:var(--sans);font-size:25px;line-height:1.6;padding-right:110px;border-left-color:var(--teal)">请帮我在现有 Python 程序中增加一行代码，输出一周中学习时间最长的是多少小时。请只给出必要修改并解释新增代码。</div>
+      <ul class="pts single" style="margin-top:20px">
+        <li style="font-size:26px;padding:14px 0"><span><span class="inl">max()</span> 找出列表里最大的数</span></li>
+        <li style="font-size:26px;padding:14px 0"><span>核对：2, 3, 1, 4, 2, 3, <b>5</b>——最大确实是 5</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- P-22 验收 + 课后 -->
+<section data-part="验收与课后">
+  <h2 class="title">验收今天的四件事，再带走两个课后任务</h2>
+  <div class="body grid" style="grid-template-columns:1fr 640px;gap:90px">
+    <div class="checks" data-comp="checklist" data-key="lab">
+      <label><input type="checkbox"><span>① 在终端里查到 Python 的版本号</span></label>
+      <label><input type="checkbox"><span>② 打开 VS Code，装好 Python 和 Jupyter 扩展</span></label>
+      <label><input type="checkbox"><span>③ 在 Notebook 里运行第一段代码，结果正确</span></label>
+      <label><input type="checkbox"><span>④ 让 AI 解释代码、找出错误、修改代码</span></label>
+    </div>
+    <div class="card rust">
+      <h3>课后任务</h3>
+      <ul class="pts single">
+        <li style="font-size:26px"><span><b>1.</b> 没装完的同学，按《学生安装指南》补装，下周课前完成</span></li>
+        <li style="font-size:26px"><span><b>2.</b> 想 3 个你感兴趣、可能用 AI 解决的小问题，记下来——第 5 周选题会用到</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+</div>
+<script src="../assets/vendor/reveal/reveal.js"></script>
+<script src="../assets/vendor/reveal/plugin/notes/notes.js"></script>
+<script src="../src/deck.js"></script>
+<script src="../src/components/os.js"></script>
+<script src="../src/components/checklist.js"></script>
+<script src="../src/components/code.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教师授课指南｜{{COURSE}} {{WEEK_LABEL}}</title>
+<link rel="stylesheet" href="src/styles/tokens.css">
+<link rel="stylesheet" href="src/styles/page.css">
+<link rel="stylesheet" href="src/styles/theme.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span><a href="index.html">← {{WEEK_LABEL}}首页</a></span><span>教师授课指南（含讲稿要点，请勿分发给学生）</span></div>
+  <h1>{{WEEK_LABEL}}<br>教师授课指南</h1>
+  <p class="sub">三节课各 45 分钟。每页完整讲稿在课件的演讲者视图中（放映时按 S）。本页的分钟级安排由课件备注自动生成。全周主线：……</p>
+
+  <h2>授课前必须完成</h2>
+  <table>
+    <tr><th style="width:42%">事项</th><th>位置 / 做法</th></tr>
+    <tr><td><b>……</b></td><td>……</td></tr>
+  </table>
+
+  <h2>本周的口径</h2>
+  <div class="box"><b>……</b>：……</div>
+
+  <h2>本周数据与互动的核对结果</h2>
+  <table>
+    <tr><th style="width:42%">项目</th><th>结果</th></tr>
+    {{CHECKS}}
+  </table>
+
+  <h2>容易被问到的问题</h2>
+  <table>
+    <tr><th style="width:42%">问题</th><th>参考回答</th></tr>
+    <tr><td>……</td><td>……</td></tr>
+  </table>
+
+  <h2>课堂应急预案</h2>
+  <div class="box warn"><b>……</b>：……</div>
+  <div class="box ok"><b>时间富余</b>：……</div>
+
+  <h2>放映快捷键</h2>
+  <table>
+    <tr><th>按键</th><th>作用</th></tr>
+    <tr><td>→ / 空格 / ←</td><td>前进（含逐步出现）/ 后退</td></tr>
+    <tr><td>S</td><td>演讲者视图：当前页、下一页、讲稿、计时（需用 start.py 打开）</td></tr>
+    <tr><td>F / Esc</td><td>全屏 / 页面概览</td></tr>
+    <tr><td>R</td><td>重置当前页的互动（也可点“重置”按钮）</td></tr>
+    <tr><td>H</td><td>回到{{WEEK_LABEL}}首页；鼠标移动时底部会出现“首页 / 理论一 / 理论二 / 实践课”切换栏</td></tr>
+    <tr><td>在网址后加 <code>?print-pdf</code></td><td>用 Chrome 打印为 PDF（16:9）</td></tr>
+  </table>
+
+  {{SCHEDULE}}
+</div>
+</body>
+</html>

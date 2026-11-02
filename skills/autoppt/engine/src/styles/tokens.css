@@ -1,0 +1,31 @@
+/* 设计令牌 · 方向A「学术刊物」 */
+@font-face{font-family:"W1 Serif";src:url(../../assets/fonts/serif-black.woff) format("woff");font-weight:900;font-display:block}
+@font-face{font-family:"W1 Serif";src:url(../../assets/fonts/serif-bold.woff) format("woff");font-weight:700;font-display:block}
+@font-face{font-family:"W1 Sans";src:url(../../assets/fonts/sans-regular.woff) format("woff");font-weight:400;font-display:block}
+@font-face{font-family:"W1 Sans";src:url(../../assets/fonts/sans-bold.woff) format("woff");font-weight:700;font-display:block}
+@font-face{font-family:"W1 Mono";src:url(../../assets/fonts/mono.woff) format("woff");font-weight:400;font-display:block}
+
+:root{
+  --paper:#F5F2EA;       /* 暖纸底 */
+  --paper-2:#EDE8DC;     /* 卡片/分区底 */
+  --paper-3:#E3DCCB;
+  --ink:#1C1D21;         /* 正文墨色 */
+  --ink-2:#4A4F5C;       /* 次要文字 */
+  --ink-3:#7A7F8B;       /* 注释、来源 */
+  --rule:#CFC8B8;        /* 细线 */
+  --blue:#0B3D91;        /* 复旦深蓝：标题、强调结构 */
+  --blue-2:#DCE4F2;
+  --rust:#B4471F;        /* 强调色：一页最多两处 */
+  --rust-2:#F3E1D7;
+  --teal:#12806F;        /* 互动色 */
+  --teal-2:#DDEFEA;
+  --amber:#C98A0B;       /* 第 5 周：红黄绿语义中的“黄” */
+  --amber-2:#F6EBCF;
+  --serif:"W1 Serif","Noto Serif CJK SC","Source Han Serif SC","Songti SC","SimSun",serif;
+  --sans:"W1 Sans","Noto Sans CJK SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --mono:"W1 Mono","Noto Sans Mono CJK SC","SFMono-Regular",Consolas,monospace;
+  --pad-x:120px; --pad-top:84px;
+  --t-title:64px; --t-sub:34px; --t-body:32px; --t-small:26px; --t-note:20px;
+  --radius:6px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}

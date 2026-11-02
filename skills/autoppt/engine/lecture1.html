@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>理论一 · {{L1_TITLE}}｜{{COURSE}} {{WEEK_LABEL}}</title>
+<link rel="stylesheet" href="assets/vendor/reveal/reset.css">
+<link rel="stylesheet" href="assets/vendor/reveal/reveal.css">
+<link rel="stylesheet" href="src/styles/tokens.css">
+<link rel="stylesheet" href="src/styles/masters.css">
+<link rel="stylesheet" href="src/styles/components.css">
+<link rel="stylesheet" href="src/styles/extras.css">
+<link rel="stylesheet" href="src/styles/week.css">
+<link rel="stylesheet" href="src/styles/theme.css">
+</head>
+<body>
+<div class="reveal" data-course="{{COURSE}}　{{WEEK_LABEL}}　理论一">
+<div class="slides">
+<!-- L1-01 封面 -->
+<section class="m-cover">
+  <div class="cv-l">
+    <div class="cv-k">{{COURSE}}　{{WEEK_LABEL}}　理论一</div>
+    <h1 style="font-size:112px">{{L1_TITLE}}</h1>
+    <div class="cv-sub">{{L1_SUB}}</div>
+  </div>
+  <div class="cv-r">
+    <div class="strip-item"><div class="img" style="background:#fff"><svg viewBox="0 0 300 190"><rect width="300" height="190" fill="#fff"/><circle cx="150" cy="95" r="56" fill="#DCE4F2" stroke="#0B3D91" stroke-width="5"/></svg></div><div class="t"><span class="k">第一部分</span><b>本节的第一个问题</b>一句话说明</div></div>
+    <div class="strip-item"><div class="img" style="background:#fff"><svg viewBox="0 0 300 190"><rect width="300" height="190" fill="#fff"/><rect x="80" y="45" width="140" height="100" fill="#F3E1D7" stroke="#B4471F" stroke-width="5"/></svg></div><div class="t"><span class="k">第二部分</span><b>本节的第二个问题</b>一句话说明</div></div>
+    <div class="strip-item"><div class="img" style="background:#fff"><svg viewBox="0 0 300 190"><rect width="300" height="190" fill="#fff"/><path d="M90 140L150 50L210 140Z" fill="#DDEFEA" stroke="#12806F" stroke-width="5"/></svg></div><div class="t"><span class="k">互动</span><b>本节的互动</b>浏览器里现场计算</div></div>
+  </div>
+  <div class="cv-who"><span><b>{{TEACHER}}</b>　{{SCHOOL}}</span><span>{{TERM}}</span></div>
+  <aside class="notes">
+    <p>【建议用时】0.5分钟</p>
+    <p>【本页目标】开场：说明本节讲什么。</p>
+    <p>【讲述建议】（封面右侧三张小卡对应本节的三个部分；SVG 自绘，换成本节的主题。）</p>
+    <p>【转场】……</p>
+  </aside>
+</section>
+
+<!-- L1-02 大字开场（m-statement） -->
+<section class="m-statement" data-part="开场">
+  <div class="st" style="padding-right:760px">
+    <div class="big">一个让学生<br>想回答的问题？</div>
+    <div class="cap">一句引导：从学生自己的经验出发。</div>
+  </div>
+  <div style="position:absolute;right:120px;top:300px;width:680px" class="grid g2">
+    <div class="box5 blue fragment rise"><h3>例子一</h3><p>一句话</p></div>
+    <div class="box5 mid fragment rise"><h3>例子二</h3><p>一句话</p></div>
+    <div class="box5 ok fragment rise"><h3>例子三</h3><p>一句话</p></div>
+    <div class="box5 no fragment rise"><h3>例子四</h3><p>一句话</p></div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】用学生自己的经历开场。</p>
+    <p>【讲述建议】（逐个点出右侧四个例子。）</p>
+    <p>【互动提问】……</p>
+    <p>【预期回答】……</p>
+    <p>【转场】……</p>
+  </aside>
+</section>
+
+<!-- L1-03 本周主线（流程 + 卡片） -->
+<section data-part="开场">
+  <h2 class="title">本周三节课，一条主线</h2>
+  <div class="body" style="top:262px">
+    <p style="font-size:40px;line-height:1.5;font-family:var(--serif);font-weight:900">一句贯穿全周的主线，<span style="color:var(--rust)">最好能当成考题</span>。</p>
+    <div class="flow14" style="margin-top:34px">
+      <div><b>第一步</b><span>理论一</span></div>
+      <div class="a"><b>第二步</b><span>理论一</span></div>
+      <div class="r"><b>第三步</b><span>理论二</span></div>
+      <div class="t"><b>动手</b><span>实践课</span></div>
+    </div>
+    <p style="font-size:25px;margin-top:30px">实践课：学生在自己的电脑上真实运行代码，得到和课件里一样的结果。</p>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】1.5分钟</p>
+    <p>【本页目标】建立全周主线。</p>
+    <p>【讲述建议】……</p>
+    <p>【转场】……</p>
+  </aside>
+</section>
+
+<!-- L1-04 章节页 -->
+<section class="m-section">
+  <div class="sec-wrap"><div class="sec-k">第一部分</div><h2>章节标题</h2><div class="sec-q">一句引导问题，<br>可以换行</div></div>
+  <div class="sec-art"><svg viewBox="0 0 640 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="640" height="1080" fill="#DCE4F2"/><circle cx="320" cy="540" r="180" fill="none" stroke="#0B3D91" stroke-width="14"/></svg></div>
+  <aside class="notes"><p>【建议用时】0.2分钟</p><p>【本页目标】章节过渡。</p><p>【讲述建议】……</p></aside>
+</section>
+
+<!-- L1-05 图文分栏 + 资料来源 -->
+<section data-part="第一部分" data-src="资料来源：作者，“论文标题”，会议 / 期刊 年份（事实与数字都要能查到原文）">
+  <h2 class="title">整句标题：说出这一页的结论</h2>
+  <div class="body grid" style="grid-template-columns:1fr 1.1fr;gap:56px;top:280px">
+    <div>
+      <div class="box5 blue"><h3>发生了什么</h3><p style="font-size:23px">用两三句话讲清一个经典研究或案例，<b>关键数字加粗</b>并注明年份。</p></div>
+      <div class="box5 mid" style="margin-top:16px"><p style="font-size:22px">为什么重要：一句话。</p></div>
+    </div>
+    <div class="svgbox" style="height:420px"><svg viewBox="0 0 760 420"><rect width="760" height="420" fill="#fff"/>
+      <g font-size="22"><text x="40" y="80">A</text><text x="40" y="200">B</text></g>
+      <rect x="100" y="55" width="80" height="40" fill="#0B3D91"/><text x="195" y="85" font-size="28" font-weight="900" fill="#0B3D91">12%</text>
+      <rect x="100" y="175" width="520" height="40" fill="#B4471F"/><text x="630" y="205" font-size="28" font-weight="900" fill="#B4471F">78%</text>
+      <text x="40" y="330" font-size="19" fill="#4A4F5C">示意：自绘 SVG 图，数字与左边的出处一致</text></svg></div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】……</p>
+    <p>【讲述建议】……</p>
+    <p>【易错点】……</p>
+    <p>【转场】……</p>
+  </aside>
+</section>
+
+<!-- L1-06 三栏对比 -->
+<section data-part="第一部分">
+  <h2 class="title">三个概念，各管一件事</h2>
+  <div class="body grid g3" style="gap:26px;top:290px">
+    <div class="box5 blue"><h3>概念一</h3><p>定义（一句话）。</p><p style="font-size:19px;color:var(--ink-2);margin-top:10px">关心：……</p></div>
+    <div class="box5 mid"><h3>概念二</h3><p>定义（一句话）。</p><p style="font-size:19px;color:var(--ink-2);margin-top:10px">关心：……</p></div>
+    <div class="box5 ok"><h3>概念三</h3><p>定义（一句话）。</p><p style="font-size:19px;color:var(--ink-2);margin-top:10px">关心：……</p></div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】……</p>
+    <p>【讲述建议】……</p>
+  </aside>
+</section>
+
+<!-- L1-07 表格 -->
+<section data-part="第一部分">
+  <h2 class="title">一张表，把几种情况放在一起比</h2>
+  <div class="body" style="top:262px">
+    <table class="tbl11" style="font-size:23px;width:100%">
+      <tr><th style="width:20%">类型</th><th style="width:36%">什么变了</th><th>例子</th></tr>
+      <tr><td><b>第一种</b></td><td>……</td><td>……</td></tr>
+      <tr><td><b>第二种</b></td><td>……</td><td>……</td></tr>
+      <tr class="hl"><td><b>重点</b></td><td>……</td><td>回扣前几周学过的内容</td></tr>
+    </table>
+    <p style="font-size:24px;margin-top:24px">一句话的“所以呢”。</p>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】……</p>
+    <p>【讲述建议】……</p>
+  </aside>
+</section>
+
+<!-- L1-08 互动：翻牌卡（flip 组件；先判断再翻开） -->
+<section class="m-interact" data-part="第一部分|互动">
+  <h2 class="title">先自己判断，再翻开看</h2>
+  <div class="stage" data-comp="flip" style="width:1680px;top:250px;bottom:150px">
+    <div class="flipgrid">
+      <div class="flip"><div class="front"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg><b>情境一</b><i>点击翻开</i></div><div class="back"><span class="v yes">是</span><p>理由：一两句话，<b>关键词</b>加粗。</p></div></div>
+      <div class="flip"><div class="front"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14"/></svg><b>情境二</b><i>点击翻开</i></div><div class="back"><span class="v no">不是</span><p>理由。</p></div></div>
+      <div class="flip"><div class="front"><svg viewBox="0 0 24 24"><path d="M12 4l8 16H4z"/></svg><b>情境三</b><i>点击翻开</i></div><div class="back"><span class="v yes">是</span><p>理由。</p></div></div>
+    </div>
+    <div class="btns" style="position:absolute;left:0;bottom:-70px"><button class="btn sm" data-act="all">全部翻开</button></div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】……</p>
+    <p>【讲述建议】……</p>
+    <p>【演示操作】逐张请同学判断再翻开。</p>
+  </aside>
+</section>
+
+<!-- L1-09 互动：选择卡（pick 组件，数据在 src/data/content.js） -->
+<section class="m-interact" data-part="第一部分|互动">
+  <h2 class="title">互动：这是哪一类？</h2>
+  <div class="stage pk-big" data-comp="pick" data-src="PICK_DEMO" style="width:1680px;top:236px;bottom:84px">
+    <div class="btns" style="margin-bottom:10px;align-items:center"><button class="btn sm" data-act="open">看参考答案</button><span class="pk-score" style="margin-left:14px;font-size:21px;font-weight:700;color:var(--ink-2)"></span></div>
+    <div class="pk-grid" style="grid-template-columns:repeat(3,1fr)"></div>
+    <p style="font-size:19px;color:var(--ink-3);margin-top:8px">参考答案为课程组建议。</p>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】3分钟</p>
+    <p>【本页目标】用判断依据区分几类情况。</p>
+    <p>【讲述建议】（逐张请同学选。）</p>
+    <p>【演示操作】逐张点选；最后看参考答案。</p>
+  </aside>
+</section>
+
+<!-- 小测 -->
+<section class="m-interact" data-part="小测|互动">
+  <h2 class="title">小测：这节课的四个要点</h2>
+  <div class="stage" data-comp="quiz" style="width:1680px;top:250px">
+    <div class="quiz">
+      <div class="q" data-answer="1"><p class="qt">1. 题干（考概念，不考记忆）</p><div class="opts"><button>似是而非的选项</button><button>正确选项</button><button>常见误解</button></div><p class="exp">一句话解析，最好带本节的一个数字或例子。</p></div>
+      <div class="q" data-answer="0"><p class="qt">2. 题干</p><div class="opts"><button>正确选项</button><button>选项</button><button>选项</button></div><p class="exp">解析。</p></div>
+      <div class="q" data-answer="2"><p class="qt">3. 题干</p><div class="opts"><button>选项</button><button>选项</button><button>正确选项</button></div><p class="exp">解析。</p></div>
+      <div class="q" data-answer="1"><p class="qt">4. 题干</p><div class="opts"><button>选项</button><button>正确选项</button><button>选项</button></div><p class="exp">解析。</p></div>
+    </div>
+    <p class="score" style="margin-top:22px"></p>
+  </div>
+  <aside class="notes"><p>【建议用时】2.5分钟</p><p>【本页目标】检查四个关键概念。</p><p>【讲述建议】一分钟作答，然后对答案。</p><p>【转场】小结。</p></aside>
+</section>
+<!-- 小结 -->
+<section data-part="小结">
+  <h2 class="title">本节小结</h2>
+  <div class="body" style="top:300px">
+    <ul class="pts single" style="max-width:1560px">
+      <li class="fragment rise" style="font-size:36px;padding:24px 0"><span><b class="serif">要点一</b>：一句话。</span></li>
+      <li class="fragment rise" style="font-size:36px;padding:24px 0"><span><b class="serif" style="color:var(--rust)">要点二</b>：一句话。</span></li>
+      <li class="fragment rise" style="font-size:36px;padding:24px 0"><span><b class="serif" style="color:var(--teal)">要点三</b>：一句话。</span></li>
+    </ul>
+    <p class="cap fragment rise" style="margin-top:36px;font-size:32px;color:var(--ink-2)">理论二：……</p>
+  </div>
+  <aside class="notes"><p>【建议用时】1分钟</p><p>【本页目标】三句话收束。</p><p>【讲述建议】……</p><p>【转场】下课。</p></aside>
+</section>
+
+</div>
+</div>
+<script src="assets/vendor/reveal/reveal.js"></script>
+<script src="assets/vendor/reveal/plugin/notes/notes.js"></script>
+<script src="src/data/content.js"></script>
+<script src="src/deck.js"></script>
+<script src="src/components/kit6.js"></script>
+<script src="src/components/flip.js"></script>
+<script src="src/components/pick.js"></script>
+<script src="src/components/quiz.js"></script>
+</body>
+</html>

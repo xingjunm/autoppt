@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>理论一 · 什么是人工智能？｜人工智能基础 第1周</title>
+<link rel="stylesheet" href="assets/vendor/reveal/reset.css">
+<link rel="stylesheet" href="assets/vendor/reveal/reveal.css">
+<link rel="stylesheet" href="src/styles/tokens.css">
+<link rel="stylesheet" href="src/styles/masters.css">
+<link rel="stylesheet" href="src/styles/components.css">
+</head>
+<body>
+<div class="reveal" data-course="人工智能基础　第 1 周　理论一">
+<div class="slides">
+
+<!-- L1-01 封面 -->
+<section class="m-cover">
+  <div class="cv-l">
+    <div class="cv-k">人工智能基础　第 1 周　理论一</div>
+    <h1>什么是<br>人工智能？</h1>
+    <div class="cv-sub">从电影里的 AI，说到你手机里的 AI</div>
+  </div>
+  <div class="cv-r">
+    <div class="strip-item"><div class="img"><img src="assets/img/placeholder/s11_2.svg" alt="电影《终结者》中的机器人"></div><div class="t"><span class="k">电影里</span><b>终结者</b>《终结者》，1984</div></div>
+    <div class="strip-item"><div class="img"><img src="assets/img/placeholder/cv62_1.svg" alt="车内屏幕实时标出周围的车辆与车道" style="object-position:20% 50%"></div><div class="t"><span class="k">生活里</span><b>辅助驾驶</b>实时认出车道、车辆和行人</div></div>
+    <div class="strip-item"><div class="img"><img src="assets/img/placeholder/s23_4.svg" alt="四足机器人爬楼梯"></div><div class="t"><span class="k">实验室外</span><b>四足机器人</b>自己找路、爬楼梯</div></div>
+  </div>
+  <div class="cv-who"><span><b>马兴军</b>　复旦大学</span><span>2026 年秋季学期</span></div>
+  <aside class="notes">
+    <p>【建议用时】0.5分钟</p>
+    <p>【本页目标】开场，点出本节课的主线：从“电影里的 AI”走到“身边的 AI”。</p>
+    <p>【讲述建议】同学们好，欢迎来到《人工智能基础》。今天是第一节课，我们先不讲公式，也不写代码，只回答一个问题：什么是人工智能？右边三张图，第一张是电影里的终结者，后两张是今天真实存在的人脸检测和四足机器人。这节课结束时，希望你能说清楚：真实的 AI 和电影里的 AI 差在哪里。</p>
+    <p>【互动提问】无</p>
+    <p>【易错点】无</p>
+    <p>【演示操作】按 S 打开演讲者视图；按 F 全屏。</p>
+    <p>【转场】先做个小调查——你今天已经用过几次 AI 了？</p>
+  </aside>
+</section>
+
+<!-- L1-02 开场提问 -->
+<section class="m-statement" data-part="开场">
+  <div class="st" style="padding-right:760px">
+    <div class="big">你今天<br>用过几次 AI？</div>
+    <div class="cap">从早上睁眼到走进这间教室，数一数。</div>
+  </div>
+  <div style="position:absolute;right:120px;top:250px;width:680px" class="grid g2">
+    <div class="icotile fragment rise"><svg class="ico" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 9l5 3-5 3z"/></svg><b>刷短视频</b><span>下一条推荐给你看什么</span></div>
+    <div class="icotile fragment rise"><svg class="ico" viewBox="0 0 24 24"><path d="M12 22s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><b>地图导航</b><span>哪条路更快、几点到</span></div>
+    <div class="icotile fragment rise"><svg class="ico" viewBox="0 0 24 24"><path d="M3 7h3l2-3h8l2 3h3v13H3z"/><circle cx="12" cy="13" r="4"/></svg><b>拍照美颜</b><span>自动找到脸、调整肤色</span></div>
+    <div class="icotile fragment rise"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h9M8.5 3v2M6 5c1 4 4 7 7 8M11 5c-1 4-4 7-7 8"/><path d="M13 21l4-10 4 10M14.5 17h5"/></svg><b>翻译</b><span>拍一下就翻成中文</span></div>
+    <div class="icotile fragment rise"><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-12 7l-5 1 1.5-4A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg><b>问 AI 助手</b><span>写作业、查资料、问问题</span></div>
+    <div class="icotile fragment rise"><svg class="ico" viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><circle cx="9" cy="10" r=".6"/><circle cx="15" cy="10" r=".6"/><path d="M9 15c1.5 1.3 4.5 1.3 6 0"/></svg><b>刷脸进门</b><span>宿舍、食堂、校门</span></div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】用学生自己的经历开场，让他们意识到 AI 已经无处不在。</p>
+    <p>【讲述建议】请大家想一想：从今天早上醒来到现在，你用过几次 AI？先别急着回答，我一个一个往外放。刷短视频的时候，下一条给你推什么，是 AI 决定的；地图告诉你哪条路快，背后有 AI 在预测路况；拍照自动美颜，先要找到你的脸；拍一张英文菜单就能翻成中文；遇到问题去问 AI 助手；进宿舍刷脸开门。很多同学会发现，自己一天用了十几次甚至几十次，只是平时没意识到。</p>
+    <p>【互动提问】举手示意：今天用过 5 次以上的同学？10 次以上的呢？</p>
+    <p>【预期回答】多数同学会举手；有人会说“我今天没用过”，可以追问他有没有刷手机、看推荐。</p>
+    <p>【易错点】不要在这一页争论“到底算不算 AI”，后面有专门的互动页讨论边界。</p>
+    <p>【演示操作】按空格逐个显示 6 个场景。</p>
+    <p>【转场】既然大家每天都在用，那我们就要好好认识它。先认识一下这门课。</p>
+  </aside>
+</section>
+
+<!-- L1-03 认识一下 -->
+<section data-part="课程介绍">
+  <h2 class="title">认识一下：这门课由谁来讲、在哪里上</h2>
+  <div class="body grid" style="grid-template-columns:440px 1fr;gap:80px">
+    <div>
+      <figure class="ph" style="height:440px"><img src="assets/img/placeholder/s03_1.svg" alt="任课教师马兴军" style="object-position:50% 20%"></figure>
+      <div style="margin-top:22px;font-family:var(--serif);font-weight:900;font-size:44px">马兴军</div>
+      <div class="muted" style="font-size:24px;line-height:1.55;margin-top:6px">复旦大学 青年研究员<br>研究方向：可信人工智能、机器学习、计算机视觉</div>
+    </div>
+    <table class="info">
+      <tr><th>上课时间</th><td><span class="todo">待填写</span></td></tr>
+      <tr><th>上课地点</th><td><span class="todo">待填写</span></td></tr>
+      <tr><th>答疑时间</th><td><span class="todo">待填写</span></td></tr>
+      <tr><th>邮箱</th><td>xingjunma@fudan.edu.cn</td></tr>
+      <tr><th>办公室</th><td>江湾校区 交叉学科二号楼 D5025 <span class="todo">请核对</span></td></tr>
+      <tr><th>个人主页</th><td>xingjunma.com</td></tr>
+    </table>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】1.5分钟</p>
+    <p>【本页目标】介绍任课教师和上课、答疑的基本信息。</p>
+    <p>【讲述建议】我是马兴军，平时研究的是可信人工智能——简单说，就是让 AI 更可靠、更安全、更值得信任。这门课是给全校理工医新生开的，不需要编程基础。上课时间、地点和答疑时间在这里，有问题欢迎发邮件或者来办公室找我。邮件请写清楚自己的姓名、学号和问题，我会尽快回复。</p>
+    <p>【互动提问】无</p>
+    <p>【易错点】授课前请把标黄的“待填写”替换为本学期信息（直接编辑 lecture1.html 中本页表格）。</p>
+    <p>【演示操作】无</p>
+    <p>【转场】除了我，还有几位助教会一路陪大家。</p>
+  </aside>
+</section>
+
+<!-- L1-04 助教与课程群 -->
+<section data-part="课程介绍">
+  <h2 class="title">助教和课程群：遇到问题先找他们</h2>
+  <div class="body grid" style="grid-template-columns:1fr 1fr 1fr 380px;gap:40px">
+    <div class="card"><div class="pic todo-box" style="height:260px;margin:-28px -30px 22px">助教照片</div><h3><span class="todo">助教姓名</span></h3><p>助教组长<br><span class="todo">邮箱</span></p></div>
+    <div class="card"><div class="pic todo-box" style="height:260px;margin:-28px -30px 22px">助教照片</div><h3><span class="todo">助教姓名</span></h3><p>助教<br><span class="todo">邮箱</span></p></div>
+    <div class="card"><div class="pic todo-box" style="height:260px;margin:-28px -30px 22px">助教照片</div><h3><span class="todo">助教姓名</span></h3><p>助教<br><span class="todo">邮箱</span></p></div>
+    <div><div class="todo-box" style="width:380px;height:380px">课程群二维码<br>（本学期待替换）</div><p class="muted" style="font-size:24px;margin-top:18px;line-height:1.5">装软件遇到问题、作业提交、项目答疑，都可以在群里问。</p></div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】1分钟</p>
+    <p>【本页目标】让学生知道助教是谁、怎么联系、课程群在哪。</p>
+    <p>【讲述建议】这学期有几位助教协助大家。尤其是实践课装软件、跑代码、做个人项目，遇到问题可以先在课程群里问，助教会帮忙排查。请大家现在就扫码进群，课程通知、作业要求都会发在群里。</p>
+    <p>【互动提问】请大家现在扫码入群，入群后在群里回复“学号+姓名”。</p>
+    <p>【易错点】授课前替换助教照片、姓名、邮箱和二维码；上学期的旧信息不要沿用。</p>
+    <p>【演示操作】给学生 30 秒扫码时间。</p>
+    <p>【转场】接下来看看这一学期我们要走一条什么样的路。</p>
+  </aside>
+</section>
+
+<!-- L1-05 路线图 -->
+<section data-part="课程介绍">
+  <h2 class="title">这学期，我们一站一站往前走<small>16 周，从“认识 AI”到“做出你自己的 AI 应用”</small></h2>
+  <div class="body route" data-fit="off" style="top:440px">
+    <div class="line">
+      <div class="seg c1 fragment rise" style="flex:4"><div class="here">你在这里</div><div class="bar"></div><div class="wk"><span>1</span><span>2</span><span>3</span><span>4</span></div><h4>打基础</h4><p>人工智能概述 · 机器如何学习 · 模型怎样训练 · 神经网络与深度学习</p></div>
+      <div class="seg c2 fragment rise" style="flex:1.4"><div class="bar"></div><div class="wk"><span>5</span></div><h4>启动项目</h4><p>定义问题与准备数据</p></div>
+      <div class="seg c3 fragment rise" style="flex:3"><div class="bar"></div><div class="wk"><span>6</span><span>7</span><span>8</span></div><h4>看与读</h4><p>计算机视觉 · 自然语言处理 · Transformer</p></div>
+      <div class="seg c4 fragment rise" style="flex:4"><div class="bar"></div><div class="wk"><span>9</span><span>10</span><span>11</span><span>12</span></div><h4>用好大模型</h4><p>迁移学习 · 大模型原理 · 用好大模型 · 智能体系统</p></div>
+      <div class="seg c5 fragment rise" style="flex:2"><div class="bar"></div><div class="wk"><span>13</span><span>14</span></div><h4>负责任的 AI</h4><p>AI 安全 · AI 伦理与治理</p></div>
+      <div class="seg c6 fragment rise" style="flex:2"><div class="bar"></div><div class="wk"><span>15</span><span>16</span></div><h4>成果展示</h4><p>个人项目展示与答辩</p></div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2.5分钟</p>
+    <p>【本页目标】让学生看到全学期的全景，知道每一段在学什么。</p>
+    <p>【讲述建议】这学期分六段。前四周打基础：AI 是什么、机器怎么学、模型怎么训练、神经网络是什么。第五周开始做你自己的项目。接下来三周学 AI 怎么“看”图片、怎么“读”文字，以及今天大模型背后的 Transformer。再往后四周，学会借用别人训练好的模型、理解大模型、用好大模型和智能体。最后两周讨论 AI 安全和伦理，然后是大家的成果展示。整门课的目标不是让你背概念，而是让你真正会用、会判断、能做出一个小东西。</p>
+    <p>【互动提问】你最期待哪一段？</p>
+    <p>【预期回答】多数会选大模型或智能体；可以顺势说“那前面的基础一定要打牢”。</p>
+    <p>【易错点】不要在这里展开讲每个主题，一句话带过即可。</p>
+    <p>【演示操作】按空格逐段显示。</p>
+    <p>【转场】这里面最重要的一条线，是你的个人项目。</p>
+  </aside>
+</section>
+
+<!-- L1-06 个人项目 -->
+<section data-part="课程介绍">
+  <h2 class="title">这学期，你要做出一个属于自己的 AI 模型<small>我的第一个 AI 模型：从一个感兴趣的问题，到一个可用的应用</small></h2>
+  <div class="body grid" style="grid-template-columns:640px 1fr;gap:90px;top:390px">
+    <ul class="miles">
+      <li><b>第 5 周</b><span>选题：找一个你真正感兴趣的问题</span></li>
+      <li><b>第 8 周</b><span>阶段一：选题与数据</span></li>
+      <li><b>第 10 周</b><span>阶段二：模型训练与对比</span></li>
+      <li><b>第 12 周</b><span>阶段三：改进与应用原型</span></li>
+      <li><b>第 14 周</b><span>阶段四：安全、伦理与总结</span></li>
+      <li class="hot"><b>15–16 周</b><span>上台展示你的 AI 应用</span></li>
+    </ul>
+    <div class="grid g2" style="gap:40px">
+      <div class="card blue fragment rise">
+        <div class="pic" style="height:300px;background:#E9EEF6"><svg viewBox="0 0 400 300"><rect x="140" y="20" width="120" height="250" rx="16" fill="#1C1D21"/><rect x="148" y="34" width="104" height="222" rx="8" fill="#F7F5EF"/><path d="M200 80c-30 10-40 50-20 80 18-8 34-30 20-80z" fill="#6E9B3C"/><path d="M200 80c30 10 40 50 20 80-18-8-34-30-20-80z" fill="#88B24F"/><path d="M200 160v40" stroke="#5B7A2E" stroke-width="5"/><rect x="156" y="208" width="88" height="34" rx="6" fill="#0B3D91"/><text x="200" y="231" text-anchor="middle" font-size="16" fill="#fff" font-family="sans-serif">银杏 96%</text><rect x="168" y="70" width="64" height="104" fill="none" stroke="#B4471F" stroke-width="3" stroke-dasharray="6 4"/></svg></div>
+        <span class="tag blue">视觉方向 · 示例</span><h3 style="margin-top:12px">拍照认出校园里的树</h3><p>输入一张叶子照片，输出它是哪种植物</p>
+      </div>
+      <div class="card rust fragment rise">
+        <div class="pic" style="height:300px;background:#F6ECE6"><svg viewBox="0 0 400 300"><rect x="140" y="20" width="120" height="250" rx="16" fill="#1C1D21"/><rect x="148" y="34" width="104" height="222" rx="8" fill="#F7F5EF"/><rect x="158" y="52" width="84" height="40" rx="8" fill="#fff" stroke="#CFC8B8"/><rect x="164" y="62" width="60" height="6" fill="#CFC8B8"/><rect x="164" y="74" width="44" height="6" fill="#CFC8B8"/><rect x="158" y="106" width="84" height="40" rx="8" fill="#fff" stroke="#CFC8B8"/><rect x="164" y="116" width="66" height="6" fill="#CFC8B8"/><rect x="164" y="128" width="40" height="6" fill="#CFC8B8"/><rect x="158" y="160" width="84" height="40" rx="8" fill="#fff" stroke="#CFC8B8"/><rect x="164" y="170" width="56" height="6" fill="#CFC8B8"/><rect x="164" y="182" width="50" height="6" fill="#CFC8B8"/><rect x="250" y="56" width="70" height="28" rx="14" fill="#12806F"/><text x="285" y="76" text-anchor="middle" font-size="16" fill="#fff" font-family="sans-serif">正面</text><rect x="250" y="110" width="70" height="28" rx="14" fill="#B4471F"/><text x="285" y="130" text-anchor="middle" font-size="16" fill="#fff" font-family="sans-serif">负面</text><rect x="250" y="164" width="70" height="28" rx="14" fill="#12806F"/><text x="285" y="184" text-anchor="middle" font-size="16" fill="#fff" font-family="sans-serif">正面</text></svg></div>
+        <span class="tag rust">文本方向 · 示例</span><h3 style="margin-top:12px">读懂一条课程评价</h3><p>输入一段评价，判断它是夸还是吐槽</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】让学生知道个人项目是贯穿全学期的主线，以及四个阶段的时间点。</p>
+    <p>【讲述建议】这门课最特别的地方，是每个人都要做一个自己的 AI 项目。第五周选题，之后每两周交一份阶段文档：选题与数据、模型训练与对比、改进与应用原型、安全伦理与总结，最后两周上台展示。题目不用很大，比如拍一张叶子照片就认出是什么树，或者读一条课程评价判断它是夸还是吐槽。项目可以选视觉方向，也可以选文本方向。从今天起，你就可以留心身边有什么问题，可能用 AI 来解决。</p>
+    <p>【互动提问】你脑子里有没有冒出一个想做的小问题？可以和同桌说一句。</p>
+    <p>【预期回答】识别食物热量、识别宠物品种、判断新闻真假、分析歌词情绪等。</p>
+    <p>【易错点】提醒学生：题目越具体越好做；“做一个像 ChatGPT 一样的东西”就太大了。</p>
+    <p>【演示操作】按空格显示两个示例。</p>
+    <p>【转场】那成绩怎么算？</p>
+  </aside>
+</section>
+
+<!-- L1-07 怎么学、怎么考 -->
+<section data-part="课程介绍">
+  <h2 class="title">怎么学、怎么考：一半成绩来自你亲手做的项目</h2>
+  <div class="body grid" style="grid-template-columns:600px 1fr;gap:100px">
+    <div style="position:relative">
+      <svg viewBox="0 0 400 400" width="560" height="560">
+        <circle cx="200" cy="200" r="150" fill="none" stroke="#E3DCCB" stroke-width="70"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="#B4471F" stroke-width="70" stroke-dasharray="471.2 942.5" transform="rotate(-90 200 200)"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="#0B3D91" stroke-width="70" stroke-dasharray="377 942.5" stroke-dashoffset="-471.2" transform="rotate(-90 200 200)"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="#8A8E98" stroke-width="70" stroke-dasharray="94.2 942.5" stroke-dashoffset="-848.2" transform="rotate(-90 200 200)"/>
+        <text x="200" y="190" text-anchor="middle" font-size="30" fill="#4A4F5C" font-family="sans-serif">总评</text><text x="200" y="236" text-anchor="middle" font-size="46" font-weight="900" fill="#1C1D21" font-family="serif">100</text>
+      </svg>
+    </div>
+    <div>
+      <ul class="pts">
+        <li><b style="color:var(--rust)">50%</b><span>实践：四份阶段文档 + 最终展示</span></li>
+        <li><b>40%</b><span>闭卷考试：理解概念，不考背代码</span></li>
+        <li><b style="color:var(--ink-3)">10%</b><span>平时：出勤、课堂参与和练习</span></li>
+      </ul>
+      <div style="display:flex;gap:36px;margin-top:44px;align-items:flex-end">
+        <div class="book" style="background:#7A2B2B"><b>人工智能导论<br>模型与算法</b><span>吴飞 主编<br>高等教育出版社 2020</span></div>
+        <div class="book" style="background:#24425E"><b>人工智能<br>现代方法<br>（第4版）</b><span>罗素 · 诺维格 著<br>人民邮电出版社 2022</span></div>
+        <p class="muted" style="font-size:24px;line-height:1.6;width:360px">两本教材供课后查阅。<br>课堂上可以用 AI 学习，但要<b class="blue">声明</b>和<b class="blue">核验</b>——实践课详细讲。</p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】说明成绩构成、教材，以及课程鼓励使用 AI 但有规则。</p>
+    <p>【讲述建议】成绩分三块：一半来自实践，也就是四份阶段文档和最后的展示；百分之四十是闭卷考试，考的是你对概念的理解，不会让你默写代码；百分之十是平时出勤和课堂练习。教材有两本，一本是国内的《人工智能导论：模型与算法》，一本是经典的《人工智能：现代方法》，课后查阅用。还有一点很重要：这门课鼓励你用 AI 工具学习和编程，但要说明你怎么用的，并且自己核验结果。具体规则我们在实践课上讲。</p>
+    <p>【互动提问】无</p>
+    <p>【易错点】右侧书封为排版示意，并非出版社原图；如需原封面可自行替换。</p>
+    <p>【演示操作】无</p>
+    <p>【转场】好，课程介绍到这里。我们进入正题：什么是人工智能？</p>
+  </aside>
+</section>
+
+<!-- L1-08 章节页 -->
+<section class="m-section">
+  <div class="sec-wrap">
+    <div class="sec-k">第一部分</div>
+    <h2>什么是<br>人工智能</h2>
+    <div class="sec-q">电影里的 AI 和真实的 AI，<br>差了多远？</div>
+  </div>
+  <div class="sec-art"><img src="assets/img/placeholder/s11_4.svg" alt="电影《机械姬》剧照"></div>
+  <aside class="notes">
+    <p>【建议用时】0.2分钟</p>
+    <p>【本页目标】章节过渡。</p>
+    <p>【讲述建议】很多人对 AI 的第一印象来自电影。我们就从电影说起。</p>
+    <p>【转场】先看看电影里的 AI 长什么样。</p>
+  </aside>
+</section>
+
+<!-- L1-09 电影里的 AI -->
+<section data-part="第一部分　什么是人工智能" data-src="电影剧照，课堂教学引用">
+  <h2 class="title">电影里的 AI：会思考、有情感，甚至想取代人类</h2>
+  <div class="body" style="display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:20px;bottom:120px">
+    <figure class="ph capin" style="grid-row:span 2"><img src="assets/img/placeholder/s11_5.svg" alt="《我，机器人》海报" style="object-position:50% 20%"><figcaption>《我，机器人》2004</figcaption></figure>
+    <figure class="ph capin"><img src="assets/img/placeholder/s11_1.svg" alt="HAL 9000 的红色镜头"><figcaption>《2001 太空漫游》1968 · HAL 9000</figcaption></figure>
+    <figure class="ph capin"><img src="assets/img/placeholder/s11_2.svg" alt="终结者机器人"><figcaption>《终结者》1984</figcaption></figure>
+    <figure class="ph capin"><img src="assets/img/placeholder/s11_3.svg" alt="《黑客帝国》特工史密斯"><figcaption>《黑客帝国》1999</figcaption></figure>
+    <figure class="ph capin"><img src="assets/img/placeholder/s11_4.svg" alt="《机械姬》剧照"><figcaption>《机械姬》2014</figcaption></figure>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2.5分钟（含可选片段 20 秒）</p>
+    <p>【本页目标】唤起学生对“电影里的 AI”的印象，为下一页的对比做铺垫。</p>
+    <p>【讲述建议】这些电影大家可能看过几部。1968 年的 HAL 9000 是一台会说话、会思考、最后要害死宇航员的电脑；终结者是要消灭人类的机器人；黑客帝国里整个世界都是 AI 造出来的；机械姬里的机器人有了情感，还骗过了人类。电影里的 AI 往往什么都会，有自己的意识和目的。那真实世界的 AI 是这样的吗？可以先放一小段终结者的片段：注意看画面右边，它在“识别”眼前的东西——这个能力，今天真的有了。</p>
+    <p>【互动提问】你印象最深的电影里的 AI 是哪个？它会做什么？</p>
+    <p>【预期回答】钢铁侠的贾维斯、流浪地球的 MOSS、HAL 等。</p>
+    <p>【易错点】片段仅教师版提供，控制在 20 秒内。</p>
+    <p>【演示操作】点右下角“播放片段”；点击黑色区域关闭。</p>
+    <p>【转场】电影很精彩，但现实中的 AI 在干什么？</p>
+  </aside>
+</section>
+
+<!-- L1-10 现实中的 AI -->
+<section data-part="第一部分　什么是人工智能" data-src="网络素材，课堂教学引用">
+  <h2 class="title">现实中的 AI，大多在专心做好一件具体的事</h2>
+  <div class="body grid g4" style="gap:26px;grid-template-rows:1fr 1fr">
+    <div class="card"><div class="pic" style="height:170px"><img src="assets/img/placeholder/s18_1.svg" alt="人脸识别闸机"></div><h3>刷脸闸机</h3><p>认出你是谁</p></div>
+    <div class="card"><div class="pic" style="height:170px"><img src="assets/img/placeholder/s18_2.svg" alt="人脸检测" style="object-position:50% 25%"></div><h3>人脸检测</h3><p>找到照片里的每张脸</p></div>
+    <div class="card"><div class="pic" style="height:170px;background:#E9EEF6"><svg viewBox="0 0 400 170"><rect width="400" height="170" fill="#E9EEF6"/><path d="M0 40h400M0 110h400M90 0v170M260 0v170" stroke="#fff" stroke-width="14"/><path d="M60 150 L90 110 L180 110 L260 40 L340 40" fill="none" stroke="#0B3D91" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M180 110 L260 110 L260 40" fill="none" stroke="#B4471F" stroke-width="6" stroke-dasharray="10 8"/><circle cx="60" cy="150" r="10" fill="#0B3D91"/><path d="M340 20c-10 0-16 8-16 15 0 10 16 25 16 25s16-15 16-25c0-7-6-15-16-15z" fill="#B4471F"/><rect x="200" y="122" width="96" height="30" rx="6" fill="#fff"/><text x="248" y="143" text-anchor="middle" font-size="16" fill="#B4471F" font-family="sans-serif">拥堵 +8分</text></svg></div><h3>地图导航</h3><p>预测路况，挑出更快的路</p></div>
+    <div class="card"><div class="pic" style="height:170px;background:#F6ECE6"><svg viewBox="0 0 400 170"><rect width="400" height="170" fill="#F6ECE6"/><rect x="40" y="30" width="140" height="110" fill="#fff" stroke="#CFC8B8"/><text x="58" y="66" font-size="20" fill="#1C1D21" font-family="sans-serif">MENU</text><text x="58" y="96" font-size="16" fill="#4A4F5C" font-family="sans-serif">Fried rice</text><text x="58" y="120" font-size="16" fill="#4A4F5C" font-family="sans-serif">Green tea</text><path d="M200 85h40" stroke="#B4471F" stroke-width="5"/><path d="M232 75l12 10-12 10" fill="none" stroke="#B4471F" stroke-width="5"/><rect x="260" y="30" width="110" height="110" fill="#fff" stroke="#CFC8B8"/><text x="278" y="66" font-size="20" fill="#1C1D21" font-family="sans-serif">菜单</text><text x="278" y="96" font-size="16" fill="#4A4F5C" font-family="sans-serif">炒饭</text><text x="278" y="120" font-size="16" fill="#4A4F5C" font-family="sans-serif">绿茶</text></svg></div><h3>拍照翻译</h3><p>认出文字，再翻译</p></div>
+    <div class="card"><div class="pic" style="height:170px"><img src="assets/img/placeholder/s19_2.svg" alt="送餐机器人"></div><h3>送餐机器人</h3><p>在餐厅里自己避开人和桌子</p></div>
+    <div class="card"><div class="pic" style="height:170px"><img src="assets/img/placeholder/s22_1.svg" alt="医院物流机器人"></div><h3>医院物流机器人</h3><p>把药品送到病房</p></div>
+    <div class="card"><div class="pic" style="height:170px;background:#fff"><img src="assets/img/placeholder/s23_1.svg" alt="人形机器人" style="object-fit:contain"></div><h3>人形机器人</h3><p>学会走路和保持平衡</p></div>
+    <div class="card"><div class="pic" style="height:170px"><img src="assets/img/placeholder/s23_4.svg" alt="四足机器人"></div><h3>四足机器人</h3><p>自己判断怎么上台阶</p></div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】对比电影：现实中的 AI 通常是“专才”，每个系统专注做好一件事。</p>
+    <p>【讲述建议】再看现实中的 AI。刷脸闸机只做一件事：认出你是谁；导航软件根据实时数据预测哪条路堵；拍照翻译要先认出图片里的文字，再翻译；送餐机器人要在人来人往的餐厅里避开障碍；四足机器人要判断台阶有多高、脚该放哪里。它们都很厉害，但每一个都只擅长一件具体的事，也没有电影里那种自我意识。这就是今天 AI 的真实样子。</p>
+    <p>【互动提问】这里面哪一个你最近见过或用过？</p>
+    <p>【预期回答】刷脸闸机、导航、翻译最常见。</p>
+    <p>【易错点】导航和翻译两张为示意插图，不是产品截图。</p>
+    <p>【演示操作】无</p>
+    <p>【转场】那是不是所有“智能”的东西都算 AI 呢？我们来做个判断题。</p>
+  </aside>
+</section>
+
+<!-- L1-11 互动A -->
+<section class="m-interact" data-part="第一部分　什么是人工智能|互动">
+  <h2 class="title">哪些算 AI？先自己判断，再翻开看</h2>
+  <div class="stage" data-comp="flip" style="width:1680px;bottom:150px">
+    <div class="flipgrid">
+      <div class="flip"><div class="front"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 9l5 3-5 3z"/></svg><b>短视频推荐</b><i>点击翻开</i></div><div class="back"><span class="v yes">算</span><p>它从你和千万用户的观看记录里<b>学习</b>你的偏好，预测你下一条想看什么。</p></div></div>
+      <div class="flip"><div class="front"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8v4H8zM8 14h2M11 14h2M14 14h2M8 17h2M11 17h2M14 17h2"/></svg><b>普通计算器</b><i>点击翻开</i></div><div class="back"><span class="v no">不算</span><p>它严格按人写好的固定规则计算，既不学习，也不感知环境。算得再快也不算“智能”。</p></div></div>
+      <div class="flip"><div class="front"><svg viewBox="0 0 24 24"><path d="M12 22s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><b>地图导航</b><i>点击翻开</i></div><div class="back"><span class="v yes">算</span><p>找最短路线用的是经典的<b>搜索</b>算法；预测哪里会堵、几点到，靠的是从历史数据中<b>学习</b>。</p></div></div>
+      <div class="flip"><div class="front"><svg viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16M12 3v18M9 12h.01M15 12h.01"/></svg><b>自动感应门</b><i>点击翻开</i></div><div class="back"><span class="v mid">看情况</span><p>普通感应门只是“有人靠近就开”的固定规则，通常不算。如果它用摄像头识别人、判断是不是要进门，就沾上 AI 了。</p></div></div>
+      <div class="flip"><div class="front"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-12 7l-5 1 1.5-4A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg><b>AI 聊天助手</b><i>点击翻开</i></div><div class="back"><span class="v yes">算</span><p>背后是大语言模型，从海量文字中学到语言规律，能理解问题并<b>生成</b>回答——但回答不一定对。</p></div></div>
+      <div class="flip"><div class="front"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg><b>AI 生图</b><i>点击翻开</i></div><div class="back"><span class="v yes">算</span><p>输入一句话就能画出新图片，属于<b>生成式 AI</b>。它画的是“没见过的新图”，不是从网上搜来的。</p></div></div>
+    </div>
+  </div>
+  <div class="btns" style="position:absolute;left:120px;bottom:70px;z-index:6" data-comp-proxy><button class="btn" type="button" onclick="this.closest('section').querySelectorAll('.flip').forEach(c=>c.classList.add('open'))">全部翻开</button></div>
+  <aside class="notes">
+    <p>【建议用时】3分钟</p>
+    <p>【本页目标】通过判断题建立“AI 要能学习、感知、推理或生成”的直觉，并认识到边界不总是绝对的。</p>
+    <p>【讲述建议】六个东西，大家先在心里判断算不算 AI，我请同学来说，然后翻开看。计算器算得比人快得多，为什么不算？因为它只是执行人写好的固定规则，不会学习、不会感知。短视频推荐、聊天助手、AI 生图都是从数据中学到规律的。导航比较有意思：找路线用的是搜索，预测堵车用的是学习。自动门最难判断：普通的感应门不算，但如果用摄像头识别人，就算了。这说明 AI 的边界并不总是一刀切的。</p>
+    <p>【互动提问】计算器算得比人快，为什么不算 AI？</p>
+    <p>【预期回答】因为它只按规则算，不会学习，也不会自己判断。</p>
+    <p>【易错点】不要给学生“有芯片、会自动就是 AI”的印象。</p>
+    <p>【演示操作】点击卡片翻开；左下“全部翻开”；按 R 或右下“重置”复原。</p>
+    <p>【转场】判断了这么多，我们来给 AI 下个正式一点的定义。</p>
+  </aside>
+</section>
+
+<!-- L1-12 定义 -->
+<section data-part="第一部分　什么是人工智能" data-src="网络素材，课堂教学引用">
+  <h2 class="title">人工智能：让机器完成通常需要人类智能才能做的事</h2>
+  <div class="body grid" style="grid-template-columns:520px 1fr;gap:90px">
+    <div>
+      <figure class="ph" style="height:300px;width:390px"><img src="assets/img/placeholder/s26_1.svg" alt="约翰·麦卡锡" style="filter:grayscale(1)"></figure><p class="note" style="margin-top:10px">约翰·麦卡锡（John McCarthy）</p>
+      <div style="border-left:5px solid var(--blue);padding:6px 0 6px 24px;margin-top:26px">
+        <p class="serif" style="font-size:30px;font-weight:700;line-height:1.5">“人工智能是制造智能机器，特别是智能计算机程序的科学与工程。”</p>
+        <p class="note" style="margin-top:8px">麦卡锡，1955 年在会议提案中首次使用 Artificial Intelligence 一词</p>
+      </div>
+    </div>
+    <div>
+      <p class="lead" style="font-size:34px">一个系统如果能做到下面的一件或几件事，我们通常就说它“有智能”：</p>
+      <div class="grid" style="grid-template-columns:repeat(5,1fr);gap:18px;margin-top:40px">
+        <div class="fragment rise" style="border-top:4px solid var(--blue);padding-top:16px"><b class="serif" style="font-size:44px;color:var(--blue)">感知</b><p class="muted" style="font-size:22px;margin-top:6px">看、听、读</p></div>
+        <div class="fragment rise" style="border-top:4px solid var(--blue);padding-top:16px"><b class="serif" style="font-size:44px;color:var(--blue)">学习</b><p class="muted" style="font-size:22px;margin-top:6px">从数据中总结规律</p></div>
+        <div class="fragment rise" style="border-top:4px solid var(--blue);padding-top:16px"><b class="serif" style="font-size:44px;color:var(--blue)">推理</b><p class="muted" style="font-size:22px;margin-top:6px">由已知推出未知</p></div>
+        <div class="fragment rise" style="border-top:4px solid var(--blue);padding-top:16px"><b class="serif" style="font-size:44px;color:var(--blue)">决策</b><p class="muted" style="font-size:22px;margin-top:6px">在选项中做选择</p></div>
+        <div class="fragment rise" style="border-top:4px solid var(--blue);padding-top:16px"><b class="serif" style="font-size:44px;color:var(--blue)">生成</b><p class="muted" style="font-size:22px;margin-top:6px">创造新的内容</p></div>
+      </div>
+      <p class="fragment rise" style="margin-top:70px;font-size:34px;line-height:1.6;border-top:2px solid var(--ink);padding-top:26px">它<em>不需要</em>长得像人，也<em>不需要</em>有意识或情感。</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】给出 AI 的工作定义，破除“像人才是 AI”的误解。</p>
+    <p>【讲述建议】“人工智能”这个词是 1955 年麦卡锡在一份会议提案里提出的，他后来给的定义是：制造智能机器，特别是智能计算机程序的科学与工程。说得通俗一点：让机器完成那些通常需要人类智能才能做的事。哪些事？感知、学习、推理、决策、生成，做到其中一件或几件就行。注意最后一句：AI 不需要长得像人，也不需要有意识。手机里认人脸的程序就是 AI，它没有身体，更没有情感。</p>
+    <p>【互动提问】AlphaGo 符合哪几条？</p>
+    <p>【预期回答】学习、推理、决策。</p>
+    <p>【易错点】“人工智能”与“有意识的机器”不是一回事；有无意识是哲学问题，不是判断标准。</p>
+    <p>【演示操作】按空格逐个显示五个关键词。</p>
+    <p>【转场】这五种能力在生活中分别长什么样？</p>
+  </aside>
+</section>
+
+<!-- L1-13 AI 能做的几类事 -->
+<section data-part="第一部分　什么是人工智能" data-src="网络素材，课堂教学引用">
+  <h2 class="title">AI 能做的事，大致可以分成六类</h2>
+  <div class="body grid g3" style="gap:26px;grid-template-rows:1fr 1fr">
+    <div class="card"><div class="pic" style="height:150px"><img src="assets/img/placeholder/cv64_2.svg" alt="胸部 X 光片中自动标出的肺部区域" style="object-position:50% 40%"></div><h3>看</h3><p>认出图片里的人、物和病灶区域</p></div>
+    <div class="card"><div class="pic" style="height:150px;background:#E9EEF6"><svg viewBox="0 0 400 170"><rect width="400" height="170" fill="#E9EEF6"/><g stroke="#0B3D91" stroke-width="7" stroke-linecap="round"><path d="M60 85v0M85 70v30M110 50v70M135 30v110M160 55v60M185 70v30M210 40v90M235 60v50M260 75v20"/></g><path d="M280 85h30" stroke="#B4471F" stroke-width="5"/><path d="M302 75l10 10-10 10" fill="none" stroke="#B4471F" stroke-width="5"/><text x="322" y="93" font-size="24" fill="#1C1D21" font-family="sans-serif">“开灯”</text></svg></div><h3>听</h3><p>语音转文字、语音助手、实时字幕</p></div>
+    <div class="card"><div class="pic" style="height:150px;background:#F6ECE6"><svg viewBox="0 0 400 170"><rect width="400" height="170" fill="#F6ECE6"/><rect x="50" y="25" width="130" height="120" fill="#fff" stroke="#CFC8B8"/><g fill="#CFC8B8"><rect x="64" y="42" width="100" height="7"/><rect x="64" y="58" width="90" height="7"/><rect x="64" y="74" width="100" height="7"/><rect x="64" y="90" width="70" height="7"/><rect x="64" y="106" width="96" height="7"/><rect x="64" y="122" width="60" height="7"/></g><path d="M195 85h30" stroke="#B4471F" stroke-width="5"/><path d="M217 75l10 10-10 10" fill="none" stroke="#B4471F" stroke-width="5"/><rect x="240" y="55" width="120" height="60" fill="#fff" stroke="#B4471F" stroke-width="2"/><g fill="#B4471F"><rect x="254" y="72" width="90" height="7"/><rect x="254" y="90" width="60" height="7"/></g></svg></div><h3>读和写</h3><p>翻译、摘要、写作、解释代码</p></div>
+    <div class="card"><div class="pic" style="height:150px;background:#E6F1EE"><svg viewBox="0 0 400 170"><rect width="400" height="170" fill="#E6F1EE"/><path d="M40 140h330M40 140V20" stroke="#1C1D21" stroke-width="2"/><path d="M40 120 L90 105 L140 112 L190 80 L240 88" fill="none" stroke="#0B3D91" stroke-width="6" stroke-linejoin="round"/><path d="M240 88 L290 62 L340 50" fill="none" stroke="#12806F" stroke-width="6" stroke-dasharray="10 8"/><path d="M240 88 L290 50 L340 30 L340 72 L290 76 Z" fill="#12806F" opacity=".15"/><text x="290" y="130" font-size="18" fill="#12806F" font-family="sans-serif">预测</text></svg></div><h3>预测</h3><p>天气、交通、销量、你接下来想看什么</p></div>
+    <div class="card"><div class="pic" style="height:150px"><img src="assets/img/placeholder/s72_1.svg" alt="AI 生成的宇航员骑马图" style="object-position:50% 40%"></div><h3>生成</h3><p>按一句话画图、写文章、写代码</p></div>
+    <div class="card"><div class="pic" style="height:150px"><img src="assets/img/placeholder/s23_3.svg" alt="人形机器人舞台表演"></div><h3>行动</h3><p>机器人行走、抓取，自动驾驶</p></div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】把抽象定义落到六类具体能力上，并为后续课程埋伏笔。</p>
+    <p>【讲述建议】把刚才的定义落到实处，AI 能做的事大致分六类。“看”就是计算机视觉，第六周会讲；“听”是语音识别；“读和写”是自然语言处理，第七周讲；“预测”是机器学习最常见的用途，比如天气预报、推荐系统；“生成”是这几年最火的生成式 AI，中间这张宇航员骑马的图就是 AI 根据一句话画出来的；“行动”是机器人和自动驾驶。很多真实系统会同时用到好几类，比如自动驾驶既要看，又要预测，还要行动。</p>
+    <p>【互动提问】你的手机拍照翻译用到了哪几类？</p>
+    <p>【预期回答】看（认出文字）+ 读写（翻译）。</p>
+    <p>【易错点】X 光示例只说明 AI 能“看”医学影像，诊断仍由医生负责；宇航员骑马图是早期文生图模型的经典示例。</p>
+    <p>【演示操作】无</p>
+    <p>【转场】这些 AI 各有专长，那有没有什么都会的 AI 呢？</p>
+  </aside>
+</section>
+
+<!-- L1-14 专用 vs 通用 -->
+<section data-part="第一部分　什么是人工智能" data-src="网络素材，课堂教学引用">
+  <h2 class="title">今天的 AI 大多是“专才”，“全才”仍是研究目标</h2>
+  <div class="body">
+    <svg viewBox="0 0 1680 560" width="1680" height="560">
+      <defs><linearGradient id="sp" x1="0" x2="1"><stop offset="0" stop-color="#0B3D91"/><stop offset=".65" stop-color="#12806F"/><stop offset="1" stop-color="#CFC8B8"/></linearGradient></defs>
+      <rect x="0" y="470" width="1680" height="14" fill="url(#sp)"/>
+      <text x="0" y="530" font-size="26" fill="#4A4F5C" font-family="sans-serif">只会一件事</text>
+      <text x="1680" y="530" font-size="26" fill="#4A4F5C" text-anchor="end" font-family="sans-serif">什么都会</text>
+      <text x="840" y="530" font-size="24" fill="#7A7F8B" text-anchor="middle" font-family="sans-serif">能胜任的任务范围 →</text>
+    </svg>
+    <div class="fragment rise" style="position:absolute;left:60px;top:0;width:360px"><figure class="ph" style="height:190px"><img src="assets/img/placeholder/s46_1.svg" alt="AlphaGo 对弈"></figure><b class="serif" style="font-size:34px;display:block;margin-top:12px">AlphaGo</b><p class="muted" style="font-size:23px">围棋下赢世界冠军，但不会下象棋，更不会聊天</p></div>
+    <div class="fragment rise" style="position:absolute;left:640px;top:0;width:420px"><div style="height:190px;background:#fff;border:1px solid var(--rule);padding:20px;font-size:22px;line-height:1.6"><span class="note">你</span><br>帮我把这段话翻译成英文，再写一首诗。<br><span class="note">AI 助手</span><br>好的，翻译如下……</div><b class="serif" style="font-size:34px;display:block;margin-top:12px">大语言模型</b><p class="muted" style="font-size:23px">能做很多语言任务，范围广得多，但仍会犯错</p></div>
+    <div class="fragment rise" style="position:absolute;right:0;top:0;width:380px"><div style="height:190px;border:3px dashed var(--ink-3);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:90px;color:var(--ink-3)">?</div><b class="serif" style="font-size:34px;display:block;margin-top:12px">通用人工智能（AGI）</b><p class="muted" style="font-size:23px">像人一样胜任几乎所有任务。仍是研究目标，是否、何时实现存在争论</p></div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2分钟</p>
+    <p>【本页目标】区分专用 AI 与通用人工智能（AGI），避免学生以为 AGI 已经实现。</p>
+    <p>【讲述建议】把 AI 放在一条光谱上：左边是只会做一件事的专用 AI，比如 AlphaGo，围棋能赢世界冠军，但换成象棋就不会了。中间是今天的大语言模型，能翻译、写作、编程，范围广多了，但它也会犯错，也有很多做不好的事。最右边是通用人工智能，英文缩写 AGI，指像人一样几乎什么任务都能胜任的 AI。它现在还是研究目标，什么时候能实现、甚至能不能实现，科学家们还在争论。所以看到“AGI 已经来了”这类标题，要保持冷静。</p>
+    <p>【互动提问】你觉得大语言模型应该放在光谱的哪个位置？为什么？</p>
+    <p>【预期回答】中间偏右；能做很多事，但不是什么都会、也不总是对。</p>
+    <p>【易错点】不要表述为“AGI 已经实现”或“永远不可能实现”，保持开放。</p>
+    <p>【演示操作】按空格依次显示三个落点。</p>
+    <p>【转场】知道了 AI 是什么，下一个问题是：机器是怎么学会这些本事的？</p>
+  </aside>
+</section>
+
+<!-- L1-15 章节页 -->
+<section class="m-section">
+  <div class="sec-wrap">
+    <div class="sec-k">第二部分</div>
+    <h2>机器是怎么<br>“学会”的</h2>
+    <div class="sec-q">把规则一条条写给它，<br>还是给它看足够多的例子？</div>
+  </div>
+    <aside class="notes">
+    <p>【建议用时】0.2分钟</p>
+    <p>【本页目标】章节过渡。</p>
+    <p>【讲述建议】让电脑做事有两种思路：一种是人把规则一条条写给它，另一种是给它看大量例子，让它自己总结规律。这两种思路的区别，是理解 AI 的关键。</p>
+    <p>【转场】我们先看第一种。</p>
+  </aside>
+</section>
+
+<!-- L1-16 两种方法 -->
+<section data-part="第二部分　机器是怎么学会的">
+  <h2 class="title">两种让电脑做事的方法：人写规则，或者让它从例子中学</h2>
+  <div class="body cmp">
+    <div>
+      <span class="tag blue">传统编程</span>
+      <h3 style="margin-top:16px">人把规则写好，电脑照着做</h3>
+      <div class="flow" style="margin-top:36px"><div class="bx blue">规则<small>人写的</small></div><span class="plus">+</span><div class="bx">数据<small>输入</small></div><span class="ar">→</span><div class="bx fill">程序</div><span class="ar">→</span><div class="bx">答案</div></div>
+      <div class="code" style="margin-top:44px;font-size:26px;border-left-color:var(--blue)">如果 成绩 ≥ 90：等级 = "优秀"
+否则如果 成绩 ≥ 60：等级 = "及格"
+否则：等级 = "不及格"</div>
+      <p class="muted" style="margin-top:22px;font-size:26px">规则清楚的问题，这样做又准又快。</p>
+    </div>
+    <div class="fragment rise">
+      <span class="tag rust">机器学习</span>
+      <h3 style="margin-top:16px">给它例子和答案，它自己找出规律</h3>
+      <div class="flow" style="margin-top:36px"><div class="bx">数据<small>例子</small></div><span class="plus">+</span><div class="bx rust">答案<small>标签</small></div><span class="ar">→</span><div class="bx fill" style="background:var(--rust);border-color:var(--rust)">学习</div><span class="ar">→</span><div class="bx rust">规律<small>模型</small></div></div>
+      <div class="flow fragment rise" style="margin-top:28px"><div class="bx">新照片</div><span class="ar">→</span><div class="bx rust">模型</div><span class="ar">→</span><div class="bx teal">“这是猫”</div></div>
+      <p class="muted" style="margin-top:30px;font-size:26px">猫长什么样，很难用规则写清楚；但给它看一万张标好“猫/狗”的照片，它能自己学会分辨。</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】3分钟</p>
+    <p>【本页目标】理解传统编程与机器学习的根本区别：规则由人写，还是从数据中学。</p>
+    <p>【讲述建议】左边是传统编程：人把规则写好，比如成绩 90 分以上是优秀，60 分以上及格。电脑照着规则执行，又准又快。但有些问题规则根本写不出来。比如：怎么判断一张照片里是猫还是狗？耳朵尖的是猫？有的狗耳朵也是尖的。这时就用右边的机器学习：我们不写规则，而是给电脑看一万张已经标好“猫”或“狗”的照片，让它自己从中找出规律，这个找到的规律就叫“模型”。以后来一张新照片，模型就能判断。这就是机器学习的核心思想：从数据中学习。</p>
+    <p>【互动提问】你能用几条规则说清楚“猫和狗的区别”吗？</p>
+    <p>【预期回答】学生会说耳朵、体型、叫声，然后发现总有例外。</p>
+    <p>【易错点】机器学习不是“没有规则”，而是规则由数据学出来，存在模型里。</p>
+    <p>【演示操作】按空格显示右栏，再显示“新照片 → 模型 → 预测”。</p>
+    <p>【转场】光说不够直观，我们亲手试一下这两种方法。</p>
+  </aside>
+</section>
+
+<!-- L1-17 互动B -->
+<section class="m-interact" data-part="第二部分　机器是怎么学会的|互动">
+  <h2 class="title">动手试一试：规则 vs 学习，谁更会分橙子和柠檬？</h2>
+  <div class="stage" data-comp="knn" style="width:1680px">
+    <div class="knn">
+      <div class="pl"><h4>人写的规则</h4><p>“重于 140 克的就是橙子”——规则写死，不会变</p><svg class="rule" viewBox="0 0 500 420" role="img" aria-label="规则方法的分类图"></svg><div class="acc">新水果判对 <b class="acc-rule">-</b></div></div>
+      <div class="pl"><h4>从样本中学（k 近邻）</h4><p>看离它最近的 3 个已知样本，多数是什么就判成什么</p><svg class="learn" viewBox="0 0 500 420" role="img" aria-label="学习方法的分类图"></svg><div class="acc">新水果判对 <b class="acc-learn">-</b>　<span class="muted" style="font-size:22px">已知样本 <span class="ntrain">4</span> 个</span></div></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px">
+      <div class="legend"><span><svg width="26" height="26"><circle cx="13" cy="13" r="10" fill="#D2551C"/></svg> 橙子（样本）</span><span><svg width="26" height="26"><path d="M13 2 L24 22 L2 22Z" fill="#D9A400"/></svg> 柠檬（样本）</span><span><svg width="26" height="26"><circle cx="13" cy="13" r="9" fill="#fff" stroke="#D2551C" stroke-width="4"/></svg> 空心 = 要判断的新水果</span><span style="color:var(--rust);font-weight:700">✕ 判错</span></div>
+      <div class="btns"><button class="btn primary" data-act="add" type="button">添加样本</button><button class="btn" data-act="bg" type="button">显示/隐藏判断区域</button></div>
+    </div>
+    <p class="note" style="margin-top:8px">教学简化示意：只用“重量”和“颜色”两个特征，数据为虚构，不代表真实的水果识别模型。</p>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】4分钟</p>
+    <p>【本页目标】亲眼看到：规则写死后不会改进；学习方法随着样本增加越来越准。</p>
+    <p>【讲述建议】我们要区分橙子和柠檬。左边是人写的规则：重于 140 克就是橙子。右边是机器学习里最简单的方法之一，叫 k 近邻：来一个新水果，看离它最近的 3 个已知样本，多数是橙子就判橙子。空心的点是我们要判断的 8 个新水果，打叉的是判错的。现在规则判对 4 个，学习方法因为样本太少也不太准。我们点“添加样本”，给它看更多例子——注意右边的颜色区域在变，它慢慢发现“颜色”比“重量”更能区分两种水果。加完以后，学习方法几乎全对，而左边的规则一直是 4 个，因为它不会变。</p>
+    <p>【互动提问】为什么左边的规则判不准？如果让你改规则，你会怎么改？</p>
+    <p>【预期回答】只看重量不够，颜色更重要；可以改成“颜色偏橙就是橙子”。追问：如果特征有上百个，你还写得出来吗？</p>
+    <p>【易错点】k 近邻只是帮助理解的简单方法，真实的识别模型复杂得多；不要深入讲距离计算。</p>
+    <p>【演示操作】连续点“添加样本”，边点边看右图变化和“判对”数字；“显示/隐藏判断区域”切换背景色；按 R 重置。</p>
+    <p>【转场】刚才这种“从数据中学习”，就是机器学习。它和 AI、深度学习是什么关系？</p>
+  </aside>
+</section>
+
+<!-- L1-18 AI 家族关系 -->
+<section data-part="第二部分　机器是怎么学会的">
+  <h2 class="title">AI 家族：机器学习、深度学习、生成式 AI 是什么关系</h2>
+  <div class="body grid" style="grid-template-columns:1000px 1fr;gap:70px">
+    <svg viewBox="0 0 1000 640" width="1000" height="640" role="img" aria-label="AI、机器学习、深度学习、生成式AI的关系图">
+      <ellipse cx="500" cy="320" rx="490" ry="310" fill="#EDE8DC" stroke="#1C1D21" stroke-width="3"/>
+      <text x="80" y="140" font-size="40" font-weight="900" fill="#1C1D21" font-family="serif">人工智能</text>
+      <text x="80" y="182" font-size="22" fill="#4A4F5C" font-family="sans-serif">专家系统、下棋搜索</text>
+      <g class="fragment" data-fragment-index="1"><ellipse cx="560" cy="360" rx="390" ry="240" fill="#DCE4F2" stroke="#0B3D91" stroke-width="3"/>
+      <text x="215" y="300" font-size="36" font-weight="900" fill="#0B3D91" font-family="serif">机器学习</text>
+      <text x="215" y="338" font-size="22" fill="#4A4F5C" font-family="sans-serif">垃圾邮件过滤、推荐</text></g>
+      <g class="fragment" data-fragment-index="2"><ellipse cx="640" cy="410" rx="270" ry="170" fill="#C6D3EA" stroke="#0B3D91" stroke-width="3"/>
+      <text x="430" y="420" font-size="34" font-weight="900" fill="#0B3D91" font-family="serif">深度学习</text>
+      <text x="430" y="456" font-size="22" fill="#4A4F5C" font-family="sans-serif">人脸识别、语音识别</text></g>
+      <g class="fragment" data-fragment-index="3"><ellipse cx="760" cy="330" rx="170" ry="110" fill="rgba(180,71,31,.18)" stroke="#B4471F" stroke-width="3" stroke-dasharray="10 6"/>
+      <text x="690" y="320" font-size="32" font-weight="900" fill="#B4471F" font-family="serif">生成式 AI</text>
+      <text x="690" y="354" font-size="22" fill="#4A4F5C" font-family="sans-serif">聊天助手、AI 生图</text></g>
+    </svg>
+    <ul class="pts single" style="font-size:28px">
+      <li class="fragment" data-fragment-index="1"><span><b class="blue serif">机器学习</b>：AI 的一种做法——从数据中学</span></li>
+      <li class="fragment" data-fragment-index="2"><span><b class="blue serif">深度学习</b>：机器学习的一种——用多层神经网络学（第 4 周）</span></li>
+      <li class="fragment" data-fragment-index="3"><span><b class="serif" style="color:var(--rust)">生成式 AI</b>：按用途划分——能创造新内容；今天大多基于深度学习，但它不是“第四层套娃”</span></li>
+    </ul>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2.5分钟</p>
+    <p>【本页目标】厘清四个概念的关系，避免画成简单的四层套娃。</p>
+    <p>【讲述建议】最外面一圈是人工智能，范围最大，包括早期靠人写规则的专家系统、下棋的搜索程序。里面一圈是机器学习，是实现 AI 的一种方法：从数据中学习，刚才的橙子柠檬就是。再里面是深度学习，它是机器学习的一种，用的是多层神经网络，人脸识别、语音识别都靠它，第四周我们会讲。最后这个虚线圈是生成式 AI，它是按“用途”来分的：能创造新的文字、图片、声音。今天的生成式 AI 大多建立在深度学习之上，但也有一部分早期的生成方法不属于深度学习，所以我们把它画成跨在边界上的一个圈，而不是简单的第四层。</p>
+    <p>【互动提问】刷脸闸机应该放在哪个圈里？ChatGPT 呢？</p>
+    <p>【预期回答】刷脸：深度学习；ChatGPT：生成式 AI 和深度学习的重叠部分。</p>
+    <p>【易错点】最常见的错误图是 AI ⊃ ML ⊃ DL ⊃ 生成式 AI 四层套娃。</p>
+    <p>【演示操作】按空格逐圈出现。</p>
+    <p>【转场】说到生成式 AI，它和“认东西”的 AI 有什么不同？</p>
+  </aside>
+</section>
+
+<!-- L1-19 识别 vs 生成 -->
+<section data-part="第二部分　机器是怎么学会的" data-src="网络素材，课堂教学引用">
+  <h2 class="title">认出来，还是造出来：识别式 AI 和生成式 AI</h2>
+  <div class="body cmp" style="bottom:300px">
+    <div>
+      <span class="tag blue">识别式 AI</span><h3 style="margin-top:14px;font-size:38px">回答“这是什么？”</h3>
+      <div style="display:flex;gap:24px;align-items:center;margin-top:20px"><figure class="ph" style="width:440px;height:300px"><img src="assets/img/placeholder/cv72_2.svg" alt="施工人员被自动框出并标注" style="object-position:50% 40%"></figure><span class="ar" style="font-size:40px;color:var(--ink-3)">→</span><div class="bx" style="border:2px solid var(--blue);padding:16px 22px;font-size:28px;font-weight:700;color:var(--blue);background:#fff;white-space:nowrap">“这里有 3 个人，<br>都穿着反光背心”</div></div>
+    </div>
+    <div class="fragment rise">
+      <span class="tag rust">生成式 AI</span><h3 style="margin-top:14px;font-size:38px">回答“帮我造一个新的”</h3>
+      <div style="display:flex;gap:24px;align-items:center;margin-top:20px"><div style="border:2px solid var(--rust);padding:16px 22px;font-size:26px;background:#fff;width:260px;line-height:1.45">“一位宇航员在骑马，照片风格”</div><span class="ar" style="font-size:40px;color:var(--ink-3)">→</span><figure class="ph" style="width:300px;height:300px"><img src="assets/img/placeholder/s72_1.svg" alt="AI 生成的宇航员骑马"></figure></div>
+    </div>
+  </div>
+  <div class="fragment rise" style="position:absolute;left:120px;right:120px;bottom:110px;border-top:2px solid var(--ink);padding-top:26px">
+    <p style="font-size:26px;color:var(--ink-2);margin-bottom:16px">大语言模型怎么“写”出回答？——一次猜一个最可能的下一个词（第 7、10 周详讲）</p>
+    <div class="nextword"><span class="ctx">今天天气很</span><span class="ar" style="color:var(--ink-3)">→</span><span class="cand"><span class="top">好<i>62%</i></span><span>热<i>21%</i></span><span>冷<i>9%</i></span><span>……</span></span><span style="margin-left:30px;font-size:30px;font-weight:700;color:var(--rust)">说得流畅 ≠ 说得对</span></div>
+    <p class="note" style="margin-top:8px">概率为示意数字。</p>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】2.5分钟</p>
+    <p>【本页目标】区分识别式与生成式 AI，并用“预测下一个词”的直觉解释大语言模型为什么会说错。</p>
+    <p>【讲述建议】识别式 AI 回答“这是什么”：给它一张工地照片，它告诉你这里有三个人，都穿着反光背心。生成式 AI 回答“帮我造一个新的”：给它一句话“宇航员骑马”，它画出一张世界上原本不存在的图片。聊天助手也是生成式 AI。它是怎么写出一段话的？说简单点，就是一次猜一个最可能的下一个词：“今天天气很”后面，最可能是“好”，也可能是“热”。一个词接一个词，就写出了整段回答。正因为它是在猜“最像”的说法，而不是在查一本正确答案的书，所以它可能说得很流畅，内容却是错的。记住这句话：说得流畅不等于说得对。</p>
+    <p>【互动提问】你遇到过 AI 一本正经地说错话吗？</p>
+    <p>【预期回答】编造不存在的书名、论文、历史事件等。</p>
+    <p>【易错点】“预测下一个词”是高度简化的直觉，后面课程会讲得更准确；百分比是示意。</p>
+    <p>【演示操作】按空格显示右栏，再显示下方“下一个词”。</p>
+    <p>【转场】我们用四道小题检查一下今天的内容。</p>
+  </aside>
+</section>
+
+<!-- L1-20 小测 -->
+<section class="m-interact" data-part="小结|互动">
+  <h2 class="title">四道小题：检查一下今天的收获</h2>
+  <div class="stage" data-comp="quiz" style="width:1680px;top:290px">
+    <div class="quiz">
+      <div class="q" data-answer="1"><p class="qt">1. 下面哪个最像“机器学习”？</p><div class="opts"><button>程序员写好“成绩≥90 为优秀”的规则</button><button>给电脑看大量标好答案的例子，让它自己总结规律</button><button>计算器做加减乘除</button></div><p class="exp">机器学习的核心是“从数据中学到规律”，规则不是人写死的。</p></div>
+      <div class="q" data-answer="2"><p class="qt">2. AI、机器学习、深度学习的关系，哪个说法对？</p><div class="opts"><button>三者是同一个意思</button><button>深度学习的范围最大</button><button>深度学习属于机器学习，机器学习属于 AI</button></div><p class="exp">范围从大到小：人工智能 ⊃ 机器学习 ⊃ 深度学习。</p></div>
+      <div class="q" data-answer="0"><p class="qt">3. 输入“一只戴帽子的猫”，输出一张新图片，这属于？</p><div class="opts"><button>生成式 AI</button><button>识别式 AI</button><button>传统编程</button></div><p class="exp">它创造了原本不存在的新内容，是生成式 AI。</p></div>
+      <div class="q" data-answer="2"><p class="qt">4. 关于通用人工智能（AGI），哪个说法最恰当？</p><div class="opts"><button>聊天机器人出现，说明 AGI 已经实现</button><button>AGI 永远不可能实现</button><button>AGI 仍是研究目标，是否、何时实现存在争论</button></div><p class="exp">保持开放和审慎：它是研究目标，不是既成事实。</p></div>
+    </div>
+    <p class="score" style="margin-top:22px"></p>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】3分钟</p>
+    <p>【本页目标】即时检查本节四个核心概念。</p>
+    <p>【讲述建议】请大家先独立想 30 秒，然后同桌之间对一下答案。我们请几位同学说说自己选了什么、为什么。第二题最容易错，可以回头看刚才那张圈圈图。第四题没有“标准的未来答案”，但最恰当的说法是：AGI 仍是研究目标，是否、何时实现还有争论。</p>
+    <p>【互动提问】每题请一位同学回答并说理由。</p>
+    <p>【预期回答】1-B，2-C，3-A，4-C。</p>
+    <p>【易错点】第 2 题有同学会选“深度学习范围最大”，因为它听起来最厉害。</p>
+    <p>【演示操作】点选项即显示对错和解析；按 R 重置。</p>
+    <p>【转场】最后用三句话总结今天的内容。</p>
+  </aside>
+</section>
+
+<!-- L1-21 小结 -->
+<section class="m-statement" data-part="小结">
+  <div class="st">
+    <div class="k" style="font-size:28px;margin-bottom:30px">今天记住三句话</div>
+    <ul class="pts single" style="max-width:1500px">
+      <li class="fragment rise" style="font-size:48px;padding:30px 0"><span><b class="serif">AI</b> 是让机器完成需要人类智能的事——不必像人，也不必有意识。</span></li>
+      <li class="fragment rise" style="font-size:48px;padding:30px 0"><span><b class="serif">机器学习</b> 不靠人写规则，而是从数据中学出规律。</span></li>
+      <li class="fragment rise" style="font-size:48px;padding:30px 0"><span><b class="serif" style="color:var(--rust)">生成式 AI</b> 能创造新内容，但说得流畅不等于说得对。</span></li>
+    </ul>
+    <p class="cap fragment rise" style="margin-top:60px">下一节：AI 是怎么一步步走到今天的？为什么最近突然变得这么厉害？</p>
+  </div>
+  <aside class="notes">
+    <p>【建议用时】1分钟</p>
+    <p>【本页目标】总结并预告理论二。</p>
+    <p>【讲述建议】今天只需要记住三句话。第一，AI 是让机器完成需要人类智能的事，不需要像人，也不需要有意识。第二，机器学习的关键是从数据中学规律，而不是人写规则。第三，生成式 AI 能创造新内容，但说得流畅不等于说得对，用的时候要核验。下一节课我们讲 AI 七十年的历史：它是怎么一步步走到今天的，为什么最近几年突然变得这么厉害。</p>
+    <p>【互动提问】无</p>
+    <p>【演示操作】按空格逐条显示。</p>
+    <p>【转场】休息一下，下一节见。</p>
+  </aside>
+</section>
+
+</div>
+</div>
+<script src="assets/vendor/reveal/reveal.js"></script>
+<script src="assets/vendor/reveal/plugin/notes/notes.js"></script>
+<script src="src/deck.js"></script>
+<script src="src/components/flip.js"></script>
+<script src="src/components/knn.js"></script>
+<script src="src/components/quiz.js"></script>
+</body>
+</html>

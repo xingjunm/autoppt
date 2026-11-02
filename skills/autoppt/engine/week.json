@@ -1,0 +1,20 @@
+{
+ "course": "{{COURSE}}",
+ "week": {{WEEK}},
+ "label": "{{WEEK_LABEL}}",
+ "decks": [
+  {"file": "lecture1.html", "title": "理论一 · {{L1_TITLE}}"},
+  {"file": "lecture2.html", "title": "理论二 · {{L2_TITLE}}"},
+  {"file": "lab1.html", "title": "实践课 · {{LAB_TITLE}}"}
+ ],
+ "prev": {{PREV_JSON}},
+ "next": null,
+ "student_links": [
+  {"href": "student-setup.html", "text": "{{WEEK_LABEL}}学生指南"},
+  {"href": "examples/{{DIR}}_lab.ipynb", "text": "下载 {{DIR}}_lab.ipynb", "download": true},
+  {"href": "examples/AI使用记录.md", "text": "下载 AI使用记录.md", "download": true}
+ ],
+ "zip": [],
+ "images": {},
+ "images_note": "未列出的插图均为课程自绘 SVG 或浏览器现场计算；未使用 AI 生成图片。"
+}

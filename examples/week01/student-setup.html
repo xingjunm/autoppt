@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学生安装与排错指南｜人工智能基础 第1周</title>
+<link rel="stylesheet" href="src/styles/tokens.css">
+<link rel="stylesheet" href="src/styles/page.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span><a href="index.html">← 第 1 周首页</a></span><span>人工智能基础 · 学生安装与排错指南</span></div>
+  <h1>装好你的<br>AI 学习环境</h1>
+  <p class="sub">Python + VS Code + Jupyter + AI 编程助手。按顺序做，每一步都写了“成功标志”和“出错怎么办”。</p>
+  <div class="sticky">选择你的系统：<span class="osbar" id="os"><button data-os="win">Windows</button><button data-os="mac">macOS</button></span></div>
+  <div class="box">安装界面会随软件版本更新而变化，本指南以官方网站当时的界面为准。所有下载都只从官方网站进行，<b>不需要付费</b>。</div>
+
+  <h2>第一步　安装 Python</h2>
+  <div class="step"><span class="n">1</span><div><b>打开终端</b><dl>
+    <dt>目的</dt><dd>终端是用打字给电脑下命令的窗口，后面用来检查安装结果。</dd>
+    <dt>操作</dt><dd><span class="win-only">按 Win 键，搜索 <b>PowerShell</b> 或“终端”，回车。</span><span class="mac-only">按 ⌘ Command + 空格，搜索“终端”（Terminal），回车。</span></dd>
+    <dt>成功标志</dt><dd>出现一个有闪烁光标的窗口。</dd></dl></div></div>
+  <div class="step"><span class="n">2</span><div><b>下载并安装 Python</b><dl>
+    <dt>目的</dt><dd>安装真正执行代码的 Python 解释器。</dd>
+    <dt>操作</dt><dd>打开 <a href="https://www.python.org/downloads/">python.org/downloads</a>，点黄色的 Download Python 3.x.x。<span class="win-only">运行 .exe，<b>先勾选“Add python.exe to PATH”</b>，再点 Install Now。</span><span class="mac-only">双击 .pkg，一路“继续—同意—安装”，输入开机密码。</span></dd>
+    <dt>成功标志</dt><dd>安装程序显示安装成功。</dd>
+    <dt>常见错误</dt><dd><span class="win-only">忘了勾选 PATH：重新运行安装包选 Modify，或卸载后重装并勾选。</span><span class="mac-only">提示“无法打开”：在“系统设置 → 隐私与安全性”中点“仍要打开”。</span></dd></dl></div></div>
+  <div class="step"><span class="n">3</span><div><b>检查版本</b><dl>
+    <dt>操作</dt><dd>关掉旧终端，重新打开，输入 <span class="win-only"><code>py -3 --version</code>（不行再试 <code>python --version</code>）</span><span class="mac-only"><code>python3 --version</code></span></dd>
+    <dt>成功标志</dt><dd>显示 <code>Python 3.</code> 开头的版本号。</dd></dl></div></div>
+
+  <h2>第二步　安装 VS Code 和扩展</h2>
+  <div class="step"><span class="n">4</span><div><b>安装 VS Code</b><dl>
+    <dt>操作</dt><dd>打开 <a href="https://code.visualstudio.com/">code.visualstudio.com</a> 下载。<span class="win-only">运行安装程序，建议勾选“添加到 PATH”“通过 Code 打开”。</span><span class="mac-only">解压 .zip，把 Visual Studio Code 拖进“应用程序”，再从“应用程序”打开。</span></dd>
+    <dt>成功标志</dt><dd>能打开 VS Code 的欢迎页。</dd></dl></div></div>
+  <div class="step"><span class="n">5</span><div><b>安装 Python 和 Jupyter 扩展</b><dl>
+    <dt>操作</dt><dd>点左侧“扩展”图标（或 Ctrl/⌘+Shift+X），搜索 <b>Python</b> 和 <b>Jupyter</b>，确认发布者是 <b>Microsoft</b>，分别点 Install。</dd>
+    <dt>成功标志</dt><dd>两个扩展都显示“已安装”。</dd>
+    <dt>注意</dt><dd>不需要另外安装 Anaconda 或独立的 Jupyter 软件。</dd></dl></div></div>
+
+  <h2>第三步　运行第一个 Notebook</h2>
+  <div class="step"><span class="n">6</span><div><b>新建 Notebook 并选择内核</b><dl>
+    <dt>操作</dt><dd>新建文件夹 <code>week01</code> → VS Code 中 File → Open Folder 打开 → 新建文件 <code>hello_ai.ipynb</code> → 右上角 Select Kernel → Python Environments → 选刚装的 Python 3。</dd>
+    <dt>成功标志</dt><dd>右上角显示 Python 3.x。</dd>
+    <dt>若提示 ipykernel</dt><dd>点弹窗中的 Install；或在终端运行 <span class="win-only"><code>py -3 -m pip install ipykernel</code></span><span class="mac-only"><code>python3 -m pip install ipykernel</code></span>，再重新选择内核。</dd></dl></div></div>
+  <div class="step"><span class="n">7</span><div><b>运行代码</b><dl>
+    <dt>操作</dt><dd>把下面的代码复制进第一个格子，点格子左边的 ▶ 或按 Shift+Enter。也可以直接下载 <a href="examples/hello_ai.ipynb" download>hello_ai.ipynb</a>。</dd>
+    <dt>成功标志</dt><dd>输出与下方一致。</dd></dl>
+<pre># 我的第一个 Python 程序
+name = "小明"
+daily_hours = [2, 3, 1, 4, 2, 3, 5]
+total = sum(daily_hours)
+average = total / len(daily_hours)
+
+print("你好，" + name + "！")
+print("本周总学习时间：", total, "小时")
+print("平均每天学习：", round(average, 1), "小时")
+
+if average >= 3:
+    print("学习时间比较充足！")
+else:
+    print("可以尝试合理安排更多学习时间。")</pre>
+<pre>你好，小明！
+本周总学习时间： 20 小时
+平均每天学习： 2.9 小时
+可以尝试合理安排更多学习时间。</pre></div></div>
+
+  <h2>第四步　接入 AI 编程助手</h2>
+  <div class="step"><span class="n">8</span><div><b>安装 Continue 并接入模型</b><dl>
+    <dt>操作</dt><dd>扩展市场搜索 Continue 并安装 → 在模型服务商官网注册并创建 API Key（课程默认示例为智谱开放平台 GLM-4.7-Flash）→ 在 Continue 中添加 OpenAI 兼容模型，按服务商文档填写接口地址与模型名。</dd>
+    <dt>成功标志</dt><dd>在 Continue 中发送“你好”能收到回复。</dd>
+    <dt>安全</dt><dd>API Key 只保存在自己电脑的扩展设置里；不要截图、不要发到群里、不要写进作业或 Notebook。</dd></dl>
+  <pre># Continue 配置示意（config.yaml），以 Continue 与服务商的官方文档为准
+models:
+  - name: GLM-4.7-Flash
+    provider: openai
+    model: glm-4.7-flash
+    apiBase: https://open.bigmodel.cn/api/paas/v4
+    apiKey: YOUR_API_KEY
+    roles: [chat, edit]</pre>
+  <p class="note">接口地址、模型名、免费额度和限流规则以服务商官方最新政策为准；这些信息由任课教师在授课前核实。</p></div></div>
+
+  <h2>本课程的 AI 使用规范</h2>
+  <ol>
+    <li><b>可以用</b>：用 AI 学概念、解释代码、找错误、出主意，都鼓励。</li>
+    <li><b>要能解释、会核验</b>：交上来的每一行代码、每个结论，你都要能讲清楚，并亲自运行核对。</li>
+    <li><b>写清楚怎么用的</b>：每份阶段文档附“AI 使用说明”——用了什么工具、做了什么、怎么核验。</li>
+  </ol>
+  <div class="box warn">不要把身份证号、病历、他人数据、API 密钥发给 AI。考试是闭卷。</div>
+
+  <h2>常见问题与排错</h2>
+  <table>
+    <tr><th style="width:34%">现象</th><th>可能原因与解决办法</th></tr>
+    <tr><td>Windows 输入 <code>python</code> 提示找不到，或弹出微软应用商店</td><td>安装时没勾选 PATH，或被应用商店的“应用执行别名”拦截。先试 <code>py -3 --version</code>；不行就重新运行安装包选 Modify 勾选 PATH，或在“设置 → 应用 → 高级应用设置 → 应用执行别名”中关闭 python 的别名。</td></tr>
+    <tr><td>Windows 提示 <code>py</code> 不是内部或外部命令</td><td>安装时取消了 py 启动器。改用 <code>python --version</code>，或重新安装并保留默认选项。</td></tr>
+    <tr><td>macOS 输入 <code>python</code> 无反应或报错</td><td>Mac 上请用 <code>python3</code>。</td></tr>
+    <tr><td>版本号显示 Python 2.x</td><td>用到了系统自带的旧版本。Windows 用 <code>py -3</code>，Mac 用 <code>python3</code>。</td></tr>
+    <tr><td>VS Code 的 Select Kernel 里找不到刚装的 Python</td><td>完全退出并重启 VS Code；仍找不到时，按 Ctrl/⌘+Shift+P 输入 “Python: Select Interpreter” 手动选择。</td></tr>
+    <tr><td>Notebook 右上角一直没有内核 / 运行没反应</td><td>确认已安装 Jupyter 扩展、已选择内核；看看格子左侧是否出现执行编号 [1]。</td></tr>
+    <tr><td>提示需要安装 ipykernel</td><td>点弹窗里的 Install；或在终端运行上面第 6 步的命令。</td></tr>
+    <tr><td>pip 安装很慢或失败</td><td>多半是网络问题。稍后重试，或换一个网络；不要随意使用来源不明的镜像。仍不行请联系助教。</td></tr>
+    <tr><td>代码报 SyntaxError，提示有非法字符</td><td>手打代码时用了中文标点（如中文引号、中文括号）。请直接复制代码，或把标点改成英文半角。</td></tr>
+    <tr><td>报 IndentationError</td><td>缩进不对：if / else 下面那一行前面要有 4 个空格。</td></tr>
+    <tr><td>AI 接口返回 401</td><td>通常是鉴权问题：API Key 填错、多了空格或已失效。重新复制密钥。</td></tr>
+    <tr><td>AI 接口返回 403</td><td>通常是权限或访问限制：账号未实名、该模型未开通、所在网络或地区受限。到服务商控制台检查。</td></tr>
+    <tr><td>AI 接口返回 429</td><td>通常是请求太频繁或额度用完：等一会儿再试，或查看控制台的用量与限流说明。</td></tr>
+    <tr><td>提示模型不存在 / 模型名不支持</td><td>模型名拼写与服务商文档不一致，或该模型已更名下线。以官方文档为准修改。</td></tr>
+    <tr><td>免费额度用完</td><td>本课程不要求付费。先完成不依赖 AI 的部分，联系助教获取替代方案。</td></tr>
+  </table>
+  <p class="note">还是解决不了？在课程群里描述你的系统、做到第几步、完整的报错截图（注意遮住 API Key），助教会帮你。</p>
+</div>
+<script>
+(function(){const k='w1:os';let os='win';try{os=JSON.parse(sessionStorage.getItem(k))||(/Mac/.test(navigator.platform)?'mac':'win')}catch(e){}
+const ap=o=>{document.documentElement.dataset.os=o;document.querySelectorAll('#os button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.os===o));try{sessionStorage.setItem(k,JSON.stringify(o))}catch(e){}};
+document.querySelectorAll('#os button').forEach(b=>b.addEventListener('click',()=>ap(b.dataset.os)));ap(os);})();
+</script>
+</body>
+</html>

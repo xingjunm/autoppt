@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+<rect width="800" height="800" fill="#E7E1D3"/>
+<path d="M0 0L800 800M800 0L0 800" stroke="#D4CCB9" stroke-width="2"/>
+<rect x="140.0" y="338.0" width="520" height="124" rx="10" fill="#F5F2EA" stroke="#B9AF98"/>
+<text x="400.0" y="386.0" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="700" fill="#4A4F5C" text-anchor="middle">四足机器人</text>
+<text x="400.0" y="432.0" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" font-size="22" fill="#7A7F8B" text-anchor="middle">开源版已移除 · 请换成你有权使用的图片</text>
+</svg>

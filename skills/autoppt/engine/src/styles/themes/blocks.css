@@ -1,0 +1,31 @@
+/* 风格 C「几何色块」：深蓝大色块 · 橙色圆点 · 网格信息
+   封面、章节页用左侧深蓝色块 + 橙色圆点；内容页浅底、无衬线粗标题、橙色强调。 */
+:root{
+  --paper:#FAF8F3; --paper-2:#F0EEE7; --paper-3:#E4E1D7;
+  --ink:#16181D; --ink-2:#444A57; --ink-3:#7A808C; --rule:#D6D2C6;
+  --blue:#0D3B91; --blue-2:#DFE6F4;
+  --rust:#E8590C; --rust-2:#FCE3D4;            /* 强调色：橙 */
+  --serif:"W1 Sans","Noto Sans CJK SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+}
+.title{font-weight:700;letter-spacing:-.01em}
+.chrome-top .part{color:var(--rust)}
+/* 封面：左侧深蓝色块 + 橙色圆环 + 柱状条；标题放右侧 */
+.reveal .slides section.m-cover{background:linear-gradient(90deg,var(--blue) 0,var(--blue) 620px,var(--paper) 620px)}
+.m-cover::before{content:"";position:absolute;left:340px;top:330px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,#16181D 0 34px,#FAF8F3 35px 96px,var(--rust) 97px)}
+.m-cover::after{content:"";position:absolute;left:96px;bottom:110px;width:200px;height:200px;background:linear-gradient(#fff,#fff) 0 100%/22px 60px no-repeat,linear-gradient(#fff,#fff) 40px 100%/22px 110px no-repeat,linear-gradient(#fff,#fff) 80px 100%/22px 80px no-repeat,linear-gradient(#fff,#fff) 120px 100%/22px 160px no-repeat,linear-gradient(#fff,#fff) 160px 100%/22px 200px no-repeat}
+.m-cover .cv-l{left:860px;width:940px;top:160px}
+.m-cover .cv-k{color:var(--blue);border-top-color:var(--blue)}
+.m-cover h1{color:var(--ink)}
+.m-cover .cv-who{left:860px}
+.m-cover .cv-r{display:none}
+/* 章节页：左侧 62% 深蓝色块，交界处一个橙色圆点 */
+.reveal .slides section.m-section{background:linear-gradient(90deg,var(--blue) 0,var(--blue) 1190px,var(--paper) 1190px)}
+.m-section::after{content:"";position:absolute;left:1110px;top:600px;width:160px;height:160px;border-radius:50%;background:var(--rust)}
+.m-section .sec-wrap{width:1000px}
+.m-section h2{color:#fff}
+.m-section .sec-k{color:#FFB38A}
+.m-section .sec-q{color:rgba(255,255,255,.85);border-top-color:rgba(255,255,255,.5)}
+.m-section .sec-art{display:none}
+/* 大字页：大数字用深蓝，配一个橙色圆点 */
+.m-statement .st .big.num{color:var(--blue)}
+.m-statement .st .big.num::after{content:"";display:inline-block;width:.22em;height:.22em;border-radius:50%;background:var(--rust);margin-left:.08em}
