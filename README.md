@@ -2,7 +2,7 @@
   <img src="assets/logo.svg" alt="AutoPPT · AI备课神器" width="600">
 </p>
 
-<h1 align="center">AutoPPT · AI备课神器</h1>
+<h1 align="center">AI备课神器</h1>
 
 <p align="center">
   <b>AI备课神器：只需一句话，即可一键生成一整周精美、可交互的 HTML 格式教学课件。</b><br>
